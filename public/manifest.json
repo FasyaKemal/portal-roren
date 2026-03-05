@@ -1,0 +1,22 @@
+{
+    "name": "RORENOne",
+    "short_name": "RORENOne",
+    "description": "Portal Program Biro Perencanaan KKP",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0B1B3A",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/logo-kkp.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/logo-kkp.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
