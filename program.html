@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RORENOne — Detail Program">
+    <title>RORENOne — Program</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+            </div>
+            <p class="loading-text">ROREN<span class="text-ocean">One</span></p>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-imgs">
+                    <img src="img/logo-kkp.png" alt="Logo KKP" class="logo-img">
+                    <img src="img/logo-kkp-aniv.png" alt="KKP 2026" class="logo-img">
+                </div>
+                <div class="nav-logo-text">
+                    <span class="logo-title">ROREN<span class="text-ocean">One</span></span>
+                    <p class="logo-subtitle">Biro Perencanaan • KKP RI</p>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="nav-dropdown" id="programDropdown">
+                    <button class="nav-link dropdown-toggle active">
+                        Program
+                        <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="program.html?slug=kinerjaku" class="dropdown-item">
+                            <div class="dropdown-icon bg-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M18 20V10M12 20V4M6 20v-6" />
+                                </svg></div>
+                            <div>
+                                <p class="dropdown-title">KinerjaKu</p>
+                                <p class="dropdown-desc">Pengelolaan kinerja organisasi terintegrasi.</p>
+                            </div>
+                        </a>
+                        <a href="program.html?slug=knmp" class="dropdown-item">
+                            <div class="dropdown-icon bg-emerald"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg></div>
+                            <div>
+                                <p class="dropdown-title">Monev KNMP</p>
+                                <p class="dropdown-desc">Monitoring & evaluasi KNMP secara periodik.</p>
+                            </div>
+                        </a>
+                        <a href="program.html?slug=wbk" class="dropdown-item">
+                            <div class="dropdown-icon bg-amber"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg></div>
+                            <div>
+                                <p class="dropdown-title">Monev WBK</p>
+                                <p class="dropdown-desc">Pemantauan pembangunan Zona Integritas/WBK.</p>
+                            </div>
+                        </a>
+                        <a href="program.html?slug=phln" class="dropdown-item">
+                            <div class="dropdown-icon bg-violet"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4M5 21V10.87M19 21V10.87" />
+                                </svg></div>
+                            <div>
+                                <p class="dropdown-title">Monev PHLN</p>
+                                <p class="dropdown-desc">Monitoring PHLN & progres pelaksanaan.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="index.html#kontak" class="nav-link">Kontak</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 12h16M4 6h16M4 18h16" />
+                </svg>
+                <svg class="ham-close hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen bg-white">
+        <section style="padding: 8rem 0 4rem; min-height: 60vh;">
+            <div class="section-container">
+                <div class="animate-on-scroll" style="max-width: 48rem;">
+                    <a href="index.html"
+                        style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.875rem; color: var(--ocean); font-weight: 600; margin-bottom: 1.5rem;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            style="width: 16px; height: 16px;">
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                        Kembali ke Beranda
+                    </a>
+                    <h1 id="programTitle"
+                        style="font-size: 2.5rem; font-weight: 800; color: var(--navy); margin-bottom: 1rem;"></h1>
+                    <p id="programDesc"
+                        style="font-size: 1.125rem; color: #64748b; line-height: 1.7; margin-bottom: 2rem;"></p>
+                    <div
+                        style="background: var(--softbg); border-radius: 20px; padding: 2rem; border: 1px solid #f1f5f9;">
+                        <p style="color: #94a3b8; font-size: 0.875rem;">Halaman detail program <strong
+                                id="programNameBold" style="color: var(--navy);"></strong> sedang dalam pengembangan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-gradient-line"></div>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <span class="footer-logo-text">ROREN<span class="text-ocean-light">One</span></span>
+                    </div>
+                    <p class="footer-desc">Satu Pintu Program Biro Perencanaan KKP — Terintegrasi • Akuntabel •
+                        Transparan</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Link Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#program">Program</a></li>
+                        <li><a href="index.html#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Program</h4>
+                    <ul class="footer-links">
+                        <li><a href="program.html?slug=kinerjaku">KinerjaKu</a></li>
+                        <li><a href="program.html?slug=knmp">Monev KNMP</a></li>
+                        <li><a href="program.html?slug=wbk">Monev WBK</a></li>
+                        <li><a href="program.html?slug=phln">Monev PHLN</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Biro Perencanaan – Kementerian Kelautan dan Perikanan RI</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Load program data from URL params
+        var programs = {
+            kinerjaku: { name: 'KinerjaKu', desc: 'Pengelolaan kinerja organisasi terintegrasi untuk seluruh unit kerja KKP.' },
+            knmp: { name: 'Monev KNMP', desc: 'Monitoring & evaluasi KNMP secara periodik dan terstruktur.' },
+            wbk: { name: 'Monev WBK', desc: 'Pemantauan pembangunan Zona Integritas menuju WBK/WBBM.' },
+            phln: { name: 'Monev PHLN', desc: 'Monitoring PHLN & progres pelaksanaan proyek secara komprehensif.' }
+        };
+        var params = new URLSearchParams(window.location.search);
+        var slug = params.get('slug') || 'kinerjaku';
+        var program = programs[slug] || programs.kinerjaku;
+        document.getElementById('programTitle').textContent = program.name;
+        document.getElementById('programDesc').textContent = program.desc;
+        document.getElementById('programNameBold').textContent = program.name;
+        document.title = 'RORENOne — ' + program.name;
+    </script>
+</body>
+
+</html>
