@@ -15,8 +15,11 @@
 
 <body>
 
+    <!-- ═══════ SKIP LINK (a11y) ═══════ -->
+    <a href="#main-content" class="skip-link">Langsung ke konten utama</a>
+
     <!-- ═══════ LOADING SCREEN ═══════ -->
-    <div id="loadingScreen" class="loading-screen">
+    <div id="loadingScreen" class="loading-screen" role="status" aria-label="Memuat halaman">
         <div class="loading-content">
             <div class="loading-logo">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -31,9 +34,9 @@
     </div>
 
     <!-- ═══════ NAVBAR ═══════ -->
-    <nav id="navbar" class="navbar">
+    <nav id="navbar" class="navbar" role="navigation" aria-label="Navigasi utama">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
+            <a href="index.html" class="nav-logo" aria-label="RORENOne - Halaman Utama">
                 <div class="nav-logo-imgs">
                     <img src="img/logo-kkp.png" alt="Logo KKP" class="logo-img">
                     <img src="img/logo-kkp-aniv.png" alt="KKP 2026" class="logo-img">
@@ -47,7 +50,8 @@
             <div class="nav-links">
                 <a href="#top" class="nav-link active" data-section="home">Home</a>
                 <div class="nav-dropdown" id="programDropdown">
-                    <button class="nav-link dropdown-toggle" data-section="program">
+                    <button class="nav-link dropdown-toggle" data-section="program" aria-expanded="false"
+                        aria-haspopup="true">
                         Program
                         <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -101,7 +105,8 @@
                 <a href="#kontak" class="nav-link" data-section="kontak">Kontak</a>
             </div>
 
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <button class="hamburger" id="hamburger" aria-label="Buka menu navigasi" aria-expanded="false"
+                aria-controls="mobileMenu">
                 <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 12h16M4 6h16M4 18h16" />
                 </svg>
@@ -111,10 +116,11 @@
             </button>
         </div>
 
-        <div class="mobile-menu hidden" id="mobileMenu">
+        <div class="mobile-menu hidden" id="mobileMenu" role="menu" aria-label="Menu navigasi mobile">
             <div class="mobile-menu-inner">
                 <a href="#top" class="mobile-link active">Home</a>
-                <button class="mobile-link mobile-accordion-toggle">
+                <button class="mobile-link mobile-accordion-toggle" aria-expanded="false"
+                    aria-controls="mobile-program-list">
                     Program
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M6 9l6 6 6-6" />
@@ -132,11 +138,11 @@
     </nav>
 
     <!-- ═══════ MAIN CONTENT ═══════ -->
-    <main class="min-h-screen bg-white">
+    <main id="main-content" class="min-h-screen bg-white">
 
         <!-- ═══════ TENTANG SECTION ═══════ -->
-        <section id="tentang" class="tentang-section">
-            <div class="tentang-shapes">
+        <section id="tentang" class="tentang-section" aria-label="Tentang RORENOne">
+            <div class="tentang-shapes" aria-hidden="true">
                 <div class="shape shape-1"></div>
                 <div class="shape shape-2"></div>
                 <div class="shape shape-3"></div>
@@ -424,7 +430,8 @@
                     </div>
                     <iframe src="https://maps.google.com/maps?q=-6.179286472876383,106.83257227001401&z=17&output=embed"
                         width="100%" height="320" style="border:0; border-radius: 20px;" allowfullscreen=""
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="Peta lokasi Gedung Mina Bahari I, Jakarta Pusat">
                     </iframe>
                 </div>
             </div>
@@ -433,7 +440,7 @@
     </main>
 
     <!-- ═══════ FOOTER ═══════ -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo" aria-label="Footer">
         <div class="footer-gradient-line"></div>
         <div class="footer-container">
             <div class="footer-grid">

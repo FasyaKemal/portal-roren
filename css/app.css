@@ -295,6 +295,53 @@ button {
     }
 }
 
+/* ═══════ Skip to Content (a11y) ═══════ */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    z-index: 10000;
+    padding: 12px 24px;
+    background: var(--navy);
+    color: white;
+    font-weight: 700;
+    font-size: 0.875rem;
+    border-radius: 0 0 12px 12px;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: none;
+}
+
+/* ═══════ Focus Visible (a11y) ═══════ */
+*:focus-visible {
+    outline: 2px solid var(--ocean);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--ocean);
+    outline-offset: 3px;
+}
+
+.nav-link:focus-visible {
+    border-radius: 8px;
+}
+
+.program-card:focus-visible {
+    outline-offset: 4px;
+    border-radius: 24px;
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+    outline-offset: 4px;
+}
+
 /* ═══════ Scroll Animations ═══════ */
 .animate-on-scroll {
     opacity: 0;
@@ -316,6 +363,66 @@ button {
 .animate-on-scroll-right.visible {
     opacity: 1;
     transform: translateX(0);
+}
+
+/* Fade from left */
+.animate-on-scroll-left {
+    opacity: 0;
+    transform: translateX(-36px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale up */
+.animate-on-scroll-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll,
+    .animate-on-scroll-right,
+    .animate-on-scroll-left,
+    .animate-on-scroll-scale {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .orbit-ring,
+    .orbit-ring-1,
+    .orbit-ring-2 {
+        animation: none !important;
+    }
+
+    .orbit-node {
+        animation: none !important;
+    }
+
+    .shape,
+    .pulse-dot,
+    .bento-prog-dot {
+        animation: none !important;
+    }
+
+    .loading-bar {
+        animation: none !important;
+    }
+
+    * {
+        scroll-behavior: auto !important;
+    }
 }
 
 /* ═══════ Text Gradients ═══════ */
@@ -2239,6 +2346,42 @@ button {
         margin-bottom: 0.75rem;
     }
 
+    .kontak-map iframe {
+        height: 260px;
+    }
+
+    .map-info-card {
+        max-width: 220px;
+        padding: 10px 12px;
+        border-radius: 12px;
+    }
+
+    .map-info-title {
+        font-size: 0.8125rem;
+    }
+
+    .map-info-address {
+        font-size: 0.625rem;
+    }
+
+    .map-info-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .orbit-hub {
+        max-width: 260px;
+    }
+
+    .orbit-center {
+        width: 64px;
+        height: 64px;
+    }
+
+    .orbit-center-num {
+        font-size: 1.25rem;
+    }
+
     .footer-container {
         padding: 2.5rem 1rem;
     }
@@ -2446,6 +2589,98 @@ button {
         transform: translateY(-3px);
     }
 
+    .kontak-map {
+        border-radius: 16px;
+    }
+
+    .kontak-map iframe {
+        height: 220px;
+        border-radius: 14px !important;
+    }
+
+    .map-info-card {
+        max-width: 200px;
+        padding: 8px 10px;
+        border-radius: 10px;
+        gap: 6px;
+        top: 8px;
+        left: 8px;
+    }
+
+    .map-info-title {
+        font-size: 0.75rem;
+    }
+
+    .map-info-address {
+        font-size: 0.5625rem;
+        line-height: 1.4;
+    }
+
+    .map-info-btn {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+    }
+
+    .map-info-btn svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .orbit-hub {
+        max-width: 220px;
+    }
+
+    .orbit-center {
+        width: 56px;
+        height: 56px;
+    }
+
+    .orbit-center-num {
+        font-size: 1.125rem;
+    }
+
+    .orbit-center-lbl {
+        font-size: 7px;
+    }
+
+    .orbit-node {
+        padding: 4px 8px 4px 6px;
+        border-radius: 14px;
+    }
+
+    .orbit-node-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .orbit-node-name {
+        font-size: 0.5625rem;
+    }
+
+    .orbit-ring-1 {
+        inset: 20%;
+    }
+
+    .orbit-ring-2 {
+        inset: 8%;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9375rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 22px;
+        font-size: 0.8125rem;
+        border-radius: 14px;
+    }
+
     .footer-container {
         padding: 2rem 1rem;
     }
@@ -2611,6 +2846,62 @@ button {
 
     .kontak-value {
         font-size: 0.75rem;
+    }
+
+    .kontak-map iframe {
+        height: 180px;
+    }
+
+    .map-info-card {
+        max-width: 170px;
+        padding: 6px 8px;
+    }
+
+    .map-info-title {
+        font-size: 0.6875rem;
+    }
+
+    .map-info-address {
+        font-size: 0.5rem;
+    }
+
+    .map-info-actions {
+        gap: 4px;
+    }
+
+    .map-info-btn {
+        width: 22px;
+        height: 22px;
+    }
+
+    .orbit-hub {
+        max-width: 180px;
+    }
+
+    .orbit-center {
+        width: 48px;
+        height: 48px;
+    }
+
+    .orbit-center-num {
+        font-size: 1rem;
+    }
+
+    .orbit-center-lbl {
+        font-size: 6px;
+    }
+
+    .orbit-node {
+        padding: 3px 6px 3px 5px;
+    }
+
+    .orbit-node-name {
+        font-size: 0.5rem;
+    }
+
+    .orbit-node-dot {
+        width: 5px;
+        height: 5px;
     }
 
     .footer-container {

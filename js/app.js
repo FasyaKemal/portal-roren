@@ -32,12 +32,14 @@ document.addEventListener('DOMContentLoaded', function () {
         toggle.addEventListener('click', function (e) {
             e.preventDefault();
             dropdown.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', dropdown.classList.contains('open'));
         });
 
         // Close on click outside
         document.addEventListener('click', function (e) {
             if (!dropdown.contains(e.target)) {
                 dropdown.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
             }
         });
     }
@@ -56,6 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 mobileMenu.classList.add('hidden');
                 hamOpen.classList.remove('hidden');
                 hamClose.classList.add('hidden');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('aria-label', 'Buka menu navigasi');
             } else {
                 mobileMenu.classList.remove('hidden');
                 // Force reflow
@@ -63,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 mobileMenu.classList.add('open');
                 hamOpen.classList.add('hidden');
                 hamClose.classList.remove('hidden');
+                hamburger.setAttribute('aria-expanded', 'true');
+                hamburger.setAttribute('aria-label', 'Tutup menu navigasi');
             }
         });
 
@@ -73,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
             accordionToggle.addEventListener('click', function () {
                 accordion.classList.toggle('hidden');
                 accordion.classList.toggle('open');
+                accordionToggle.setAttribute('aria-expanded', accordion.classList.contains('open'));
             });
         }
 
@@ -121,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-right').forEach(function (el) {
+    document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-right, .animate-on-scroll-left, .animate-on-scroll-scale').forEach(function (el) {
         observer.observe(el);
     });
 
