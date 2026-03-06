@@ -1425,54 +1425,146 @@ button {
     padding: 6px 14px;
 }
 
-.tentang-stats-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+/* Orbit Hub Illustration */
+.orbit-hub {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 280px;
+    margin: 0 auto;
 }
 
-@media (min-width: 640px) {
-    .tentang-stats-row {
-        gap: 16px;
+.orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(2, 132, 199, 0.12);
+}
+
+.orbit-ring-1 {
+    inset: 18%;
+    animation: orbitSpin 30s linear infinite;
+}
+
+.orbit-ring-2 {
+    inset: 6%;
+    border-color: rgba(2, 132, 199, 0.06);
+    animation: orbitSpin 45s linear infinite reverse;
+}
+
+@keyframes orbitSpin {
+    to {
+        transform: rotate(360deg);
     }
 }
 
-.tentang-stat-card {
-    background: white;
-    border: 1px solid #f1f5f9;
-    border-radius: 16px;
-    padding: 16px 18px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+.orbit-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), #0f4c75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.25);
 }
 
-@media (min-width: 640px) {
-    .tentang-stat-card {
-        border-radius: 22px;
-        padding: 18px;
-    }
-}
-
-.tentang-stat-value {
+.orbit-center-num {
     font-size: 1.375rem;
     font-weight: 800;
+    color: white;
+    line-height: 1;
+}
+
+.orbit-center-lbl {
+    font-size: 8px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.orbit-node {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    padding: 6px 12px 6px 8px;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+    animation: float-gentle 4s ease-in-out infinite;
+}
+
+.orbit-node-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--node-color);
+    flex-shrink: 0;
+    box-shadow: 0 0 8px color-mix(in srgb, var(--node-color) 40%, transparent);
+}
+
+.orbit-node-name {
+    font-size: 0.6875rem;
+    font-weight: 700;
     color: var(--navy);
-    margin-bottom: 3px;
+    white-space: nowrap;
+}
+
+.orbit-node-1 {
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.orbit-node-2 {
+    top: 50%;
+    right: -4%;
+    transform: translateY(-50%);
+    animation-delay: -1s;
+}
+
+.orbit-node-3 {
+    bottom: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: -2s;
+}
+
+.orbit-node-4 {
+    top: 50%;
+    left: -4%;
+    transform: translateY(-50%);
+    animation-delay: -3s;
 }
 
 @media (min-width: 640px) {
-    .tentang-stat-value {
-        font-size: 1.625rem;
+    .orbit-hub {
+        max-width: 320px;
     }
-}
 
-.tentang-stat-label {
-    font-size: 10px;
-    color: #94a3b8;
-}
+    .orbit-center {
+        width: 80px;
+        height: 80px;
+    }
 
-@media (min-width: 640px) {
-    .tentang-stat-label {
-        font-size: 0.7rem;
+    .orbit-center-num {
+        font-size: 1.5rem;
+    }
+
+    .orbit-node {
+        padding: 8px 14px 8px 10px;
+    }
+
+    .orbit-node-name {
+        font-size: 0.75rem;
     }
 }
 
@@ -1809,6 +1901,85 @@ button {
     color: var(--navy);
 }
 
+.kontak-map {
+    position: relative;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+}
+
+.kontak-map iframe {
+    display: block;
+}
+
+.map-info-card {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+    background: white;
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-width: 260px;
+    display: flex;
+    gap: 10px;
+}
+
+.map-info-content {
+    flex: 1;
+}
+
+.map-info-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+}
+
+.map-info-address {
+    font-size: 0.6875rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.map-info-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.map-info-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e0f2fe;
+    color: #0284C7;
+    transition: all 0.2s ease;
+}
+
+.map-info-btn:hover {
+    background: #0284C7;
+    color: white;
+}
+
+.map-info-btn-route {
+    background: #dbeafe;
+    color: #2563EB;
+}
+
+.map-info-btn-route:hover {
+    background: #2563EB;
+    color: white;
+}
+
 /* ═══════ FOOTER ═══════ */
 .footer {
     background: var(--navy);
@@ -1974,4 +2145,509 @@ button {
         radial-gradient(ellipse 50% 70% at 85% 20%, rgba(14, 165, 233, 0.04) 0%, transparent 60%),
         radial-gradient(ellipse 80% 40% at 50% 50%, rgba(2, 132, 199, 0.02) 0%, transparent 70%),
         white;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE DESIGN — All Devices
+   ═══════════════════════════════════════════════════════ */
+
+/* ═══════ Tablet (max 767px) ═══════ */
+@media (max-width: 767px) {
+    .tentang-section {
+        padding: 3.5rem 0 2.5rem;
+    }
+
+    .tentang-grid {
+        gap: 2rem;
+    }
+
+    .tentang-brand {
+        font-size: 1.75rem;
+    }
+
+    .tentang-title {
+        font-size: 1.375rem;
+    }
+
+    .tentang-desc {
+        font-size: 0.875rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .program-section {
+        padding: 4rem 0 5rem;
+    }
+
+    .program-card {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .program-card-header {
+        margin-bottom: 14px;
+    }
+
+    .program-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+    }
+
+    .program-name {
+        font-size: 1rem;
+    }
+
+    .program-desc {
+        font-size: 0.8125rem;
+        margin-bottom: 1rem;
+    }
+
+    .program-link {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .kontak-section {
+        padding: 4rem 0 5rem;
+    }
+
+    .kontak-header {
+        margin: 0 auto 2.5rem;
+    }
+
+    .kontak-desc {
+        font-size: 0.875rem;
+    }
+
+    .kontak-card {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .kontak-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        margin-bottom: 0.75rem;
+    }
+
+    .footer-container {
+        padding: 2.5rem 1rem;
+    }
+
+    .footer-grid {
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        bottom: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .scroll-to-top svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* ═══════ Mobile (max 639px) ═══════ */
+@media (max-width: 639px) {
+    .tentang-section {
+        padding: 3rem 0 2rem;
+    }
+
+    .tentang-grid {
+        gap: 1.5rem;
+    }
+
+    .tentang-brand {
+        font-size: 1.5rem;
+    }
+
+    .tentang-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .tentang-desc {
+        font-size: 0.8125rem;
+        margin-bottom: 1rem;
+    }
+
+    .feature-list {
+        gap: 0.5rem;
+    }
+
+    .feature-card {
+        padding: 0.625rem 0.875rem;
+        gap: 0.75rem;
+        border-radius: 12px;
+    }
+
+    .feature-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+    }
+
+    .feature-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .feature-title {
+        font-size: 0.8125rem;
+    }
+
+    .feature-desc {
+        font-size: 0.6875rem;
+    }
+
+    .tentang-card-dark {
+        border-radius: 18px;
+        padding: 18px;
+    }
+
+    .tentang-card-title {
+        font-size: 1rem;
+    }
+
+    .tentang-card-subtitle {
+        font-size: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .tentang-tag {
+        font-size: 10px;
+        padding: 5px 12px;
+    }
+
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-label {
+        font-size: 0.6875rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+        font-size: 1.375rem;
+    }
+
+    .program-section {
+        padding: 3rem 0 4rem;
+    }
+
+    .program-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .program-card {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .program-card-header {
+        margin-bottom: 12px;
+    }
+
+    .program-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+    }
+
+    .program-name {
+        font-size: 0.9375rem;
+        margin-bottom: 4px;
+    }
+
+    .program-desc {
+        font-size: 0.8125rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+    }
+
+    .program-link {
+        opacity: 1;
+        transform: translateY(0);
+        font-size: 0.8125rem;
+    }
+
+    .program-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .kontak-section {
+        padding: 3rem 0 4rem;
+    }
+
+    .kontak-header {
+        margin: 0 auto 2rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .kontak-desc {
+        font-size: 0.8125rem;
+    }
+
+    .kontak-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .kontak-card {
+        padding: 18px;
+        border-radius: 18px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+        text-align: left;
+    }
+
+    .kontak-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .kontak-label {
+        font-size: 10px;
+    }
+
+    .kontak-value {
+        font-size: 0.8125rem;
+    }
+
+    .kontak-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .footer-container {
+        padding: 2rem 1rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .footer-desc {
+        font-size: 0.8125rem;
+    }
+
+    .footer-heading {
+        font-size: 0.8125rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+        font-size: 0.8125rem;
+    }
+
+    .footer-bottom {
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.6875rem;
+    }
+
+    .hero-badge {
+        padding: 6px 12px;
+    }
+
+    .badge-text {
+        font-size: 0.6875rem;
+    }
+
+    .nav-container {
+        height: 56px;
+    }
+
+    .logo-img {
+        height: 32px;
+    }
+
+    .logo-title {
+        font-size: 0.875rem;
+    }
+
+    .logo-subtitle {
+        font-size: 9px;
+    }
+}
+
+/* ═══════ Small Mobile (max 400px) ═══════ */
+@media (max-width: 400px) {
+    .section-container {
+        padding: 0 0.75rem;
+    }
+
+    .nav-container {
+        padding: 0 0.75rem;
+        height: 52px;
+    }
+
+    .nav-logo {
+        gap: 0.5rem;
+    }
+
+    .logo-img {
+        height: 28px;
+    }
+
+    .logo-title {
+        font-size: 0.8125rem;
+    }
+
+    .logo-subtitle {
+        font-size: 8px;
+    }
+
+    .tentang-brand {
+        font-size: 1.25rem;
+    }
+
+    .tentang-title {
+        font-size: 1.125rem;
+    }
+
+    .tentang-desc {
+        font-size: 0.75rem;
+    }
+
+    .feature-card {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .feature-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .feature-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .feature-title {
+        font-size: 0.75rem;
+    }
+
+    .feature-desc {
+        font-size: 0.625rem;
+    }
+
+    .tentang-card-dark {
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .tentang-card-title {
+        font-size: 0.875rem;
+    }
+
+    .tentang-card-subtitle {
+        font-size: 0.6875rem;
+    }
+
+    .tentang-tag {
+        font-size: 9px;
+        padding: 4px 10px;
+    }
+
+
+    .program-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .program-name {
+        font-size: 0.875rem;
+    }
+
+    .program-desc {
+        font-size: 0.75rem;
+    }
+
+    .section-title {
+        font-size: 1.125rem;
+    }
+
+    .kontak-card {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .kontak-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .kontak-value {
+        font-size: 0.75rem;
+    }
+
+    .footer-container {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .hero-badge {
+        padding: 5px 10px;
+    }
+
+    .badge-text {
+        font-size: 0.625rem;
+    }
+
+    .mobile-menu-inner {
+        padding: 4px 12px 12px;
+    }
+
+    .mobile-link {
+        padding: 8px 10px;
+        font-size: 0.8125rem;
+    }
+
+    .mobile-sub-link {
+        padding: 6px 10px 6px 20px;
+        font-size: 0.8125rem;
+    }
+
+    .scroll-to-top {
+        bottom: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .scroll-to-top svg {
+        width: 16px;
+        height: 16px;
+    }
 }

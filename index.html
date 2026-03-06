@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,331 +8,479 @@
     <title>RORENOne — Portal Program Biro Perencanaan KKP</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body>
 
-<!-- ═══════ LOADING SCREEN ═══════ -->
-<div id="loadingScreen" class="loading-screen">
-    <div class="loading-content">
-        <div class="loading-logo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <p class="loading-text">ROREN<span class="text-ocean">One</span></p>
-        <div class="loading-bar-container">
-            <div class="loading-bar"></div>
+    <!-- ═══════ LOADING SCREEN ═══════ -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+            </div>
+            <p class="loading-text">ROREN<span class="text-ocean">One</span></p>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- ═══════ NAVBAR ═══════ -->
-<nav id="navbar" class="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-            <div class="nav-logo-imgs">
-                <img src="img/logo-kkp.png" alt="Logo KKP" class="logo-img">
-                <img src="img/logo-kkp-aniv.png" alt="KKP 2026" class="logo-img">
-            </div>
-            <div class="nav-logo-text">
-                <span class="logo-title">ROREN<span class="text-ocean">One</span></span>
-                <p class="logo-subtitle">Biro Perencanaan • KKP RI</p>
-            </div>
-        </a>
-
-        <div class="nav-links">
-            <a href="#top" class="nav-link active" data-section="home">Home</a>
-            <div class="nav-dropdown" id="programDropdown">
-                <button class="nav-link dropdown-toggle" data-section="program">
-                    Program
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                </button>
-                <div class="dropdown-menu">
-                    <a href="program.html?slug=kinerjaku" class="dropdown-item">
-                        <div class="dropdown-icon bg-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
-                        <div><p class="dropdown-title">KinerjaKu</p><p class="dropdown-desc">Pengelolaan kinerja organisasi terintegrasi.</p></div>
-                    </a>
-                    <a href="program.html?slug=knmp" class="dropdown-item">
-                        <div class="dropdown-icon bg-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-                        <div><p class="dropdown-title">Monev KNMP</p><p class="dropdown-desc">Monitoring & evaluasi KNMP secara periodik.</p></div>
-                    </a>
-                    <a href="program.html?slug=wbk" class="dropdown-item">
-                        <div class="dropdown-icon bg-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                        <div><p class="dropdown-title">Monev WBK</p><p class="dropdown-desc">Pemantauan pembangunan Zona Integritas/WBK.</p></div>
-                    </a>
-                    <a href="program.html?slug=phln" class="dropdown-item">
-                        <div class="dropdown-icon bg-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4M5 21V10.87M19 21V10.87"/></svg></div>
-                        <div><p class="dropdown-title">Monev PHLN</p><p class="dropdown-desc">Monitoring PHLN & progres pelaksanaan.</p></div>
-                    </a>
+    <!-- ═══════ NAVBAR ═══════ -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-imgs">
+                    <img src="img/logo-kkp.png" alt="Logo KKP" class="logo-img">
+                    <img src="img/logo-kkp-aniv.png" alt="KKP 2026" class="logo-img">
                 </div>
+                <div class="nav-logo-text">
+                    <span class="logo-title">ROREN<span class="text-ocean">One</span></span>
+                    <p class="logo-subtitle">Biro Perencanaan • KKP RI</p>
+                </div>
+            </a>
+
+            <div class="nav-links">
+                <a href="#top" class="nav-link active" data-section="home">Home</a>
+                <div class="nav-dropdown" id="programDropdown">
+                    <button class="nav-link dropdown-toggle" data-section="program">
+                        Program
+                        <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="program.html?slug=kinerjaku" class="dropdown-item">
+                            <div class="dropdown-icon bg-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M18 20V10M12 20V4M6 20v-6" />
+                                </svg></div>
+                            <div>
+                                <p class="dropdown-title">KinerjaKu</p>
+                                <p class="dropdown-desc">Pengelolaan kinerja organisasi terintegrasi.</p>
+                            </div>
+                        </a>
+                        <a href="program.html?slug=knmp" class="dropdown-item">
+                            <div class="dropdown-icon bg-emerald"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg></div>
+                            <div>
+                                <p class="dropdown-title">Monev KNMP</p>
+                                <p class="dropdown-desc">Monitoring & evaluasi KNMP secara periodik.</p>
+                            </div>
+                        </a>
+                        <a href="program.html?slug=wbk" class="dropdown-item">
+                            <div class="dropdown-icon bg-amber"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg></div>
+                            <div>
+                                <p class="dropdown-title">Monev WBK</p>
+                                <p class="dropdown-desc">Pemantauan pembangunan Zona Integritas/WBK.</p>
+                            </div>
+                        </a>
+                        <a href="program.html?slug=phln" class="dropdown-item">
+                            <div class="dropdown-icon bg-violet"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4M5 21V10.87M19 21V10.87" />
+                                </svg></div>
+                            <div>
+                                <p class="dropdown-title">Monev PHLN</p>
+                                <p class="dropdown-desc">Monitoring PHLN & progres pelaksanaan.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="#kontak" class="nav-link" data-section="kontak">Kontak</a>
             </div>
-            <a href="#kontak" class="nav-link" data-section="kontak">Kontak</a>
-        </div>
 
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-            <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
-            <svg class="ham-close hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-    </div>
-
-    <div class="mobile-menu hidden" id="mobileMenu">
-        <div class="mobile-menu-inner">
-            <a href="#top" class="mobile-link active">Home</a>
-            <button class="mobile-link mobile-accordion-toggle">
-                Program
-                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 12h16M4 6h16M4 18h16" />
+                </svg>
+                <svg class="ham-close hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
             </button>
-            <div class="mobile-accordion hidden">
-                <a href="program.html?slug=kinerjaku" class="mobile-sub-link">KinerjaKu</a>
-                <a href="program.html?slug=knmp" class="mobile-sub-link">Monev KNMP</a>
-                <a href="program.html?slug=wbk" class="mobile-sub-link">Monev WBK</a>
-                <a href="program.html?slug=phln" class="mobile-sub-link">Monev PHLN</a>
-            </div>
-            <a href="#kontak" class="mobile-link">Kontak</a>
         </div>
-    </div>
-</nav>
 
-<!-- ═══════ MAIN CONTENT ═══════ -->
-<main class="min-h-screen bg-white">
-
-    <!-- ═══════ TENTANG SECTION ═══════ -->
-    <section id="tentang" class="tentang-section">
-        <div class="tentang-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape-glow shape-glow-1"></div>
-            <div class="shape-glow shape-glow-2"></div>
-        </div>
-        <div class="section-container">
-            <div class="tentang-grid">
-                <div class="animate-on-scroll">
-                    <div class="hero-badge shimmer-badge mb-4">
-                        <span class="status-dot-green pulse-dot"></span>
-                        <span class="badge-text">Portal Resmi Biro Perencanaan KKP</span>
-                    </div>
-                    <p class="tentang-brand">
-                        <span class="text-navy">ROREN</span><span class="text-gradient-ocean">One</span>
-                    </p>
-                    <h2 class="tentang-title">
-                        Satu Portal untuk<br>
-                        <span class="text-gradient-ocean">Semua Program</span> Strategis
-                    </h2>
-                    <p class="tentang-desc">
-                        RORENOne menyatukan akses terintegrasi untuk monitoring, evaluasi, dan
-                        pelaporan kinerja program Biro Perencanaan KKP — semua dalam satu tempat.
-                    </p>
-
-                    <div class="feature-list">
-                        <div class="feature-card animate-on-scroll" style="transition-delay: 0.12s">
-                            <div class="feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm text-ocean"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                            </div>
-                            <div>
-                                <h4 class="feature-title">Akses Terpusat</h4>
-                                <p class="feature-desc">Satu portal untuk mengakses seluruh aplikasi tanpa berpindah platform.</p>
-                            </div>
-                        </div>
-                        <div class="feature-card animate-on-scroll" style="transition-delay: 0.24s">
-                            <div class="feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm text-ocean"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                            </div>
-                            <div>
-                                <h4 class="feature-title">Real-time Monitoring</h4>
-                                <p class="feature-desc">Pantau progres dan kinerja program secara real-time dari satu tempat.</p>
-                            </div>
-                        </div>
-                        <div class="feature-card animate-on-scroll" style="transition-delay: 0.36s">
-                            <div class="feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm text-ocean"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 12c0 4.97 2.686 9.303 6.676 11.627a2 2 0 0 0 2.648 0C16.314 21.303 19 16.97 19 12c0-1.39-.236-2.735-.682-3.984z"/></svg>
-                            </div>
-                            <div>
-                                <h4 class="feature-title">Akuntabilitas</h4>
-                                <p class="feature-desc">Mendukung transparansi pelaporan kinerja di seluruh unit kerja KKP.</p>
-                            </div>
-                        </div>
-                    </div>
+        <div class="mobile-menu hidden" id="mobileMenu">
+            <div class="mobile-menu-inner">
+                <a href="#top" class="mobile-link active">Home</a>
+                <button class="mobile-link mobile-accordion-toggle">
+                    Program
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg>
+                </button>
+                <div class="mobile-accordion hidden">
+                    <a href="program.html?slug=kinerjaku" class="mobile-sub-link">KinerjaKu</a>
+                    <a href="program.html?slug=knmp" class="mobile-sub-link">Monev KNMP</a>
+                    <a href="program.html?slug=wbk" class="mobile-sub-link">Monev WBK</a>
+                    <a href="program.html?slug=phln" class="mobile-sub-link">Monev PHLN</a>
                 </div>
+                <a href="#kontak" class="mobile-link">Kontak</a>
+            </div>
+        </div>
+    </nav>
 
-                <div class="animate-on-scroll-right" style="transition-delay: 0.2s">
-                    <div class="tentang-visual">
-                        <div class="tentang-card-dark">
-                            <div class="tentang-card-glow"></div>
-                            <div class="relative">
-                                <h3 class="tentang-card-title">Satu Pintu, Semua Program</h3>
-                                <p class="tentang-card-subtitle">Terintegrasi • Akuntabel • Transparan</p>
-                                <div class="tentang-tags">
-                                    <span class="tentang-tag">Monitoring</span>
-                                    <span class="tentang-tag">Evaluasi</span>
-                                    <span class="tentang-tag">Pelaporan</span>
-                                    <span class="tentang-tag">Analisis</span>
+    <!-- ═══════ MAIN CONTENT ═══════ -->
+    <main class="min-h-screen bg-white">
+
+        <!-- ═══════ TENTANG SECTION ═══════ -->
+        <section id="tentang" class="tentang-section">
+            <div class="tentang-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape-glow shape-glow-1"></div>
+                <div class="shape-glow shape-glow-2"></div>
+            </div>
+            <div class="section-container">
+                <div class="tentang-grid">
+                    <div class="animate-on-scroll">
+                        <div class="hero-badge shimmer-badge mb-4">
+                            <span class="status-dot-green pulse-dot"></span>
+                            <span class="badge-text">Portal Resmi Biro Perencanaan KKP</span>
+                        </div>
+                        <p class="tentang-brand">
+                            <span class="text-navy">ROREN</span><span class="text-gradient-ocean">One</span>
+                        </p>
+                        <h2 class="tentang-title">
+                            Satu Portal untuk<br>
+                            <span class="text-gradient-ocean">Semua Program</span> Strategis
+                        </h2>
+                        <p class="tentang-desc">
+                            RORENOne menyatukan akses terintegrasi untuk monitoring, evaluasi, dan
+                            pelaporan kinerja program Biro Perencanaan KKP — semua dalam satu tempat.
+                        </p>
+
+                        <div class="feature-list">
+                            <div class="feature-card animate-on-scroll" style="transition-delay: 0.12s">
+                                <div class="feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        class="icon-sm text-ocean">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="feature-title">Akses Terpusat</h4>
+                                    <p class="feature-desc">Satu portal untuk mengakses seluruh aplikasi tanpa berpindah
+                                        platform.</p>
+                                </div>
+                            </div>
+                            <div class="feature-card animate-on-scroll" style="transition-delay: 0.24s">
+                                <div class="feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        class="icon-sm text-ocean">
+                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="feature-title">Real-time Monitoring</h4>
+                                    <p class="feature-desc">Pantau progres dan kinerja program secara real-time dari
+                                        satu tempat.</p>
+                                </div>
+                            </div>
+                            <div class="feature-card animate-on-scroll" style="transition-delay: 0.36s">
+                                <div class="feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        class="icon-sm text-ocean">
+                                        <path
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 12c0 4.97 2.686 9.303 6.676 11.627a2 2 0 0 0 2.648 0C16.314 21.303 19 16.97 19 12c0-1.39-.236-2.735-.682-3.984z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="feature-title">Akuntabilitas</h4>
+                                    <p class="feature-desc">Mendukung transparansi pelaporan kinerja di seluruh unit
+                                        kerja KKP.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="tentang-stats-row">
-                            <div class="tentang-stat-card">
-                                <p class="tentang-stat-value">24/7</p>
-                                <p class="tentang-stat-label">Akses Portal</p>
+                    </div>
+
+                    <div class="animate-on-scroll-right" style="transition-delay: 0.2s">
+                        <div class="tentang-visual">
+                            <div class="tentang-card-dark">
+                                <div class="tentang-card-glow"></div>
+                                <div class="relative">
+                                    <h3 class="tentang-card-title">Satu Pintu, Semua Program</h3>
+                                    <p class="tentang-card-subtitle">Terintegrasi • Akuntabel • Transparan</p>
+                                    <div class="tentang-tags">
+                                        <span class="tentang-tag">KinerjaKu</span>
+                                        <span class="tentang-tag">Monev KNMP</span>
+                                        <span class="tentang-tag">Monev WBK</span>
+                                        <span class="tentang-tag">Monev PHLN</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="tentang-stat-card">
-                                <p class="tentang-stat-value">99.9<span class="text-ocean">%</span></p>
-                                <p class="tentang-stat-label">Uptime Sistem</p>
+                            <div class="orbit-hub">
+                                <div class="orbit-ring orbit-ring-1"></div>
+                                <div class="orbit-ring orbit-ring-2"></div>
+                                <div class="orbit-center">
+                                    <span class="orbit-center-num">4</span>
+                                    <span class="orbit-center-lbl">Program</span>
+                                </div>
+                                <div class="orbit-node orbit-node-1" style="--node-color: #0284C7">
+                                    <div class="orbit-node-dot"></div>
+                                    <span class="orbit-node-name">KinerjaKu</span>
+                                </div>
+                                <div class="orbit-node orbit-node-2" style="--node-color: #059669">
+                                    <div class="orbit-node-dot"></div>
+                                    <span class="orbit-node-name">KNMP</span>
+                                </div>
+                                <div class="orbit-node orbit-node-3" style="--node-color: #D97706">
+                                    <div class="orbit-node-dot"></div>
+                                    <span class="orbit-node-name">WBK</span>
+                                </div>
+                                <div class="orbit-node orbit-node-4" style="--node-color: #7C3AED">
+                                    <div class="orbit-node-dot"></div>
+                                    <span class="orbit-node-name">PHLN</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ═══════ PROGRAM SECTION ═══════ -->
-    <section id="program" class="program-section">
-        <div class="section-container">
-            <div class="section-header animate-on-scroll">
-                <p class="section-label">Program</p>
-                <h2 class="section-title">
-                    Akses seluruh program<br>
-                    <span class="text-muted">monitoring & evaluasi</span>
-                </h2>
-            </div>
-
-            <div class="program-grid">
-                <a href="program.html?slug=kinerjaku" class="program-card animate-on-scroll" style="transition-delay: 0.08s">
-                    <div class="program-card-header">
-                        <div class="program-icon bg-sky-50">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md text-sky-600"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-                        </div>
-                        <span class="status-badge"><span class="status-dot-sm bg-emerald-400"></span>Online</span>
-                    </div>
-                    <h3 class="program-name">KinerjaKu</h3>
-                    <p class="program-desc">Pengelolaan kinerja organisasi terintegrasi untuk seluruh unit kerja KKP.</p>
-                    <div class="program-link">Buka Program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-                    <div class="program-accent" style="background: linear-gradient(90deg, #0284C740, #0284C7, #0284C740)"></div>
-                </a>
-
-                <a href="program.html?slug=knmp" class="program-card animate-on-scroll" style="transition-delay: 0.16s">
-                    <div class="program-card-header">
-                        <div class="program-icon bg-emerald-50">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md text-emerald-600"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                        </div>
-                        <span class="status-badge"><span class="status-dot-sm bg-emerald-400"></span>Online</span>
-                    </div>
-                    <h3 class="program-name">Monev KNMP</h3>
-                    <p class="program-desc">Monitoring & evaluasi KNMP secara periodik dan terstruktur.</p>
-                    <div class="program-link">Buka Program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-                    <div class="program-accent" style="background: linear-gradient(90deg, #05966940, #059669, #05966940)"></div>
-                </a>
-
-                <a href="program.html?slug=wbk" class="program-card animate-on-scroll" style="transition-delay: 0.24s">
-                    <div class="program-card-header">
-                        <div class="program-icon bg-amber-50">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md text-amber-600"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        </div>
-                        <span class="status-badge"><span class="status-dot-sm bg-emerald-400"></span>Online</span>
-                    </div>
-                    <h3 class="program-name">Monev WBK</h3>
-                    <p class="program-desc">Pemantauan pembangunan Zona Integritas menuju WBK/WBBM.</p>
-                    <div class="program-link">Buka Program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-                    <div class="program-accent" style="background: linear-gradient(90deg, #D9770640, #D97706, #D9770640)"></div>
-                </a>
-
-                <a href="program.html?slug=phln" class="program-card animate-on-scroll" style="transition-delay: 0.32s">
-                    <div class="program-card-header">
-                        <div class="program-icon bg-violet-50">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md text-violet-600"><path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4"/></svg>
-                        </div>
-                        <span class="status-badge"><span class="status-dot-sm bg-emerald-400"></span>Online</span>
-                    </div>
-                    <h3 class="program-name">Monev PHLN</h3>
-                    <p class="program-desc">Monitoring PHLN & progres pelaksanaan proyek secara komprehensif.</p>
-                    <div class="program-link">Buka Program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-                    <div class="program-accent" style="background: linear-gradient(90deg, #7C3AED40, #7C3AED, #7C3AED40)"></div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════ KONTAK SECTION ═══════ -->
-    <section id="kontak" class="kontak-section">
-        <div class="section-container">
-            <div class="kontak-header animate-on-scroll">
-                <p class="section-label">Kontak</p>
-                <h2 class="section-title">Butuh Bantuan?</h2>
-                <p class="kontak-desc">Tim helpdesk Biro Perencanaan KKP siap membantu Anda.</p>
-            </div>
-
-            <div class="kontak-grid">
-                <div class="kontak-card animate-on-scroll" style="transition-delay: 0.08s">
-                    <div class="kontak-icon bg-sky-50">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm text-sky-600"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm16 2l-8 5-8-5"/></svg>
-                    </div>
-                    <p class="kontak-label">Email</p>
-                    <p class="kontak-value">biroren@kkp.go.id</p>
+        <!-- ═══════ PROGRAM SECTION ═══════ -->
+        <section id="program" class="program-section">
+            <div class="section-container">
+                <div class="section-header animate-on-scroll">
+                    <p class="section-label">Program</p>
+                    <h2 class="section-title">
+                        Akses seluruh program<br>
+                        <span class="text-muted">monitoring & evaluasi</span>
+                    </h2>
                 </div>
-                <div class="kontak-card animate-on-scroll" style="transition-delay: 0.16s">
-                    <div class="kontak-icon bg-amber-50">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm text-amber-600"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    </div>
-                    <p class="kontak-label">Telepon</p>
-                    <p class="kontak-value">(021) 3453-008</p>
+
+                <div class="program-grid">
+                    <a href="program.html?slug=kinerjaku" class="program-card animate-on-scroll"
+                        style="transition-delay: 0.08s">
+                        <div class="program-card-header">
+                            <div class="program-icon bg-sky-50">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    class="icon-md text-sky-600">
+                                    <path d="M18 20V10M12 20V4M6 20v-6" />
+                                </svg>
+                            </div>
+                            <span class="status-badge"><span class="status-dot-sm bg-emerald-400"></span>Online</span>
+                        </div>
+                        <h3 class="program-name">KinerjaKu</h3>
+                        <p class="program-desc">Pengelolaan kinerja organisasi terintegrasi untuk seluruh unit kerja
+                            KKP.</p>
+                        <div class="program-link">Buka Program <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" class="icon-xs">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                            </svg></div>
+                        <div class="program-accent"
+                            style="background: linear-gradient(90deg, #0284C740, #0284C7, #0284C740)"></div>
+                    </a>
+
+                    <a href="program.html?slug=knmp" class="program-card animate-on-scroll"
+                        style="transition-delay: 0.16s">
+                        <div class="program-card-header">
+                            <div class="program-icon bg-emerald-50">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    class="icon-md text-emerald-600">
+                                    <path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg>
+                            </div>
+                            <span class="status-badge"><span class="status-dot-sm bg-emerald-400"></span>Online</span>
+                        </div>
+                        <h3 class="program-name">Monev KNMP</h3>
+                        <p class="program-desc">Monitoring & evaluasi KNMP secara periodik dan terstruktur.</p>
+                        <div class="program-link">Buka Program <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" class="icon-xs">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                            </svg></div>
+                        <div class="program-accent"
+                            style="background: linear-gradient(90deg, #05966940, #059669, #05966940)"></div>
+                    </a>
+
+                    <a href="program.html?slug=wbk" class="program-card animate-on-scroll"
+                        style="transition-delay: 0.24s">
+                        <div class="program-card-header">
+                            <div class="program-icon bg-amber-50">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    class="icon-md text-amber-600">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </div>
+                            <span class="status-badge"><span class="status-dot-sm bg-emerald-400"></span>Online</span>
+                        </div>
+                        <h3 class="program-name">Monev WBK</h3>
+                        <p class="program-desc">Pemantauan pembangunan Zona Integritas menuju WBK/WBBM.</p>
+                        <div class="program-link">Buka Program <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" class="icon-xs">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                            </svg></div>
+                        <div class="program-accent"
+                            style="background: linear-gradient(90deg, #D9770640, #D97706, #D9770640)"></div>
+                    </a>
+
+                    <a href="program.html?slug=phln" class="program-card animate-on-scroll"
+                        style="transition-delay: 0.32s">
+                        <div class="program-card-header">
+                            <div class="program-icon bg-violet-50">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    class="icon-md text-violet-600">
+                                    <path
+                                        d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4" />
+                                </svg>
+                            </div>
+                            <span class="status-badge"><span class="status-dot-sm bg-emerald-400"></span>Online</span>
+                        </div>
+                        <h3 class="program-name">Monev PHLN</h3>
+                        <p class="program-desc">Monitoring PHLN & progres pelaksanaan proyek secara komprehensif.</p>
+                        <div class="program-link">Buka Program <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" class="icon-xs">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                            </svg></div>
+                        <div class="program-accent"
+                            style="background: linear-gradient(90deg, #7C3AED40, #7C3AED, #7C3AED40)"></div>
+                    </a>
                 </div>
-                <div class="kontak-card animate-on-scroll" style="transition-delay: 0.24s">
-                    <div class="kontak-icon bg-emerald-50">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm text-emerald-600"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0zM12 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                    </div>
-                    <p class="kontak-label">Alamat</p>
-                    <p class="kontak-value">Gedung Mina Bahari I, Lt. 4, Jakarta Pusat</p>
+            </div>
+        </section>
+
+        <!-- ═══════ KONTAK SECTION ═══════ -->
+        <section id="kontak" class="kontak-section">
+            <div class="section-container">
+                <div class="kontak-header animate-on-scroll">
+                    <p class="section-label">Kontak</p>
+                    <h2 class="section-title">Butuh Bantuan?</h2>
+                    <p class="kontak-desc">Tim helpdesk Biro Perencanaan KKP siap membantu Anda.</p>
                 </div>
+
+                <div class="kontak-grid">
+                    <div class="kontak-card animate-on-scroll" style="transition-delay: 0.08s">
+                        <div class="kontak-icon bg-emerald-50">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                class="icon-sm text-emerald-600">
+                                <path
+                                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0zM12 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+                            </svg>
+                        </div>
+                        <p class="kontak-label">Alamat</p>
+                        <p class="kontak-value">Gedung Mina Bahari I, Lt. 3A, Jakarta Pusat</p>
+                    </div>
+                    <div class="kontak-card animate-on-scroll" style="transition-delay: 0.16s">
+                        <div class="kontak-icon bg-amber-50">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                class="icon-sm text-amber-600">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                        </div>
+                        <p class="kontak-label">Telepon</p>
+                        <p class="kontak-value">(021) 3453-008</p>
+                    </div>
+                    <div class="kontak-card animate-on-scroll" style="transition-delay: 0.24s">
+                        <div class="kontak-icon bg-sky-50">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                class="icon-sm text-sky-600">
+                                <path
+                                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm16 2l-8 5-8-5" />
+                            </svg>
+                        </div>
+                        <p class="kontak-label">Email</p>
+                        <p class="kontak-value">biroren@kkp.go.id</p>
+                    </div>
+                </div>
+                <div class="kontak-map animate-on-scroll" style="transition-delay: 0.32s">
+                    <div class="map-info-card">
+                        <div class="map-info-content">
+                            <h4 class="map-info-title">Gedung Mina Bahari I</h4>
+                            <p class="map-info-address">Jl. Medan Merdeka Timur No.16, Kec. Gambir, Kota Jakarta Pusat,
+                                DKI Jakarta 10110, Indonesia</p>
+                        </div>
+                        <div class="map-info-actions">
+                            <a href="https://www.google.com/maps/place/-6.179286472876383,106.83257227001401"
+                                target="_blank" class="map-info-btn" title="Buka di Google Maps">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+                                    height="16">
+                                    <path
+                                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                                </svg>
+                            </a>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=-6.179286472876383,106.83257227001401"
+                                target="_blank" class="map-info-btn map-info-btn-route" title="Rute ke lokasi">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                                    <path
+                                        d="M21.71 11.29l-9-9a1 1 0 0 0-1.42 0l-9 9a1 1 0 0 0 0 1.42l9 9a1 1 0 0 0 1.42 0l9-9a1 1 0 0 0 0-1.42zM14 14.5V12h-4v3H8v-4a1 1 0 0 1 1-1h5V7.5l3.5 3.5-3.5 3.5z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <iframe src="https://maps.google.com/maps?q=-6.179286472876383,106.83257227001401&z=17&output=embed"
+                        width="100%" height="320" style="border:0; border-radius: 20px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══════ FOOTER ═══════ -->
+    <footer class="footer">
+        <div class="footer-gradient-line"></div>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <span class="footer-logo-text">ROREN<span class="text-ocean-light">One</span></span>
+                    </div>
+                    <p class="footer-desc">Satu Pintu Program Biro Perencanaan KKP — Terintegrasi • Akuntabel •
+                        Transparan</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Link Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#program">Program</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Program</h4>
+                    <ul class="footer-links">
+                        <li><a href="program.html?slug=kinerjaku">KinerjaKu</a></li>
+                        <li><a href="program.html?slug=knmp">Monev KNMP</a></li>
+                        <li><a href="program.html?slug=wbk">Monev WBK</a></li>
+                        <li><a href="program.html?slug=phln">Monev PHLN</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Biro Perencanaan – Kementerian Kelautan dan Perikanan RI</p>
             </div>
         </div>
-    </section>
+    </footer>
 
-</main>
+    <!-- Scroll to Top -->
+    <button id="scrollToTop" class="scroll-to-top hidden" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
 
-<!-- ═══════ FOOTER ═══════ -->
-<footer class="footer">
-    <div class="footer-gradient-line"></div>
-    <div class="footer-container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <div class="footer-logo-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <span class="footer-logo-text">ROREN<span class="text-ocean-light">One</span></span>
-                </div>
-                <p class="footer-desc">Satu Pintu Program Biro Perencanaan KKP — Terintegrasi • Akuntabel • Transparan</p>
-            </div>
-            <div>
-                <h4 class="footer-heading">Link Cepat</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#program">Program</a></li>
-                    <li><a href="#kontak">Kontak</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="footer-heading">Program</h4>
-                <ul class="footer-links">
-                    <li><a href="program.html?slug=kinerjaku">KinerjaKu</a></li>
-                    <li><a href="program.html?slug=knmp">Monev KNMP</a></li>
-                    <li><a href="program.html?slug=wbk">Monev WBK</a></li>
-                    <li><a href="program.html?slug=phln">Monev PHLN</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Biro Perencanaan – Kementerian Kelautan dan Perikanan RI</p>
-        </div>
-    </div>
-</footer>
-
-<!-- Scroll to Top -->
-<button id="scrollToTop" class="scroll-to-top hidden" aria-label="Scroll to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
-</button>
-
-<script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>

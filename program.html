@@ -11,6 +11,536 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
+    <style>
+        /* ═══════ PROGRAM DETAIL STYLES ═══════ */
+        .pd-hero {
+            padding: 6rem 0 3rem;
+            background: var(--softbg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pd-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(2, 132, 199, 0.06), transparent 70%);
+            pointer-events: none;
+        }
+
+        .pd-breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8125rem;
+            color: var(--ocean);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .pd-breadcrumb:hover {
+            opacity: 0.7;
+        }
+
+        .pd-breadcrumb svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .pd-hero-grid {
+            display: grid;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .pd-hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .pd-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 1rem;
+        }
+
+        .pd-status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #34d399;
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+
+        .pd-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .pd-title {
+                font-size: 2.75rem;
+            }
+        }
+
+        .pd-summary {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            max-width: 32rem;
+        }
+
+        .pd-highlights {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 1.75rem;
+            max-width: 32rem;
+        }
+
+        .pd-highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.875rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .pd-highlight-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--ocean);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .pd-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .pd-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--ocean);
+            color: white;
+            font-weight: 700;
+            font-size: 0.875rem;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(2, 132, 199, 0.25);
+        }
+
+        .pd-btn-primary:hover {
+            background: #0369a1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(2, 132, 199, 0.3);
+        }
+
+        .pd-btn-primary svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .pd-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: white;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.875rem;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .pd-btn-secondary:hover {
+            border-color: var(--ocean);
+            color: var(--ocean);
+            transform: translateY(-2px);
+        }
+
+        .pd-btn-secondary svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .pd-hero-visual {
+            position: relative;
+        }
+
+        .pd-screenshot-card {
+            background: white;
+            border-radius: 20px;
+            padding: 8px;
+            box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+        }
+
+        .pd-screenshot-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+        }
+
+        /* ═══════ FEATURES SECTION ═══════ */
+        .pd-features {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .pd-section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--ocean);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .pd-section-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .pd-section-title {
+                font-size: 2rem;
+            }
+        }
+
+        .pd-features-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .pd-features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .pd-features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .pd-feature-card {
+            background: var(--softbg);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pd-feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px -12px rgba(2, 132, 199, 0.12);
+            border-color: rgba(2, 132, 199, 0.1);
+        }
+
+        .pd-feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .pd-feature-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .pd-feature-name {
+            font-size: 0.9375rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .pd-feature-desc {
+            font-size: 0.8125rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        /* ═══════ OVERVIEW SECTION ═══════ */
+        .pd-overview {
+            padding: 4rem 0;
+            background: var(--softbg);
+        }
+
+        .pd-overview-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .pd-overview-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .pd-overview-text h3 {
+            font-size: 1.375rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .pd-overview-text p {
+            font-size: 0.9375rem;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .pd-info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .pd-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.875rem;
+            color: #475569;
+        }
+
+        .pd-info-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--ocean);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pd-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .pd-stat-card {
+            background: white;
+            border: 1px solid #f1f5f9;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pd-stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08);
+        }
+
+        .pd-stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .pd-stat-label {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* ═══════ CTA BANNER ═══════ */
+        .pd-cta-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .pd-cta-banner {
+            background: var(--navy);
+            border-radius: 28px;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pd-cta-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top right, rgba(2, 132, 199, 0.2), transparent 60%),
+                radial-gradient(ellipse at bottom left, rgba(14, 165, 233, 0.15), transparent 60%);
+            pointer-events: none;
+        }
+
+        .pd-cta-content {
+            position: relative;
+        }
+
+        .pd-cta-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .pd-cta-title {
+                font-size: 1.875rem;
+            }
+        }
+
+        .pd-cta-desc {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2rem;
+            max-width: 28rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pd-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--ocean);
+            color: white;
+            font-weight: 700;
+            font-size: 0.9375rem;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(2, 132, 199, 0.35);
+        }
+
+        .pd-cta-btn:hover {
+            background: #0369a1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(2, 132, 199, 0.4);
+        }
+
+        .pd-cta-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ═══════ MOBILE RESPONSIVE ═══════ */
+        @media (max-width: 639px) {
+            .pd-hero {
+                padding: 4.5rem 0 2rem;
+            }
+
+            .pd-title {
+                font-size: 1.75rem;
+            }
+
+            .pd-summary {
+                font-size: 0.875rem;
+            }
+
+            .pd-cta-group {
+                flex-direction: column;
+            }
+
+            .pd-btn-primary,
+            .pd-btn-secondary {
+                justify-content: center;
+            }
+
+            .pd-features {
+                padding: 3rem 0;
+            }
+
+            .pd-section-title {
+                font-size: 1.375rem;
+                margin-bottom: 1.75rem;
+            }
+
+            .pd-feature-card {
+                padding: 18px;
+                border-radius: 16px;
+            }
+
+            .pd-feature-icon {
+                width: 38px;
+                height: 38px;
+            }
+
+            .pd-overview {
+                padding: 3rem 0;
+            }
+
+            .pd-overview-text h3 {
+                font-size: 1.125rem;
+            }
+
+            .pd-stat-card {
+                padding: 16px;
+                border-radius: 16px;
+            }
+
+            .pd-stat-value {
+                font-size: 1.25rem;
+            }
+
+            .pd-cta-section {
+                padding: 2rem 0 3rem;
+            }
+
+            .pd-cta-banner {
+                padding: 2rem 1.25rem;
+                border-radius: 20px;
+            }
+
+            .pd-cta-title {
+                font-size: 1.25rem;
+            }
+
+            .pd-cta-desc {
+                font-size: 0.8125rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -108,34 +638,92 @@
                 </svg>
             </button>
         </div>
+
+        <div class="mobile-menu hidden" id="mobileMenu">
+            <div class="mobile-menu-inner">
+                <a href="index.html" class="mobile-link">Home</a>
+                <button class="mobile-link mobile-accordion-toggle">
+                    Program
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg>
+                </button>
+                <div class="mobile-accordion hidden">
+                    <a href="program.html?slug=kinerjaku" class="mobile-sub-link">KinerjaKu</a>
+                    <a href="program.html?slug=knmp" class="mobile-sub-link">Monev KNMP</a>
+                    <a href="program.html?slug=wbk" class="mobile-sub-link">Monev WBK</a>
+                    <a href="program.html?slug=phln" class="mobile-sub-link">Monev PHLN</a>
+                </div>
+                <a href="index.html#kontak" class="mobile-link">Kontak</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="min-h-screen bg-white">
-        <section style="padding: 8rem 0 4rem; min-height: 60vh;">
+    <main>
+
+        <!-- ═══════ HERO SECTION ═══════ -->
+        <section class="pd-hero">
             <div class="section-container">
-                <div class="animate-on-scroll" style="max-width: 48rem;">
-                    <a href="index.html"
-                        style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.875rem; color: var(--ocean); font-weight: 600; margin-bottom: 1.5rem;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            style="width: 16px; height: 16px;">
-                            <path d="M19 12H5M12 19l-7-7 7-7" />
-                        </svg>
-                        Kembali ke Beranda
-                    </a>
-                    <h1 id="programTitle"
-                        style="font-size: 2.5rem; font-weight: 800; color: var(--navy); margin-bottom: 1rem;"></h1>
-                    <p id="programDesc"
-                        style="font-size: 1.125rem; color: #64748b; line-height: 1.7; margin-bottom: 2rem;"></p>
-                    <div
-                        style="background: var(--softbg); border-radius: 20px; padding: 2rem; border: 1px solid #f1f5f9;">
-                        <p style="color: #94a3b8; font-size: 0.875rem;">Halaman detail program <strong
-                                id="programNameBold" style="color: var(--navy);"></strong> sedang dalam pengembangan.
-                        </p>
+                <a href="index.html" class="pd-breadcrumb">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Kembali ke Beranda
+                </a>
+                <div class="pd-hero-grid">
+                    <div class="animate-on-scroll">
+                        <div class="pd-status-badge">
+                            <span class="pd-status-dot"></span>
+                            Sistem Aktif
+                        </div>
+                        <h1 id="pdTitle" class="pd-title"></h1>
+                        <p id="pdSummary" class="pd-summary"></p>
+                        <ul class="pd-highlights" id="pdHighlights">
+                            <!-- Dynamically filled -->
+                        </ul>
+                        <div class="pd-cta-group">
+                            <a id="pdCtaLink" href="#" target="_blank" class="pd-btn-primary">
+                                Buka Aplikasi
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                                </svg>
+                            </a>
+                            <a href="index.html#program" class="pd-btn-secondary">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                                Lihat Semua Program
+                            </a>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll-right" style="transition-delay: 0.15s">
+                        <div class="pd-screenshot-card">
+                            <img id="pdScreenshot" src="" alt="Screenshot Aplikasi">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- ═══════ FEATURES SECTION ═══════ -->
+        <section class="pd-features">
+            <div class="section-container">
+                <div class="animate-on-scroll">
+                    <p class="pd-section-label">Fitur Utama</p>
+                    <h2 class="pd-section-title" id="pdFeatureTitle">Fitur unggulan yang tersedia</h2>
+                </div>
+                <div class="pd-features-grid" id="pdFeaturesGrid">
+                    <!-- Dynamically filled -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+
     </main>
 
     <!-- Footer -->
@@ -179,22 +767,231 @@
         </div>
     </footer>
 
+    <!-- Scroll to Top -->
+    <button id="scrollToTop" class="scroll-to-top hidden" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+
     <script src="js/app.js"></script>
     <script>
-        // Load program data from URL params
+        // ═══════ PROGRAM DATA ═══════
         var programs = {
-            kinerjaku: { name: 'KinerjaKu', desc: 'Pengelolaan kinerja organisasi terintegrasi untuk seluruh unit kerja KKP.' },
-            knmp: { name: 'Monev KNMP', desc: 'Monitoring & evaluasi KNMP secara periodik dan terstruktur.' },
-            wbk: { name: 'Monev WBK', desc: 'Pemantauan pembangunan Zona Integritas menuju WBK/WBBM.' },
-            phln: { name: 'Monev PHLN', desc: 'Monitoring PHLN & progres pelaksanaan proyek secara komprehensif.' }
+            kinerjaku: {
+                name: 'KinerjaKu',
+                tagline: 'Dashboard Kinerja Organisasi Terintegrasi',
+                summary: 'KinerjaKu merupakan platform digital terintegrasi untuk pengelolaan dan pemantauan kinerja organisasi di lingkungan Kementerian Kelautan dan Perikanan. Sistem ini memungkinkan pengukuran, pelaporan, dan analisis capaian kinerja seluruh unit kerja secara real-time dan transparan.',
+                screenshot: 'img/ss-kinerjaku.png',
+                url: '#',
+                color: '#0284C7',
+                colorBg: 'rgba(2, 132, 199, 0.1)',
+                features: [
+                    { icon: 'chart', title: 'Dashboard Interaktif', desc: 'Visualisasi data kinerja real-time dengan grafik dan chart yang mudah dipahami.' },
+                    { icon: 'target', title: 'Penetapan Indikator', desc: 'Pengelolaan IKU dan IKK dengan target terukur per unit kerja.' },
+                    { icon: 'report', title: 'Laporan Otomatis', desc: 'Generate laporan SAKIP, LKJ, dan capaian kinerja secara otomatis.' },
+                    { icon: 'monitor', title: 'Monitoring Cascading', desc: 'Pemantauan cascading kinerja dari level eselon I hingga pelaksana.' },
+                    { icon: 'eval', title: 'Evaluasi Berkala', desc: 'Sistem evaluasi kinerja triwulanan, semesteran, dan tahunan.' },
+                    { icon: 'notify', title: 'Notifikasi & Reminder', desc: 'Pengingat otomatis untuk deadline pelaporan dan review kinerja.' }
+                ],
+                overview: {
+                    title: 'Tentang KinerjaKu',
+                    desc1: 'KinerjaKu dirancang untuk mendukung implementasi Sistem Akuntabilitas Kinerja Instansi Pemerintah (SAKIP) di KKP. Platform ini mengintegrasikan seluruh proses pengelolaan kinerja mulai dari perencanaan, penetapan target, monitoring capaian, hingga evaluasi dan pelaporan.',
+                    desc2: 'Dengan antarmuka yang modern dan user-friendly, KinerjaKu memudahkan seluruh pegawai di lingkungan KKP untuk menginput, memantau, dan mengevaluasi kinerja mereka secara mandiri.',
+                    highlights: [
+                        'Terintegrasi dengan sistem e-Kinerja nasional',
+                        'Dashboard analytics dengan 15+ jenis visualisasi data',
+                        'Role-based access control untuk setiap level jabatan',
+                        'Export laporan dalam format PDF, Excel, dan PowerPoint'
+                    ]
+                },
+                stats: [
+                    { value: '500+', label: 'Pengguna Aktif' },
+                    { value: '50+', label: 'Unit Kerja' },
+                    { value: '99.9%', label: 'Uptime Sistem' },
+                    { value: '24/7', label: 'Akses Portal' }
+                ],
+                ctaTitle: 'Siap memantau kinerja organisasi?',
+                ctaDesc: 'Akses KinerjaKu sekarang dan pantau capaian kinerja unit kerja Anda secara real-time.'
+            },
+            knmp: {
+                name: 'Monev KNMP',
+                tagline: 'Monitoring & Evaluasi Kinerja Nasional',
+                summary: 'Monev KNMP adalah sistem monitoring dan evaluasi pelaksanaan Kampung Nelayan Merah Putih (KNMP) secara periodik dan terstruktur. Platform ini memantau progres pelaksanaan, mengidentifikasi hambatan, dan mendukung keputusan strategis.',
+                screenshot: 'img/ss-knmp.png',
+                url: '#',
+                color: '#059669',
+                colorBg: 'rgba(5, 150, 105, 0.1)',
+                features: [
+                    { icon: 'dashboard', title: 'Dashboard Interaktif', desc: 'Ringkasan data dan statistik KNMP secara real-time dengan peta lokasi interaktif.' },
+                    { icon: 'questionnaire', title: 'Kuesioner Multi-Bagian', desc: 'Input data survei mencakup 9 bagian terintegrasi dari profil hingga sosial kelembagaan.' },
+                    { icon: 'importexport', title: 'Import & Export Data', desc: 'Import data massal dari Excel dan ekspor laporan dalam format Excel maupun PDF.' },
+                    { icon: 'access', title: 'Manajemen Hak Akses', desc: 'Pengaturan akses pengguna berbasis peran (role) dan wilayah KNMP.' },
+                    { icon: 'progress', title: 'Monitoring Progres', desc: 'Pemantauan progres pembangunan KNMP per komponen, target, dan realisasi.' },
+                    { icon: 'actlog', title: 'Activity Log', desc: 'Pencatatan otomatis seluruh aktivitas pengguna untuk akuntabilitas sistem.' }
+                ],
+                overview: {
+                    title: 'Tentang Monev KNMP',
+                    desc1: 'Monev KNMP dikembangkan untuk memastikan pelaksanaan Kebijakan Nasional Menuju Perikanan berjalan sesuai target. Sistem ini mencakup monitoring capaian indikator-indikator utama KNMP beserta analisis hambatan dan rekomendasi solusi.',
+                    desc2: 'Platform ini memfasilitasi koordinasi lintas sektor dan wilayah, dengan dukungan visualisasi data yang memudahkan identifikasi area yang memerlukan intervensi kebijakan.',
+                    highlights: [
+                        'Tracking 172+ indikator capaian KNMP nasional',
+                        'Evaluasi kinerja & metrik efisiensi anggaran',
+                        'Integrasi data dari seluruh unit pelaksana',
+                        'Sistem pelaporan terstandar sesuai regulasi'
+                    ]
+                },
+                stats: [
+                    { value: '172+', label: 'Indikator' },
+                    { value: '34', label: 'Provinsi' },
+                    { value: '98%', label: 'Akurasi Data' },
+                    { value: 'Real-time', label: 'Update' }
+                ],
+                ctaTitle: 'Pantau capaian KNMP nasional?',
+                ctaDesc: 'Akses Monev KNMP dan monitor progres pelaksanaan kebijakan perikanan secara realtime.'
+            },
+            wbk: {
+                name: 'Monev WBK',
+                tagline: 'Dashboard Zona Integritas & Anti Korupsi',
+                summary: 'Monev WBK adalah platform pemantauan komprehensif untuk pembangunan Zona Integritas menuju Wilayah Bebas dari Korupsi (WBK) dan Wilayah Birokrasi Bersih dan Melayani (WBBM) di lingkungan Kementerian Kelautan dan Perikanan.',
+                screenshot: 'img/ss-wbk.png',
+                url: '#',
+                color: '#D97706',
+                colorBg: 'rgba(217, 119, 6, 0.1)',
+                features: [
+                    { icon: 'progress', title: 'Progress Tracking', desc: 'Pemantauan progres pelaksanaan WBK per aspek reformasi birokrasi secara berkala dan real-time.' },
+                    { icon: 'eval', title: 'Evaluasi Periodik', desc: 'Pelaksanaan evaluasi per semester (Semester I & II) dengan perhitungan capaian sub-total dan total keseluruhan.' },
+                    { icon: 'multiaspect', title: 'Multi-Aspek Monitoring', desc: 'Monitoring terintegrasi untuk 6+ aspek: Manajemen Perubahan, Tatalaksana, SDM, Akuntabilitas, Pengawasan, dan Pelayanan Publik.' },
+                    { icon: 'report', title: 'Laporan & Export', desc: 'Report builder dengan fitur export data evaluasi ke format dokumen standar untuk keperluan pelaporan.' },
+                    { icon: 'collab', title: 'Kolaborasi Tim', desc: 'Manajemen pengguna multi-role dengan sistem komentar dan activity log untuk koordinasi antar tim penilai.' },
+                    { icon: 'dashboard', title: 'Data Analytics', desc: 'Visualisasi data capaian melalui chart interaktif (bar chart per aspek) dan dashboard KPI untuk mendukung pengambilan keputusan.' }
+                ],
+                overview: {
+                    title: 'Tentang Monev WBK',
+                    desc1: 'Monev WBK merupakan alat bantu utama dalam pembangunan Zona Integritas di lingkungan KKP. Sistem ini mengacu pada Peraturan Menteri PANRB tentang pedoman pembangunan ZI menuju WBK/WBBM.',
+                    desc2: 'Platform ini mencakup 6 area perubahan utama: Manajemen Perubahan, Penataan Tatalaksana, Penataan Manajemen SDM, Penguatan Akuntabilitas Kinerja, Penguatan Pengawasan, dan Peningkatan Kualitas Pelayanan Publik.',
+                    highlights: [
+                        'Monitoring 6 area perubahan Zona Integritas',
+                        'Checklist dokumen pendukung per komponen',
+                        'Status pengajuan & audit tracking',
+                        'Jadwal evaluasi dan pengumuman terkini'
+                    ]
+                },
+                stats: [
+                    { value: '78%', label: 'Capaian ZI' },
+                    { value: '6', label: 'Area Perubahan' },
+                    { value: '100+', label: 'Indikator' },
+                    { value: 'A', label: 'Predikat' }
+                ],
+                ctaTitle: 'Monitor pembangunan Zona Integritas?',
+                ctaDesc: 'Akses Monev WBK dan pantau progress WBK/WBBM di unit kerja Anda.'
+            },
+            phln: {
+                name: 'Monev PHLN',
+                tagline: 'Monitoring Pinjaman & Hibah Luar Negeri',
+                summary: 'Monev PHLN adalah sistem monitoring dan evaluasi proyek-proyek yang didanai melalui Pinjaman dan Hibah Luar Negeri (PHLN) di lingkungan KKP. Platform ini memantau progress fisik dan keuangan, serta pencapaian milestone setiap proyek secara komprehensif.',
+                screenshot: 'img/ss-phln.png',
+                url: '#',
+                color: '#7C3AED',
+                colorBg: 'rgba(124, 58, 237, 0.1)',
+                features: [
+                    { icon: 'report', title: 'Daftar & Status Proyek', desc: 'Pengelolaan data proyek PHLN lengkap: nama proyek, lokasi, sumber pendanaan, total pinjaman, dan status pinjaman (Efektif/Belum Efektif).' },
+                    { icon: 'mapicon', title: 'Peta Lokasi Interaktif', desc: 'Visualisasi sebaran lokasi proyek PHLN di seluruh Indonesia melalui peta interaktif berbasis Google Maps.' },
+                    { icon: 'progress', title: 'Progress Tracking', desc: 'Pemantauan progres realisasi proyek melalui 3 dimensi: Progress Planning, Progress Construction, dan Progress Budget dengan perbandingan target vs realisasi.' },
+                    { icon: 'dashboard', title: 'Monitoring Per-Proyek', desc: 'Monitoring dan evaluasi detail per proyek dengan navigasi cepat melalui tombol proyek interaktif dan Total Progress Report.' },
+                    { icon: 'milestone', title: 'Project Milestone', desc: 'Pencatatan dan pemantauan milestone proyek mencakup uraian kegiatan dan waktu pelaksanaan untuk setiap tahapan proyek.' },
+                    { icon: 'importexport', title: 'Laporan & Export', desc: 'Penyajian laporan komprehensif per proyek dan fitur export data untuk keperluan pelaporan ke lembaga donor internasional.' }
+                ],
+                overview: {
+                    title: 'Tentang Monev PHLN',
+                    desc1: 'Monev PHLN dirancang untuk mengelola dan memantau seluruh proyek yang mendapat pendanaan dari lembaga internasional seperti World Bank, ADB, JICA, dan organisasi donor lainnya.',
+                    desc2: 'Sistem ini mengintegrasikan data fisik dan keuangan proyek, memungkinkan analisis mendalam terhadap kinerja proyek dan identifikasi dini terhadap potensi deviasi dari rencana awal.',
+                    highlights: [
+                        'Monitoring 285+ proyek aktif dengan berbagai sumber dana',
+                        'Tracking pencairan dana dari 7+ lembaga donor',
+                        'Analisis deviasi dan rekomendasi korektif',
+                        'Top 5 proyek dengan realisasi dan deviasi tertinggi'
+                    ]
+                },
+                stats: [
+                    { value: '285+', label: 'Proyek Aktif' },
+                    { value: 'Rp150T', label: 'Total Komitmen' },
+                    { value: '7+', label: 'Lembaga Donor' },
+                    { value: 'Rp85T', label: 'Total Pencairan' }
+                ],
+                ctaTitle: 'Pantau proyek PHLN Anda?',
+                ctaDesc: 'Akses Monev PHLN dan monitor progress pencairan dana serta capaian milestone proyek.'
+            }
         };
+
+        // ═══════ ICON SVGs ═══════
+        var iconSvgs = {
+            chart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>',
+            target: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+            report: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>',
+            monitor: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+            eval: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
+            notify: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>',
+            track: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+            collab: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+            data: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>',
+            shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+            checklist: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
+            doc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M13 2v7h7"/></svg>',
+            audit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15h6"/></svg>',
+            money: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+            gantt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="4" rx="1"/><rect x="3" y="10" width="12" height="4" rx="1"/><rect x="3" y="16" width="15" height="4" rx="1"/></svg>',
+            milestone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>',
+            risk: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg>',
+            dashboard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>',
+            questionnaire: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>',
+            importexport: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
+            access: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>',
+            progress: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>',
+            actlog: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>',
+            multiaspect: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>',
+            mapicon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'
+        };
+
+        // ═══════ LOAD PROGRAM DATA ═══════
         var params = new URLSearchParams(window.location.search);
         var slug = params.get('slug') || 'kinerjaku';
         var program = programs[slug] || programs.kinerjaku;
-        document.getElementById('programTitle').textContent = program.name;
-        document.getElementById('programDesc').textContent = program.desc;
-        document.getElementById('programNameBold').textContent = program.name;
+
+        // Set page title
         document.title = 'RORENOne — ' + program.name;
+
+        // Hero section
+        document.getElementById('pdTitle').textContent = program.name;
+        document.getElementById('pdSummary').textContent = program.summary;
+        document.getElementById('pdScreenshot').src = program.screenshot;
+        document.getElementById('pdScreenshot').alt = 'Screenshot ' + program.name;
+        document.getElementById('pdCtaLink').href = program.url;
+
+        // Highlights list
+        var highlightsHtml = '';
+        program.overview.highlights.forEach(function (h) {
+            highlightsHtml += '<li class="pd-highlight-item">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>' +
+                '<span>' + h + '</span></li>';
+        });
+        document.getElementById('pdHighlights').innerHTML = highlightsHtml;
+
+        // Features grid
+        var featuresHtml = '';
+        program.features.forEach(function (f, i) {
+            featuresHtml += '<div class="pd-feature-card animate-on-scroll" style="transition-delay: ' + (i * 0.08) + 's">' +
+                '<div class="pd-feature-icon" style="background: ' + program.colorBg + '; color: ' + program.color + '">' +
+                (iconSvgs[f.icon] || iconSvgs.chart) +
+                '</div>' +
+                '<h3 class="pd-feature-name">' + f.title + '</h3>' +
+                '<p class="pd-feature-desc">' + f.desc + '</p>' +
+                '</div>';
+        });
+        document.getElementById('pdFeaturesGrid').innerHTML = featuresHtml;
+
+
+
     </script>
 </body>
 
