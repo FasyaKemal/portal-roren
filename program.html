@@ -540,6 +540,137 @@
                 font-size: 0.8125rem;
             }
         }
+
+        /* ═══════ TAHUN SECTION ═══════ */
+        .pd-tahun {
+            padding: 4rem 0;
+            background: var(--softbg);
+        }
+
+        .pd-tahun-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .pd-tahun-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .pd-tahun-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .pd-tahun-card {
+            position: relative;
+            background: white;
+            border: 1px solid #f1f5f9;
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: block;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .pd-tahun-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px -12px rgba(2, 132, 199, 0.18), 0 0 0 1px rgba(2, 132, 199, 0.08);
+        }
+
+        .pd-tahun-card:hover .pd-tahun-year {
+            color: var(--ocean);
+        }
+
+        .pd-tahun-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .pd-tahun-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .pd-tahun-year {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .pd-tahun-desc {
+            font-size: 0.8125rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .pd-tahun-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--ocean);
+            opacity: 0;
+            transform: translateY(4px);
+            transition: all 0.3s ease;
+        }
+
+        .pd-tahun-card:hover .pd-tahun-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pd-tahun-link svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .pd-tahun-accent {
+            position: absolute;
+            bottom: 0;
+            left: 24px;
+            right: 24px;
+            height: 2px;
+            border-radius: 1px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .pd-tahun-card:hover .pd-tahun-accent {
+            opacity: 1;
+        }
+
+        @media (max-width: 639px) {
+            .pd-tahun {
+                padding: 3rem 0;
+            }
+
+            .pd-tahun-card {
+                padding: 18px;
+                border-radius: 16px;
+            }
+
+            .pd-tahun-icon {
+                width: 48px;
+                height: 48px;
+            }
+
+            .pd-tahun-year {
+                font-size: 1.25rem;
+            }
+        }
     </style>
 </head>
 
@@ -578,52 +709,57 @@
                 <div class="nav-dropdown" id="programDropdown">
                     <button class="nav-link dropdown-toggle active">
                         Program
-                        <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
+                        <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
-                    <div class="dropdown-menu">
-                        <a href="program.html?slug=kinerjaku" class="dropdown-item">
-                            <div class="dropdown-icon bg-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M18 20V10M12 20V4M6 20v-6" />
-                                </svg></div>
-                            <div>
-                                <p class="dropdown-title">KinerjaKu</p>
-                                <p class="dropdown-desc">Pengelolaan kinerja organisasi terintegrasi.</p>
-                            </div>
-                        </a>
+                    <div class="dropdown-menu dropdown-menu-wide">
+                        <p class="dropdown-section-label">Program Prioritas KKP</p>
                         <a href="program.html?slug=knmp" class="dropdown-item">
-                            <div class="dropdown-icon bg-emerald"><svg viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-                                </svg></div>
-                            <div>
-                                <p class="dropdown-title">Monev KNMP</p>
-                                <p class="dropdown-desc">Monitoring & evaluasi KNMP secara periodik.</p>
-                            </div>
+                            <div class="dropdown-icon bg-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0zM12 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" /></svg></div>
+                            <div><p class="dropdown-title">KNMP</p><p class="dropdown-desc">Kawasan Nelayan Maju dan Perikanan.</p></div>
+                        </a>
+                        <a href="program.html?slug=budidaya" class="dropdown-item">
+                            <div class="dropdown-icon bg-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93z" /></svg></div>
+                            <div><p class="dropdown-title">Budidaya Tematik & Bioflok</p><p class="dropdown-desc">Pengembangan budidaya tematik dan bioflok.</p></div>
+                        </a>
+                        <a href="program.html?slug=bins" class="dropdown-item">
+                            <div class="dropdown-icon bg-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6" /></svg></div>
+                            <div><p class="dropdown-title">BINS</p><p class="dropdown-desc">Bantuan Insentif Nelayan dan Sektor Perikanan.</p></div>
+                        </a>
+                        <a href="program.html?slug=garam" class="dropdown-item">
+                            <div class="dropdown-icon bg-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg></div>
+                            <div><p class="dropdown-title">Kawasan Garam</p><p class="dropdown-desc">Pengembangan kawasan pegaraman nasional.</p></div>
+                        </a>
+                        <a href="program.html?slug=kapal" class="dropdown-item">
+                            <div class="dropdown-icon bg-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 21l.4-2A2 2 0 0 1 4.36 17.5h15.28a2 2 0 0 1 1.96 1.5l.4 2M5 17l-1-8h16l-1 8M12 3v4m-4 0h8" /></svg></div>
+                            <div><p class="dropdown-title">Modernisasi Kapal</p><p class="dropdown-desc">Modernisasi kapal perikanan nasional.</p></div>
+                        </a>
+                        <a href="program.html?slug=pantura" class="dropdown-item">
+                            <div class="dropdown-icon bg-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg></div>
+                            <div><p class="dropdown-title">Revitalisasi Pantura</p><p class="dropdown-desc">Revitalisasi kawasan Pantai Utara Jawa.</p></div>
+                        </a>
+                        <a href="program.html?slug=waingapu" class="dropdown-item">
+                            <div class="dropdown-icon bg-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18" /></svg></div>
+                            <div><p class="dropdown-title">Modeling Tambak Waingapu</p><p class="dropdown-desc">Modeling tambak udang di Waingapu.</p></div>
+                        </a>
+                        <a href="program.html?slug=sarpras" class="dropdown-item">
+                            <div class="dropdown-icon bg-slate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" /></svg></div>
+                            <div><p class="dropdown-title">Sarana Prasarana</p><p class="dropdown-desc">Pengelolaan sarana prasarana perikanan.</p></div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <p class="dropdown-section-label">Monitoring & Evaluasi</p>
+                        <a href="program.html?slug=kinerjaku" class="dropdown-item">
+                            <div class="dropdown-icon bg-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6" /></svg></div>
+                            <div><p class="dropdown-title">KinerjaKu</p><p class="dropdown-desc">Pengelolaan kinerja organisasi terintegrasi.</p></div>
                         </a>
                         <a href="program.html?slug=wbk" class="dropdown-item">
-                            <div class="dropdown-icon bg-amber"><svg viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                </svg></div>
-                            <div>
-                                <p class="dropdown-title">Monev WBK</p>
-                                <p class="dropdown-desc">Pemantauan pembangunan Zona Integritas/WBK.</p>
-                            </div>
+                            <div class="dropdown-icon bg-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg></div>
+                            <div><p class="dropdown-title">Monev WBK</p><p class="dropdown-desc">Pemantauan pembangunan Zona Integritas/WBK.</p></div>
                         </a>
                         <a href="program.html?slug=phln" class="dropdown-item">
-                            <div class="dropdown-icon bg-violet"><svg viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path
-                                        d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4M5 21V10.87M19 21V10.87" />
-                                </svg></div>
-                            <div>
-                                <p class="dropdown-title">Monev PHLN</p>
-                                <p class="dropdown-desc">Monitoring PHLN & progres pelaksanaan.</p>
-                            </div>
+                            <div class="dropdown-icon bg-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4M5 21V10.87M19 21V10.87" /></svg></div>
+                            <div><p class="dropdown-title">Monev PHLN</p><p class="dropdown-desc">Monitoring PHLN & progres pelaksanaan.</p></div>
                         </a>
                     </div>
                 </div>
@@ -643,14 +779,29 @@
             <div class="mobile-menu-inner">
                 <a href="index.html" class="mobile-link">Home</a>
                 <button class="mobile-link mobile-accordion-toggle">
-                    Program
+                    Program Prioritas
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg>
+                </button>
+                <div class="mobile-accordion hidden">
+                    <a href="program.html?slug=knmp" class="mobile-sub-link">KNMP</a>
+                    <a href="program.html?slug=budidaya" class="mobile-sub-link">Budidaya Tematik & Bioflok</a>
+                    <a href="program.html?slug=bins" class="mobile-sub-link">BINS</a>
+                    <a href="program.html?slug=garam" class="mobile-sub-link">Kawasan Garam</a>
+                    <a href="program.html?slug=kapal" class="mobile-sub-link">Modernisasi Kapal</a>
+                    <a href="program.html?slug=pantura" class="mobile-sub-link">Revitalisasi Pantura</a>
+                    <a href="program.html?slug=waingapu" class="mobile-sub-link">Modeling Tambak Waingapu</a>
+                    <a href="program.html?slug=sarpras" class="mobile-sub-link">Sarana Prasarana</a>
+                </div>
+                <button class="mobile-link mobile-accordion-toggle">
+                    Monitoring & Evaluasi
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M6 9l6 6 6-6" />
                     </svg>
                 </button>
                 <div class="mobile-accordion hidden">
                     <a href="program.html?slug=kinerjaku" class="mobile-sub-link">KinerjaKu</a>
-                    <a href="program.html?slug=knmp" class="mobile-sub-link">Monev KNMP</a>
                     <a href="program.html?slug=wbk" class="mobile-sub-link">Monev WBK</a>
                     <a href="program.html?slug=phln" class="mobile-sub-link">Monev PHLN</a>
                 </div>
@@ -683,11 +834,10 @@
                             <!-- Dynamically filled -->
                         </ul>
                         <div class="pd-cta-group">
-                            <a id="pdCtaLink" href="#" target="_blank" class="pd-btn-primary">
-                                Buka Aplikasi
+                            <a id="pdCtaLink" href="#pdTahunSection" class="pd-btn-primary">
+                                Lihat Data Tahun
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path
-                                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                                    <path d="M12 5v14M19 12l-7 7-7-7" />
                                 </svg>
                             </a>
                             <a href="index.html#program" class="pd-btn-secondary">
@@ -720,6 +870,19 @@
             </div>
         </section>
 
+        <!-- ═══════ TAHUN SECTION ═══════ -->
+        <section class="pd-tahun" id="pdTahunSection" style="display:none;">
+            <div class="section-container">
+                <div class="animate-on-scroll">
+                    <p class="pd-section-label">Data Per Tahun</p>
+                    <h2 class="pd-section-title">Pilih tahun pelaksanaan program</h2>
+                </div>
+                <div class="pd-tahun-grid" id="pdTahunGrid">
+                    <!-- Dynamically filled -->
+                </div>
+            </div>
+        </section>
+
 
 
 
@@ -743,19 +906,24 @@
                     <p class="footer-desc">Satu Pintu Program Biro Perencanaan KKP — Terintegrasi • Akuntabel •
                         Transparan</p>
                 </div>
+
                 <div>
-                    <h4 class="footer-heading">Link Cepat</h4>
+                    <h4 class="footer-heading">Program Prioritas</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#program">Program</a></li>
-                        <li><a href="index.html#kontak">Kontak</a></li>
+                        <li><a href="program.html?slug=knmp">KNMP</a></li>
+                        <li><a href="program.html?slug=budidaya">Budidaya Tematik & Bioflok</a></li>
+                        <li><a href="program.html?slug=bins">BINS</a></li>
+                        <li><a href="program.html?slug=garam">Kawasan Garam</a></li>
+                        <li><a href="program.html?slug=kapal">Modernisasi Kapal</a></li>
+                        <li><a href="program.html?slug=pantura">Revitalisasi Pantura</a></li>
+                        <li><a href="program.html?slug=waingapu">Modeling Tambak Waingapu</a></li>
+                        <li><a href="program.html?slug=sarpras">Sarana Prasarana</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="footer-heading">Program</h4>
+                    <h4 class="footer-heading">Monitoring & Evaluasi</h4>
                     <ul class="footer-links">
                         <li><a href="program.html?slug=kinerjaku">KinerjaKu</a></li>
-                        <li><a href="program.html?slug=knmp">Monev KNMP</a></li>
                         <li><a href="program.html?slug=wbk">Monev WBK</a></li>
                         <li><a href="program.html?slug=phln">Monev PHLN</a></li>
                     </ul>
@@ -815,9 +983,9 @@
                 ctaDesc: 'Akses KinerjaKu sekarang dan pantau capaian kinerja unit kerja Anda secara real-time.'
             },
             knmp: {
-                name: 'Monev KNMP',
-                tagline: 'Monitoring & Evaluasi Kinerja Nasional',
-                summary: 'Monev KNMP adalah sistem monitoring dan evaluasi pelaksanaan program prioritas Kampung Nelayan Merah Putih (KNMP) secara periodik dan terstruktur. Platform ini memantau progres pelaksanaan, mengidentifikasi hambatan, dan mendukung keputusan strategis.',
+                name: 'KNMP',
+                tagline: 'Kawasan Nelayan Maju dan Perikanan',
+                summary: 'KNMP adalah program prioritas KKP untuk pemberdayaan kawasan pesisir melalui pengembangan infrastruktur nelayan, peningkatan kapasitas SDM, dan pembangunan ekonomi masyarakat pesisir secara berkelanjutan.',
                 screenshot: 'img/ss-knmp.png',
                 url: '#',
                 color: '#059669',
@@ -831,9 +999,9 @@
                     { icon: 'actlog', title: 'Activity Log', desc: 'Pencatatan otomatis seluruh aktivitas pengguna untuk akuntabilitas sistem.' }
                 ],
                 overview: {
-                    title: 'Tentang Monev KNMP',
-                    desc1: 'Monev KNMP dikembangkan untuk memastikan pelaksanaan Kebijakan Nasional Menuju Perikanan berjalan sesuai target. Sistem ini mencakup monitoring capaian indikator-indikator utama KNMP beserta analisis hambatan dan rekomendasi solusi.',
-                    desc2: 'Platform ini memfasilitasi koordinasi lintas sektor dan wilayah, dengan dukungan visualisasi data yang memudahkan identifikasi area yang memerlukan intervensi kebijakan.',
+                    title: 'Tentang KNMP',
+                    desc1: 'Program KNMP dikembangkan untuk memastikan pemberdayaan kawasan pesisir berjalan sesuai target nasional.',
+                    desc2: 'Platform ini memfasilitasi koordinasi lintas sektor dan wilayah, dengan dukungan visualisasi data interaktif.',
                     highlights: [
                         'Pemantauan seluruh indikator capaian KNMP secara nasional',
                         'Evaluasi kinerja & distribusi anggaran pembangunan',
@@ -847,8 +1015,292 @@
                     { value: '98%', label: 'Akurasi Data' },
                     { value: 'Real-time', label: 'Update' }
                 ],
+                tahun: [
+                    { year: '2026', desc: 'Data pelaksanaan KNMP tahun 2026', url: '#' },
+                    { year: '2025', desc: 'Data pelaksanaan KNMP tahun 2025', url: '#' }
+                ],
                 ctaTitle: 'Pantau capaian KNMP nasional?',
-                ctaDesc: 'Akses Monev KNMP dan monitor progres pelaksanaan kebijakan perikanan secara realtime.'
+                ctaDesc: 'Akses KNMP dan monitor progres pelaksanaan kebijakan perikanan secara realtime.'
+            },
+            budidaya: {
+                name: 'Budidaya Tematik & Bioflok',
+                tagline: 'Pengembangan Budidaya Perikanan Modern',
+                summary: 'Program Budidaya Tematik dan Bioflok bertujuan untuk mengembangkan teknologi budidaya perikanan modern berbasis bioflok serta budidaya tematik lainnya untuk meningkatkan produksi perikanan budidaya nasional.',
+                screenshot: 'img/ss-budidaya.png',
+                url: '#',
+                color: '#0d9488',
+                colorBg: 'rgba(13, 148, 136, 0.1)',
+                features: [
+                    { icon: 'dashboard', title: 'Dashboard Monitoring', desc: 'Pemantauan produksi dan perkembangan budidaya tematik secara real-time.' },
+                    { icon: 'mapicon', title: 'Peta Sebaran', desc: 'Visualisasi lokasi budidaya tematik dan bioflok di seluruh Indonesia.' },
+                    { icon: 'progress', title: 'Tracking Produksi', desc: 'Pemantauan target vs realisasi produksi budidaya per komoditas.' },
+                    { icon: 'report', title: 'Laporan Berkala', desc: 'Generate laporan perkembangan budidaya secara periodik dan terstruktur.' },
+                    { icon: 'importexport', title: 'Manajemen Data', desc: 'Pengelolaan data budidaya dengan fitur import dan export.' },
+                    { icon: 'collab', title: 'Koordinasi Tim', desc: 'Fasilitasi koordinasi antar unit pelaksana budidaya tematik.' }
+                ],
+                overview: {
+                    title: 'Tentang Budidaya Tematik & Bioflok',
+                    desc1: 'Program ini mendorong inovasi teknologi bioflok dan budidaya tematik untuk peningkatan produktivitas perikanan.',
+                    desc2: 'Melalui pendekatan tematik, program ini mengoptimalkan potensi budidaya di berbagai wilayah Indonesia.',
+                    highlights: [
+                        'Penerapan teknologi bioflok di 34 provinsi',
+                        'Peningkatan kapasitas pembudidaya ikan',
+                        'Monitoring produksi budidaya secara real-time',
+                        'Integrasi data produksi dengan sistem nasional'
+                    ]
+                },
+                stats: [
+                    { value: '200+', label: 'Lokasi' },
+                    { value: '34', label: 'Provinsi' },
+                    { value: '15+', label: 'Komoditas' },
+                    { value: '24/7', label: 'Monitoring' }
+                ],
+                tahun: [
+                    { year: '2026', desc: 'Data budidaya tematik tahun 2026', url: '#' },
+                    { year: '2025', desc: 'Data budidaya tematik tahun 2025', url: '#' }
+                ],
+                ctaTitle: 'Pantau perkembangan budidaya?',
+                ctaDesc: 'Akses dashboard budidaya tematik dan monitor produksi perikanan.'
+            },
+            bins: {
+                name: 'BINS',
+                tagline: 'Bantuan Insentif Nelayan & Sektor Perikanan',
+                summary: 'BINS adalah program pemberian bantuan insentif bagi nelayan dan pelaku usaha sektor perikanan untuk meningkatkan kesejahteraan dan produktivitas melalui skema bantuan yang terstruktur dan akuntabel.',
+                screenshot: 'img/ss-bins.png',
+                url: '#',
+                color: '#0284C7',
+                colorBg: 'rgba(2, 132, 199, 0.1)',
+                features: [
+                    { icon: 'report', title: 'Pendataan Penerima', desc: 'Sistem pendataan calon penerima bantuan insentif secara digital.' },
+                    { icon: 'eval', title: 'Verifikasi & Validasi', desc: 'Proses verifikasi dan validasi data penerima secara transparan.' },
+                    { icon: 'money', title: 'Tracking Penyaluran', desc: 'Pemantauan proses penyaluran bantuan dari pusat ke daerah.' },
+                    { icon: 'dashboard', title: 'Dashboard Realisasi', desc: 'Visualisasi data realisasi penyaluran bantuan secara real-time.' },
+                    { icon: 'mapicon', title: 'Sebaran Penerima', desc: 'Peta interaktif sebaran penerima bantuan di seluruh Indonesia.' },
+                    { icon: 'importexport', title: 'Export Laporan', desc: 'Pembuatan laporan penyaluran dalam berbagai format dokumen.' }
+                ],
+                overview: {
+                    title: 'Tentang BINS',
+                    desc1: 'BINS memastikan bahwa bantuan insentif untuk nelayan dan pelaku perikanan tersalurkan dengan tepat sasaran.',
+                    desc2: 'Sistem ini mendukung transparansi dan akuntabilitas dalam penyaluran bantuan pemerintah.',
+                    highlights: [
+                        'Pendataan penerima bantuan secara digital',
+                        'Tracking penyaluran dari pusat hingga penerima',
+                        'Dashboard realisasi bantuan per wilayah',
+                        'Laporan akuntabilitas penyaluran bantuan'
+                    ]
+                },
+                stats: [
+                    { value: '10K+', label: 'Penerima' },
+                    { value: '34', label: 'Provinsi' },
+                    { value: '95%', label: 'Tersalurkan' },
+                    { value: 'Real-time', label: 'Monitoring' }
+                ],
+                tahun: [
+                    { year: '2026', desc: 'Data penyaluran BINS tahun 2026', url: '#' },
+                    { year: '2025', desc: 'Data penyaluran BINS tahun 2025', url: '#' }
+                ],
+                ctaTitle: 'Cek status penyaluran bantuan?',
+                ctaDesc: 'Akses BINS dan pantau realisasi penyaluran bantuan insentif nelayan.'
+            },
+            garam: {
+                name: 'Kawasan Garam',
+                tagline: 'Pengembangan Kawasan Pegaraman Nasional',
+                summary: 'Program Kawasan Garam bertujuan untuk mengembangkan kawasan pegaraman nasional melalui modernisasi infrastruktur, peningkatan kualitas produksi garam, dan pemberdayaan petani garam di seluruh wilayah Indonesia.',
+                screenshot: 'img/ss-garam.png',
+                url: '#',
+                color: '#D97706',
+                colorBg: 'rgba(217, 119, 6, 0.1)',
+                features: [
+                    { icon: 'mapicon', title: 'Peta Kawasan Garam', desc: 'Visualisasi lokasi kawasan pegaraman nasional dengan produksi data.' },
+                    { icon: 'progress', title: 'Monitoring Produksi', desc: 'Pemantauan target vs realisasi produksi garam per kawasan.' },
+                    { icon: 'dashboard', title: 'Dashboard Analitik', desc: 'Analisis data produksi, kualitas, dan distribusi garam nasional.' },
+                    { icon: 'report', title: 'Laporan Kawasan', desc: 'Generate laporan perkembangan kawasan garam secara periodik.' },
+                    { icon: 'collab', title: 'Koordinasi Daerah', desc: 'Fasilitasi koordinasi antara pusat dan daerah penghasil garam.' },
+                    { icon: 'importexport', title: 'Manajemen Data', desc: 'Pengelolaan data kawasan garam dengan fitur import-export.' }
+                ],
+                overview: {
+                    title: 'Tentang Kawasan Garam',
+                    desc1: 'Program ini mendukung swasembada garam nasional melalui pengembangan kawasan pegaraman yang modern.',
+                    desc2: 'Fokus pada peningkatan kualitas dan kuantitas produksi garam rakyat untuk memenuhi kebutuhan domestik.',
+                    highlights: [
+                        'Monev kawasan pegaraman di 9 provinsi utama',
+                        'Modernisasi infrastruktur produksi garam',
+                        'Peningkatan kualitas garam rakyat',
+                        'Pemberdayaan petani garam tradisional'
+                    ]
+                },
+                stats: [
+                    { value: '40+', label: 'Kawasan' },
+                    { value: '9', label: 'Provinsi' },
+                    { value: '3.5JT', label: 'Ton/Tahun' },
+                    { value: '100+', label: 'Kelompok' }
+                ],
+                tahun: [
+                    { year: '2026', desc: 'Data kawasan garam tahun 2026', url: '#' },
+                    { year: '2025', desc: 'Data kawasan garam tahun 2025', url: '#' }
+                ],
+                ctaTitle: 'Monitor produksi garam nasional?',
+                ctaDesc: 'Akses dashboard Kawasan Garam dan pantau perkembangan pegaraman.'
+            },
+            kapal: {
+                name: 'Modernisasi Kapal',
+                tagline: 'Program Modernisasi Kapal Perikanan',
+                summary: 'Program Modernisasi Kapal bertujuan untuk memodernisasi armada kapal perikanan nasional melalui bantuan kapal baru, retrofit kapal lama, dan penerapan teknologi penangkapan ikan yang ramah lingkungan.',
+                screenshot: 'img/ss-kapal.png',
+                url: '#',
+                color: '#4f46e5',
+                colorBg: 'rgba(79, 70, 229, 0.1)',
+                features: [
+                    { icon: 'report', title: 'Pendataan Armada', desc: 'Database kapal perikanan nasional dengan spesifikasi teknis lengkap.' },
+                    { icon: 'progress', title: 'Progress Modernisasi', desc: 'Tracking status modernisasi kapal dari perencanaan hingga selesai.' },
+                    { icon: 'mapicon', title: 'Distribusi Armada', desc: 'Peta sebaran armada kapal perikanan di perairan Indonesia.' },
+                    { icon: 'dashboard', title: 'Dashboard KPI', desc: 'Indikator kinerja program modernisasi kapal secara nasional.' },
+                    { icon: 'money', title: 'Tracking Anggaran', desc: 'Pemantauan alokasi dan realisasi anggaran modernisasi kapal.' },
+                    { icon: 'importexport', title: 'Laporan & Export', desc: 'Pembuatan laporan modernisasi kapal dalam berbagai format.' }
+                ],
+                overview: {
+                    title: 'Tentang Modernisasi Kapal',
+                    desc1: 'Program ini memodernisasi armada perikanan untuk meningkatkan efisiensi dan keselamatan operasi.',
+                    desc2: 'Adopsi teknologi modern pada kapal perikanan untuk mendukung penangkapan ikan yang berkelanjutan.',
+                    highlights: [
+                        'Modernisasi 500+ kapal perikanan nasional',
+                        'Penerapan teknologi navigasi dan komunikasi',
+                        'Peningkatan standar keselamatan kapal',
+                        'Program retrofit mesin ramah lingkungan'
+                    ]
+                },
+                stats: [
+                    { value: '500+', label: 'Kapal' },
+                    { value: '20+', label: 'Provinsi' },
+                    { value: '85%', label: 'Realisasi' },
+                    { value: '3 Tipe', label: 'Modernisasi' }
+                ],
+                tahun: [
+                    { year: '2026', desc: 'Data modernisasi kapal tahun 2026', url: '#' },
+                    { year: '2025', desc: 'Data modernisasi kapal tahun 2025', url: '#' }
+                ],
+                ctaTitle: 'Pantau modernisasi armada kapal?',
+                ctaDesc: 'Akses dashboard Modernisasi Kapal dan monitor perkembangan program.'
+            },
+            pantura: {
+                name: 'Revitalisasi Pantura',
+                tagline: 'Revitalisasi Kawasan Pantai Utara Jawa',
+                summary: 'Program Revitalisasi Pantura bertujuan untuk merevitalisasi kawasan Pantai Utara Jawa melalui perbaikan ekosistem, pengembangan infrastruktur perikanan, dan pengelolaan sumber daya pesisir yang berkelanjutan.',
+                screenshot: 'img/ss-pantura.png',
+                url: '#',
+                color: '#0891b2',
+                colorBg: 'rgba(8, 145, 178, 0.1)',
+                features: [
+                    { icon: 'mapicon', title: 'Peta Kawasan Pantura', desc: 'Visualisasi interaktif kawasan revitalisasi di sepanjang Pantai Utara Jawa.' },
+                    { icon: 'progress', title: 'Progress Revitalisasi', desc: 'Tracking kemajuan proyek revitalisasi per lokasi dan komponen.' },
+                    { icon: 'dashboard', title: 'Dashboard Ekosistem', desc: 'Monitoring kondisi ekosistem pesisir Pantura secara berkala.' },
+                    { icon: 'report', title: 'Laporan Proyek', desc: 'Dokumentasi dan pelaporan proyek revitalisasi secara terstruktur.' },
+                    { icon: 'collab', title: 'Koordinasi Stakeholder', desc: 'Platform koordinasi antara pemerintah pusat, daerah, dan masyarakat.' },
+                    { icon: 'eval', title: 'Evaluasi Dampak', desc: 'Penilaian dampak lingkungan dan sosial ekonomi program revitalisasi.' }
+                ],
+                overview: {
+                    title: 'Tentang Revitalisasi Pantura',
+                    desc1: 'Program ini mengembalikan produktivitas kawasan Pantai Utara Jawa yang mengalami degradasi lingkungan.',
+                    desc2: 'Pendekatan terpadu melibatkan perbaikan ekosistem, infrastruktur, dan pemberdayaan masyarakat pesisir.',
+                    highlights: [
+                        'Revitalisasi ekosistem mangrove dan terumbu karang',
+                        'Pembangunan infrastruktur perikanan modern',
+                        'Pemberdayaan nelayan dan masyarakat pesisir',
+                        'Penanganan abrasi dan sedimentasi pantai'
+                    ]
+                },
+                stats: [
+                    { value: '100+', label: 'Lokasi' },
+                    { value: '5', label: 'Provinsi' },
+                    { value: '750km', label: 'Garis Pantai' },
+                    { value: '80%', label: 'Progres' }
+                ],
+                tahun: [
+                    { year: '2026', desc: 'Data revitalisasi Pantura tahun 2026', url: '#' },
+                    { year: '2025', desc: 'Data revitalisasi Pantura tahun 2025', url: '#' }
+                ],
+                ctaTitle: 'Pantau revitalisasi Pantura?',
+                ctaDesc: 'Akses dashboard Revitalisasi Pantura dan monitor kemajuan program.'
+            },
+            waingapu: {
+                name: 'Modeling Tambak Waingapu',
+                tagline: 'Modeling Tambak Udang di Waingapu, NTT',
+                summary: 'Program Modeling Tambak Waingapu adalah proyek percontohan pengembangan tambak udang modern di Waingapu, Nusa Tenggara Timur, menggunakan teknologi terkini untuk meningkatkan produksi udang daerah.',
+                screenshot: 'img/ss-waingapu.png',
+                url: '#',
+                color: '#ea580c',
+                colorBg: 'rgba(234, 88, 12, 0.1)',
+                features: [
+                    { icon: 'dashboard', title: 'Dashboard Tambak', desc: 'Monitoring kondisi tambak udang secara real-time meliputi kualitas air dan pakan.' },
+                    { icon: 'mapicon', title: 'Peta Lokasi Tambak', desc: 'Visualisasi lokasi dan tata letak tambak udang di Waingapu.' },
+                    { icon: 'progress', title: 'Tracking Produksi', desc: 'Pemantauan siklus produksi udang dari tebar benih hingga panen.' },
+                    { icon: 'chart', title: 'Analisis Hasil', desc: 'Analisis produktivitas, survival rate, dan kualitas udang per siklus.' },
+                    { icon: 'report', title: 'Laporan Modeling', desc: 'Dokumentasi hasil modeling untuk replikasi di daerah lain.' },
+                    { icon: 'collab', title: 'Koordinasi Tim', desc: 'Koordinasi antar tim pelaksana di lapangan dan pusat.' }
+                ],
+                overview: {
+                    title: 'Tentang Modeling Tambak Waingapu',
+                    desc1: 'Proyek percontohan ini menjadi model pengembangan tambak udang di wilayah timur Indonesia.',
+                    desc2: 'Menggunakan teknologi intensif dan semi-intensif yang disesuaikan dengan kondisi lokal Waingapu.',
+                    highlights: [
+                        'Proyek percontohan tambak udang terintegrasi',
+                        'Penerapan teknologi budidaya udang modern',
+                        'Model replikasi untuk wilayah timur Indonesia',
+                        'Monitoring kualitas air dan lingkungan real-time'
+                    ]
+                },
+                stats: [
+                    { value: '50+', label: 'Petak Tambak' },
+                    { value: '1', label: 'Lokasi Pilot' },
+                    { value: '90%', label: 'Survival Rate' },
+                    { value: '3x', label: 'Siklus/Tahun' }
+                ],
+                tahun: [
+                    { year: '2026', desc: 'Data tambak Waingapu tahun 2026', url: '#' },
+                    { year: '2025', desc: 'Data tambak Waingapu tahun 2025', url: '#' }
+                ],
+                ctaTitle: 'Pantau produksi tambak Waingapu?',
+                ctaDesc: 'Akses dashboard Modeling Tambak Waingapu dan monitor perkembangan proyek.'
+            },
+            sarpras: {
+                name: 'Sarana Prasarana',
+                tagline: 'Pengelolaan Sarana Prasarana Perikanan',
+                summary: 'Program Sarana Prasarana bertujuan untuk mengelola, memantau, dan mengembangkan sarana dan prasarana perikanan nasional termasuk pelabuhan perikanan, TPI, cold storage, dan fasilitas pendukung lainnya.',
+                screenshot: 'img/ss-sarpras.png',
+                url: '#',
+                color: '#475569',
+                colorBg: 'rgba(71, 85, 105, 0.1)',
+                features: [
+                    { icon: 'report', title: 'Database Aset', desc: 'Pendataan seluruh sarana dan prasarana perikanan nasional.' },
+                    { icon: 'mapicon', title: 'Peta Infrastruktur', desc: 'Visualisasi sebaran infrastruktur perikanan di seluruh Indonesia.' },
+                    { icon: 'progress', title: 'Kondisi & Status', desc: 'Monitoring kondisi fisik dan operasional sarana prasarana.' },
+                    { icon: 'money', title: 'Tracking Anggaran', desc: 'Pemantauan alokasi anggaran pembangunan dan pemeliharaan.' },
+                    { icon: 'dashboard', title: 'Dashboard Analitik', desc: 'Analisis kebutuhan dan prioritas pembangunan infrastruktur.' },
+                    { icon: 'importexport', title: 'Laporan & Export', desc: 'Pembuatan laporan aset dan infrastruktur dalam berbagai format.' }
+                ],
+                overview: {
+                    title: 'Tentang Sarana Prasarana',
+                    desc1: 'Program ini memastikan ketersediaan infrastruktur perikanan yang memadai di seluruh wilayah.',
+                    desc2: 'Pengelolaan aset yang terintegrasi untuk mendukung rantai pasok perikanan nasional.',
+                    highlights: [
+                        'Pendataan 1000+ aset infrastruktur perikanan',
+                        'Monitoring kondisi pelabuhan perikanan',
+                        'Perencanaan pembangunan infrastruktur baru',
+                        'Pengelolaan pemeliharaan aset periodik'
+                    ]
+                },
+                stats: [
+                    { value: '1000+', label: 'Aset' },
+                    { value: '34', label: 'Provinsi' },
+                    { value: '200+', label: 'Pelabuhan' },
+                    { value: 'Rp5T+', label: 'Nilai Aset' }
+                ],
+                tahun: [
+                    { year: '2026', desc: 'Data sarana prasarana tahun 2026', url: '#' },
+                    { year: '2025', desc: 'Data sarana prasarana tahun 2025', url: '#' }
+                ],
+                ctaTitle: 'Kelola infrastruktur perikanan?',
+                ctaDesc: 'Akses dashboard Sarana Prasarana dan monitor kondisi infrastruktur.'
             },
             wbk: {
                 name: 'Monev WBK',
@@ -966,7 +1418,6 @@
         document.getElementById('pdSummary').textContent = program.summary;
         document.getElementById('pdScreenshot').src = program.screenshot;
         document.getElementById('pdScreenshot').alt = 'Screenshot ' + program.name;
-        document.getElementById('pdCtaLink').href = program.url;
 
         // Highlights list
         var highlightsHtml = '';
@@ -989,6 +1440,25 @@
                 '</div>';
         });
         document.getElementById('pdFeaturesGrid').innerHTML = featuresHtml;
+
+        // Tahun cards
+        if (program.tahun && program.tahun.length > 0) {
+            document.getElementById('pdTahunSection').style.display = '';
+            var tahunHtml = '';
+            var calendarIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
+            program.tahun.forEach(function (t, i) {
+                tahunHtml += '<a href="' + t.url + '" class="pd-tahun-card animate-on-scroll" style="transition-delay: ' + (i * 0.08) + 's">' +
+                    '<div class="pd-tahun-icon" style="background: ' + program.colorBg + '; color: ' + program.color + '">' +
+                    calendarIcon +
+                    '</div>' +
+                    '<h3 class="pd-tahun-year">' + t.year + '</h3>' +
+                    '<p class="pd-tahun-desc">' + t.desc + '</p>' +
+                    '<span class="pd-tahun-link">Lihat Data <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></span>' +
+                    '<div class="pd-tahun-accent" style="background: linear-gradient(90deg, ' + program.color + '40, ' + program.color + ', ' + program.color + '40)"></div>' +
+                    '</a>';
+            });
+            document.getElementById('pdTahunGrid').innerHTML = tahunHtml;
+        }
 
 
 

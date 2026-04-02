@@ -150,6 +150,26 @@ button {
     background: #fff1f2;
 }
 
+.bg-teal-50 {
+    background: #f0fdfa;
+}
+
+.bg-indigo-50 {
+    background: #eef2ff;
+}
+
+.bg-cyan-50 {
+    background: #ecfeff;
+}
+
+.bg-orange-50 {
+    background: #fff7ed;
+}
+
+.bg-slate-50 {
+    background: #f8fafc;
+}
+
 .text-rose-600 {
     color: #e11d48;
 }
@@ -184,6 +204,26 @@ button {
 
 .text-violet-600 {
     color: #7c3aed;
+}
+
+.text-teal-600 {
+    color: #0d9488;
+}
+
+.text-indigo-600 {
+    color: #4f46e5;
+}
+
+.text-cyan-600 {
+    color: #0891b2;
+}
+
+.text-orange-600 {
+    color: #ea580c;
+}
+
+.text-slate-600 {
+    color: #475569;
 }
 
 .font-semibold {
@@ -640,10 +680,31 @@ a:focus-visible {
     transition: all 0.2s ease;
 }
 
+.dropdown-menu.dropdown-menu-wide {
+    width: 340px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
 .nav-dropdown.open .dropdown-menu {
     opacity: 1;
     transform: translateX(-50%) scale(1) translateY(0);
     pointer-events: auto;
+}
+
+.dropdown-section-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 12px 4px;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 6px 12px;
 }
 
 .dropdown-item {
@@ -692,6 +753,31 @@ a:focus-visible {
 .dropdown-icon.bg-violet {
     background: rgba(124, 58, 237, 0.1);
     color: #7C3AED;
+}
+
+.dropdown-icon.bg-teal {
+    background: rgba(13, 148, 136, 0.1);
+    color: #0d9488;
+}
+
+.dropdown-icon.bg-indigo {
+    background: rgba(79, 70, 229, 0.1);
+    color: #4f46e5;
+}
+
+.dropdown-icon.bg-cyan {
+    background: rgba(8, 145, 178, 0.1);
+    color: #0891b2;
+}
+
+.dropdown-icon.bg-orange {
+    background: rgba(234, 88, 12, 0.1);
+    color: #ea580c;
+}
+
+.dropdown-icon.bg-slate {
+    background: rgba(71, 85, 105, 0.1);
+    color: #475569;
 }
 
 .dropdown-title {
@@ -775,7 +861,7 @@ a:focus-visible {
 }
 
 .mobile-accordion.open {
-    max-height: 300px;
+    max-height: 600px;
     opacity: 1;
 }
 
@@ -1732,6 +1818,23 @@ a:focus-visible {
     .program-grid {
         grid-template-columns: 1fr 1fr;
     }
+}
+
+@media (min-width: 1024px) {
+    .program-grid.program-grid-4col {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .program-grid.program-grid-3col {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ═══════ MONEV SECTION ═══════ */
+.monev-section {
+    padding: 6rem 0 8rem;
+    background: var(--softbg);
+    position: relative;
 }
 
 .program-card {
