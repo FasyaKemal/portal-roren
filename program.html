@@ -53,16 +53,11 @@
         }
 
         .pd-hero-grid {
-            display: grid;
-            gap: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
             align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .pd-hero-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 4rem;
-            }
+            text-align: center;
         }
 
         .pd-status-badge {
@@ -103,20 +98,22 @@
         }
 
         .pd-summary {
-            font-size: 1rem;
+            font-size: 1.125rem;
             color: #64748b;
             line-height: 1.7;
-            margin-bottom: 1.5rem;
-            max-width: 32rem;
+            margin: 0 auto 1.5rem auto;
+            max-width: 48rem;
+            text-align: justify;
         }
 
         .pd-highlights {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-bottom: 1.75rem;
-            max-width: 32rem;
+            gap: 12px;
+            margin: 0 auto 2.5rem auto;
+            max-width: 48rem;
+            text-align: left;
         }
 
         .pd-highlight-item {
@@ -139,6 +136,7 @@
         .pd-cta-group {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 0.75rem;
         }
 
@@ -197,18 +195,27 @@
         }
 
         .pd-screenshot-card {
-            background: white;
+            background: linear-gradient(90deg, #f1f5f9 25%, #f8fafc 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
             border-radius: 20px;
-            padding: 8px;
+            padding: 4px;
             box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.03);
             overflow: hidden;
+            aspect-ratio: 16 / 9;
+            position: relative;
         }
 
         .pd-screenshot-card img {
             width: 100%;
-            height: auto;
-            border-radius: 14px;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 16px;
             display: block;
+            position: relative;
+            z-index: 2;
+            background: white;
         }
 
         /* ═══════ FEATURES SECTION ═══════ */
@@ -1062,6 +1069,43 @@
                 ctaTitle: 'Pantau perkembangan budidaya?',
                 ctaDesc: 'Akses dashboard budidaya tematik dan monitor produksi perikanan.'
             },
+            pendanaan: {
+                name: 'Pendanaan Inovatif Kolaboratif',
+                tagline: 'Skema Pembiayaan Non-APBN/APBD',
+                summary: 'Pendanaan inovatif adalah skema pembiayaan non-APBN/APBD yang menghimpun sumber dana baru dan kolaboratif untuk pembangunan berkelanjutan, seperti infrastruktur dan ekonomi biru.',
+                screenshot: 'img/ss-pendanaan.jpeg',
+                url: '#',
+                color: '#2563eb',
+                colorBg: 'rgba(37, 99, 235, 0.1)',
+                features: [
+                    { icon: 'dashboard', title: 'Dashboard Pembiayaan', desc: 'Pemantauan sumber dana dan alokasi pembiayaan secara transparan.' },
+                    { icon: 'collab', title: 'Kolaborasi Investasi', desc: 'Menghubungkan investor dengan proyek-proyek berkelanjutan.' },
+                    { icon: 'progress', title: 'Tracking Proyek', desc: 'Pemantauan progres infrastruktur dan ekonomi biru.' }
+                ],
+                overview: {
+                    title: 'Tentang Pendanaan Inovatif Kolaboratif',
+                    desc1: 'Program ini menghimpun sumber dana baru di luar APBN/APBD untuk mempercepat pembangunan berkelanjutan di sektor Kelautan dan Perikanan.',
+                    desc2: 'Fokus utama mencakup pembiayaan infrastruktur, pemberdayaan ekonomi biru, dan inisiatif ramah lingkungan.',
+                    highlights: [
+                        'Skema pembiayaan non-APBN/APBD',
+                        'Mendukung pembangunan ekonomi biru',
+                        'Kolaborasi dengan pihak swasta dan investor',
+                        'Transparansi alokasi dana'
+                    ]
+                },
+                stats: [
+                    { value: '10+', label: 'Mitra Investor' },
+                    { value: 'Rp 1T+', label: 'Target Dana' },
+                    { value: '100%', label: 'Transparan' }
+                ],
+                tahun: [
+                    { year: '2025', desc: 'Inisiasi pendanaan tahun 2025', url: '#' },
+                    { year: '2026', desc: 'Realisasi proyek tahun 2026', url: '#' }
+                ],
+                ctaTitle: 'Pantau proyek pendanaan inovatif?',
+                ctaDesc: 'Akses informasi detail mengenai peluang dan realisasi investasi.'
+            },
+
             minapadi: {
                 name: 'Budidaya Mina Padi',
                 tagline: 'Pengembangan Budidaya Mina Padi',
@@ -1503,6 +1547,13 @@
 
 
     </script>
+
+    <!-- Scroll to Top -->
+    <a href="#top" class="scroll-to-top-link" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </a>
 </body>
 
 </html>
