@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="css/app.css" />
   </head>
 
-  <body>
+  <body id="top">
     <!-- ═══════ SKIP LINK (a11y) ═══════ -->
     <a href="#main-content" class="skip-link">Langsung ke konten utama</a>
 
-    <!-- ═══════ LOADING SCREEN ═══════ -->
-    <div id="loadingScreen" class="loading-screen" role="status" aria-label="Memuat halaman">
+    <!-- ═══════ LOADING SCREEN (CSS-only) ═══════ -->
+    <div class="loading-screen" role="status" aria-label="Memuat halaman">
       <div class="loading-content">
         <div class="loading-logo">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -45,14 +45,14 @@
         </a>
 
         <div class="nav-links">
-          <a href="#top" class="nav-link active" data-section="home">Home</a>
-          <div class="nav-dropdown" id="programDropdown">
-            <button class="nav-link dropdown-toggle" data-section="program" aria-expanded="false" aria-haspopup="true">
+          <a href="#top" class="nav-link active">Home</a>
+          <div class="nav-dropdown">
+            <a href="#program" class="nav-link dropdown-toggle" tabindex="0">
               Program
               <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 9l6 6 6-6" />
               </svg>
-            </button>
+            </a>
             <div class="dropdown-menu dropdown-menu-wide">
               <p class="dropdown-section-label">Program Prioritas KKP</p>
               <a href="program.html?slug=knmp" class="dropdown-item">
@@ -125,31 +125,30 @@
               </a>
             </div>
           </div>
-          <a href="#kontak" class="nav-link" data-section="kontak">Kontak</a>
+          <a href="#kontak" class="nav-link">Kontak</a>
         </div>
 
-        <button class="hamburger" id="hamburger" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobileMenu">
+        <input type="checkbox" id="menuToggle" class="hamburger-checkbox" />
+        <label for="menuToggle" class="hamburger" aria-label="Buka menu navigasi">
           <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 12h16M4 6h16M4 18h16" />
           </svg>
-          <svg class="ham-close hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="ham-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
-        </button>
+        </label>
       </div>
 
-      <div class="mobile-menu hidden" id="mobileMenu" role="menu" aria-label="Menu navigasi mobile">
+      <div class="mobile-menu" role="menu" aria-label="Menu navigasi mobile">
         <div class="mobile-menu-inner">
           <a href="#top" class="mobile-link active">Home</a>
-          <button class="mobile-link mobile-accordion-toggle" aria-expanded="false" aria-controls="mobile-program-list">
-            Program Prioritas
-            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </button>
-          <div class="mobile-accordion hidden">
+          <input type="checkbox" id="mAccord1" class="accordion-checkbox" />
+          <label for="mAccord1" class="mobile-link mobile-accordion-toggle">Program Prioritas
+            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" /></svg>
+          </label>
+          <div class="mobile-accordion">
             <a href="program.html?slug=knmp" class="mobile-sub-link">KNMP</a>
-            <a href="program.html?slug=budidaya" class="mobile-sub-link">Budidaya Tematik & Bioflok</a>
+            <a href="program.html?slug=budidaya" class="mobile-sub-link">Budidaya Tematik &amp; Bioflok</a>
             <a href="program.html?slug=minapadi" class="mobile-sub-link">Budidaya Mina Padi</a>
             <a href="program.html?slug=bins" class="mobile-sub-link">BINS</a>
             <a href="program.html?slug=garam" class="mobile-sub-link">Swasembada Garam</a>
@@ -158,13 +157,11 @@
             <a href="program.html?slug=waingapu" class="mobile-sub-link">Modeling Tambak Waingapu</a>
             <a href="program.html?slug=sarpras" class="mobile-sub-link">Modernisasi Sarpras Pendidikan</a>
           </div>
-          <button class="mobile-link mobile-accordion-toggle" aria-expanded="false">
-            Monitoring & Evaluasi
-            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </button>
-          <div class="mobile-accordion hidden">
+          <input type="checkbox" id="mAccord2" class="accordion-checkbox" />
+          <label for="mAccord2" class="mobile-link mobile-accordion-toggle">Monitoring &amp; Evaluasi
+            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" /></svg>
+          </label>
+          <div class="mobile-accordion">
             <a href="program.html?slug=kinerjaku" class="mobile-sub-link">KinerjaKu</a>
             <a href="program.html?slug=wbk" class="mobile-sub-link">Monev WBK</a>
             <a href="program.html?slug=phln" class="mobile-sub-link">Monev PHLN</a>
@@ -176,7 +173,7 @@
     </nav>
 
     <!-- ═══════ MAIN CONTENT ═══════ -->
-    <main id="main-content" class="min-h-screen bg-white">
+    <main id="main-content">
       <!-- ═══════ TENTANG SECTION ═══════ -->
       <section id="tentang" class="tentang-section" aria-label="Tentang RORENOne">
         <div class="tentang-shapes" aria-hidden="true">

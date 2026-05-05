@@ -68,6 +68,16 @@ button {
     display: none !important;
 }
 
+/* ═══════ Checkbox hacks (hidden inputs) ═══════ */
+.hamburger-checkbox,
+.accordion-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
 .text-ocean {
     color: var(--ocean);
 }
@@ -392,9 +402,8 @@ a:focus-visible {
 
 /* ═══════ Scroll Animations ═══════ */
 .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .animate-on-scroll.visible {
@@ -403,9 +412,8 @@ a:focus-visible {
 }
 
 .animate-on-scroll-right {
-    opacity: 0;
-    transform: translateX(36px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .animate-on-scroll-right.visible {
@@ -489,7 +497,18 @@ a:focus-visible {
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-/* ═══════ LOADING SCREEN ═══════ */
+/* ═══════ LOADING SCREEN (CSS-only auto-hide) ═══════ */
+@keyframes loadingFadeOut {
+    0%, 70% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 .loading-screen {
     position: fixed;
     inset: 0;
@@ -498,12 +517,7 @@ a:focus-visible {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.loading-screen.hidden-loading {
-    opacity: 0;
-    visibility: hidden;
+    animation: loadingFadeOut 1.2s ease forwards;
     pointer-events: none;
 }
 
@@ -659,7 +673,8 @@ a:focus-visible {
     transition: transform 0.2s ease;
 }
 
-.nav-dropdown.open .chevron-icon {
+.nav-dropdown:hover .chevron-icon,
+.nav-dropdown:focus-within .chevron-icon {
     transform: rotate(180deg);
 }
 
@@ -686,7 +701,8 @@ a:focus-visible {
     overflow-y: auto;
 }
 
-.nav-dropdown.open .dropdown-menu {
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
     opacity: 1;
     transform: translateX(-50%) scale(1) translateY(0);
     pointer-events: auto;
@@ -791,12 +807,13 @@ a:focus-visible {
     color: rgba(11, 27, 58, 0.5);
 }
 
-/* Hamburger */
+/* Hamburger (CSS-only checkbox) */
 .hamburger {
     display: flex;
     padding: 8px;
     border-radius: 12px;
     transition: background 0.2s ease;
+    cursor: pointer;
 }
 
 .hamburger:hover {
@@ -809,13 +826,29 @@ a:focus-visible {
     color: var(--navy);
 }
 
+.hamburger .ham-close {
+    display: none;
+}
+
+#menuToggle:checked ~ label.hamburger .ham-open {
+    display: none;
+}
+
+#menuToggle:checked ~ label.hamburger .ham-close {
+    display: block;
+}
+
 @media (min-width: 768px) {
-    .hamburger {
+    .hamburger,
+    .hamburger-checkbox {
         display: none;
+    }
+    .mobile-menu {
+        display: none !important;
     }
 }
 
-/* Mobile Menu */
+/* Mobile Menu (CSS-only checkbox) */
 .mobile-menu {
     overflow: hidden;
     max-height: 0;
@@ -823,8 +856,8 @@ a:focus-visible {
     transition: all 0.3s ease;
 }
 
-.mobile-menu.open {
-    max-height: 500px;
+.navbar:has(#menuToggle:checked) .mobile-menu {
+    max-height: 800px;
     opacity: 1;
 }
 
@@ -857,12 +890,16 @@ a:focus-visible {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
-.mobile-accordion.open {
+.accordion-checkbox:checked + label + .mobile-accordion {
     max-height: 600px;
     opacity: 1;
+}
+
+.accordion-checkbox:checked + label .chevron-icon {
+    transform: rotate(180deg);
 }
 
 .mobile-sub-link {
@@ -2342,8 +2379,8 @@ a:focus-visible {
     color: rgba(255, 255, 255, 0.4);
 }
 
-/* ═══════ SCROLL TO TOP ═══════ */
-.scroll-to-top {
+/* ═══════ SCROLL TO TOP (CSS-only link) ═══════ */
+.scroll-to-top-link {
     position: fixed;
     bottom: 24px;
     right: 24px;
@@ -2358,21 +2395,15 @@ a:focus-visible {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
     z-index: 40;
-    opacity: 0;
-    pointer-events: none;
+    text-decoration: none;
 }
 
-.scroll-to-top.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.scroll-to-top:hover {
+.scroll-to-top-link:hover {
     background: var(--navy-light);
     transform: translateY(-2px);
 }
 
-.scroll-to-top svg {
+.scroll-to-top-link svg {
     width: 20px;
     height: 20px;
 }
