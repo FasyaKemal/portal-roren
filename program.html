@@ -50,18 +50,13 @@
         height: 16px;
       }
 
-      .pd-hero-grid {
-        display: grid;
-        gap: 2.5rem;
-        align-items: center;
-      }
-
-      @media (min-width: 1024px) {
         .pd-hero-grid {
-          grid-template-columns: 1fr 1fr;
-          gap: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            align-items: center;
+            text-align: center;
         }
-      }
 
       .pd-status-badge {
         display: inline-flex;
@@ -100,22 +95,24 @@
         }
       }
 
-      .pd-summary {
-        font-size: 1rem;
-        color: #64748b;
-        line-height: 1.7;
-        margin-bottom: 1.5rem;
-        max-width: 32rem;
-      }
+        .pd-summary {
+            font-size: 1.125rem;
+            color: #64748b;
+            line-height: 1.7;
+            margin: 0 auto 1.5rem auto;
+            max-width: 48rem;
+            text-align: justify;
+        }
 
-      .pd-highlights {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-bottom: 1.75rem;
-        max-width: 32rem;
-      }
+        .pd-highlights {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 0 auto 2.5rem auto;
+            max-width: 48rem;
+            text-align: left;
+        }
 
       .pd-highlight-item {
         display: flex;
@@ -134,11 +131,12 @@
         margin-top: 1px;
       }
 
-      .pd-cta-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-      }
+        .pd-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+        }
 
       .pd-btn-primary {
         display: inline-flex;
@@ -194,22 +192,29 @@
         position: relative;
       }
 
-      .pd-screenshot-card {
-        background: white;
-        border-radius: 20px;
-        padding: 8px;
-        box-shadow:
-          0 20px 60px -15px rgba(0, 0, 0, 0.12),
-          0 0 0 1px rgba(0, 0, 0, 0.03);
-        overflow: hidden;
-      }
+        .pd-screenshot-card {
+            background: linear-gradient(90deg, #f1f5f9 25%, #f8fafc 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+            border-radius: 20px;
+            padding: 4px;
+            box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            position: relative;
+        }
 
-      .pd-screenshot-card img {
-        width: 100%;
-        height: auto;
-        border-radius: 14px;
-        display: block;
-      }
+        .pd-screenshot-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 16px;
+            display: block;
+            position: relative;
+            z-index: 2;
+            background: white;
+        }
 
       /* ═══════ FEATURES SECTION ═══════ */
       .pd-features {
@@ -994,425 +999,514 @@
 
     <script src="js/app.js"></script>
     <script>
-      // ═══════ PROGRAM DATA ═══════
-      var programs = {
-        kinerjaku: {
-          name: 'KinerjaKu',
-          tagline: 'Dashboard Kinerja Organisasi Terintegrasi',
-          summary:
-            'KinerjaKu merupakan platform digital terintegrasi untuk pengelolaan dan pemantauan kinerja organisasi di lingkungan Kementerian Kelautan dan Perikanan. Sistem ini memungkinkan pengukuran, pelaporan, dan analisis capaian kinerja seluruh unit kerja secara real-time dan transparan.',
-          screenshot: 'img/ss-kinerjaku.png',
-          url: '#',
-          color: '#0284C7',
-          colorBg: 'rgba(2, 132, 199, 0.1)',
-          features: [
-            { icon: 'chart', title: 'Dashboard Interaktif', desc: 'Visualisasi data kinerja real-time dengan grafik dan chart yang mudah dipahami.' },
-            { icon: 'target', title: 'Penetapan Indikator', desc: 'Pengelolaan IKU dan IKK dengan target terukur per unit kerja.' },
-            { icon: 'report', title: 'Laporan Otomatis', desc: 'Generate laporan SAKIP, LKJ, dan capaian kinerja secara otomatis.' },
-            { icon: 'monitor', title: 'Monitoring Cascading', desc: 'Pemantauan cascading kinerja dari level eselon I hingga pelaksana.' },
-            { icon: 'eval', title: 'Evaluasi Berkala', desc: 'Sistem evaluasi kinerja triwulanan, semesteran, dan tahunan.' },
-            { icon: 'notify', title: 'Notifikasi & Reminder', desc: 'Pengingat otomatis untuk deadline pelaporan dan review kinerja.' },
-          ],
-          overview: {
-            title: 'Tentang KinerjaKu',
-            desc1:
-              'KinerjaKu dirancang untuk mendukung implementasi Sistem Akuntabilitas Kinerja Instansi Pemerintah (SAKIP) di KKP. Platform ini mengintegrasikan seluruh proses pengelolaan kinerja mulai dari perencanaan, penetapan target, monitoring capaian, hingga evaluasi dan pelaporan.',
-            desc2: 'Dengan antarmuka yang modern dan user-friendly, KinerjaKu memudahkan seluruh pegawai di lingkungan KKP untuk menginput, memantau, dan mengevaluasi kinerja mereka secara mandiri.',
-            highlights: [
-              'Terintegrasi dengan sistem e-Kinerja nasional',
-              'Dashboard analytics dengan 15+ jenis visualisasi data',
-              'Role-based access control untuk setiap level jabatan',
-              'Export laporan dalam format PDF, Excel, dan PowerPoint',
-            ],
-          },
-          stats: [
-            { value: '500+', label: 'Pengguna Aktif' },
-            { value: '50+', label: 'Unit Kerja' },
-            { value: '99.9%', label: 'Uptime Sistem' },
-            { value: '24/7', label: 'Akses Portal' },
-          ],
-          ctaTitle: 'Siap memantau kinerja organisasi?',
-          ctaDesc: 'Akses KinerjaKu sekarang dan pantau capaian kinerja unit kerja Anda secara real-time.',
-        },
-        knmp: {
-          name: 'KNMP',
-          tagline: 'Kampung Nelayan Merah Putih',
-          summary:
-            'KNMP (Kampung Nelayan Merah Putih) adalah program prioritas KKP untuk pemberdayaan kawasan pesisir melalui pengembangan infrastruktur nelayan, peningkatan kapasitas SDM, dan pembangunan ekonomi masyarakat pesisir secara berkelanjutan.',
-          screenshot: 'img/ss-knmp.png',
-          url: '#',
-          color: '#059669',
-          colorBg: 'rgba(5, 150, 105, 0.1)',
-          features: [
-            { icon: 'dashboard', title: 'Dashboard Interaktif', desc: 'Ringkasan data dan statistik KNMP secara real-time dengan peta lokasi interaktif.' },
-            { icon: 'questionnaire', title: 'Kuesioner Multi-Bagian', desc: 'Input data survei mencakup 10 bagian terintegrasi dari profil hingga sosial kelembagaan.' },
-            { icon: 'importexport', title: 'Import & Export Data', desc: 'Import data massal dari Excel dan ekspor laporan dalam format Excel maupun PDF.' },
-            { icon: 'access', title: 'Manajemen Hak Akses', desc: 'Pengaturan akses pengguna berbasis peran (role) dan wilayah KNMP.' },
-            { icon: 'progress', title: 'Monitoring Progres', desc: 'Pemantauan progres pembangunan KNMP per komponen, target, dan realisasi.' },
-            { icon: 'actlog', title: 'Activity Log', desc: 'Pencatatan otomatis seluruh aktivitas pengguna untuk akuntabilitas sistem.' },
-          ],
-          overview: {
-            title: 'Tentang KNMP',
-            desc1: 'Program KNMP dikembangkan untuk memastikan pemberdayaan kawasan pesisir berjalan sesuai target nasional.',
-            desc2: 'Platform ini memfasilitasi koordinasi lintas sektor dan wilayah, dengan dukungan visualisasi data interaktif.',
-            highlights: ['Pemantauan seluruh indikator capaian KNMP secara nasional', 'Evaluasi kinerja & distribusi anggaran pembangunan', 'Integrasi data dari seluruh lokasi KNMP', 'Sistem pelaporan terstandar sesuai regulasi'],
-          },
-          stats: [
-            { value: '172+', label: 'Indikator' },
-            { value: '34', label: 'Provinsi' },
-            { value: '98%', label: 'Akurasi Data' },
-            { value: 'Real-time', label: 'Update' },
-          ],
-          tahun: [
-            { year: '2025', desc: 'Data pelaksanaan KNMP tahun 2025', url: '#' },
-            { year: '2026', desc: 'Data pelaksanaan KNMP tahun 2026', url: '#' },
-          ],
-          ctaTitle: 'Pantau capaian KNMP nasional?',
-          ctaDesc: 'Akses KNMP dan monitor progres pelaksanaan kebijakan perikanan secara realtime.',
-        },
-        budidaya: {
-          name: 'Budidaya Tematik & Bioflok',
-          tagline: 'Pengembangan Budidaya Teknologi Bioflok',
-          summary: 'Program Budidaya Tematik dan Bioflok bertujuan untuk mengembangkan teknologi budidaya perikanan modern berbasis bioflok untuk meningkatkan produksi perikanan budidaya nasional.',
-          screenshot: 'img/ss-budidaya.png',
-          url: '#',
-          color: '#0d9488',
-          colorBg: 'rgba(13, 148, 136, 0.1)',
-          features: [
-            { icon: 'dashboard', title: 'Dashboard Monitoring', desc: 'Pemantauan produksi dan perkembangan budidaya tematik secara real-time.' },
-            { icon: 'mapicon', title: 'Peta Sebaran', desc: 'Visualisasi lokasi budidaya tematik dan bioflok di seluruh Indonesia.' },
-            { icon: 'progress', title: 'Tracking Produksi', desc: 'Pemantauan target vs realisasi produksi budidaya per komoditas.' },
-            { icon: 'report', title: 'Laporan Berkala', desc: 'Generate laporan perkembangan budidaya secara periodik dan terstruktur.' },
-            { icon: 'importexport', title: 'Manajemen Data', desc: 'Pengelolaan data budidaya dengan fitur import dan export.' },
-            { icon: 'collab', title: 'Koordinasi Tim', desc: 'Fasilitasi koordinasi antar unit pelaksana budidaya tematik.' },
-          ],
-          overview: {
-            title: 'Tentang Budidaya Tematik & Bioflok',
-            desc1: 'Program ini mendorong inovasi teknologi bioflok dan budidaya tematik untuk peningkatan produktivitas perikanan.',
-            desc2: 'Melalui pendekatan tematik, program ini mengoptimalkan potensi budidaya di berbagai wilayah Indonesia.',
-            highlights: ['Penerapan teknologi bioflok di 34 provinsi', 'Peningkatan kapasitas pembudidaya ikan', 'Monitoring produksi budidaya secara real-time', 'Integrasi data produksi dengan sistem nasional'],
-          },
-          stats: [
-            { value: '200+', label: 'Lokasi' },
-            { value: '34', label: 'Provinsi' },
-            { value: '15+', label: 'Komoditas' },
-            { value: '24/7', label: 'Monitoring' },
-          ],
-          tahun: [
-            { year: '2025', desc: 'Data budidaya tematik tahun 2025', url: '#' },
-            { year: '2026', desc: 'Data budidaya tematik tahun 2026', url: '#' },
-          ],
-          ctaTitle: 'Pantau perkembangan budidaya?',
-          ctaDesc: 'Akses dashboard budidaya tematik dan monitor produksi perikanan.',
-        },
-        minapadi: {
-          name: 'Budidaya Mina Padi',
-          tagline: 'Pengembangan Budidaya Mina Padi',
-          summary: 'Program Budidaya Mina Padi bertujuan untuk mengembangkan sistem budidaya terintegrasi antara ikan dan padi di lahan persawahan untuk meningkatkan produktivitas pertanian dan perikanan secara bersamaan.',
-          screenshot: 'img/ss-minapadi.png',
-          url: '#',
-          color: '#0d9488',
-          colorBg: 'rgba(13, 148, 136, 0.1)',
-          features: [
-            { icon: 'dashboard', title: 'Dashboard Monitoring', desc: 'Pemantauan produksi mina padi secara real-time.' },
-            { icon: 'mapicon', title: 'Peta Sebaran', desc: 'Visualisasi lokasi budidaya mina padi di seluruh Indonesia.' },
-            { icon: 'progress', title: 'Tracking Produksi', desc: 'Pemantauan target vs realisasi produksi mina padi.' },
-            { icon: 'report', title: 'Laporan Berkala', desc: 'Generate laporan perkembangan budidaya mina padi secara periodik.' },
-            { icon: 'importexport', title: 'Manajemen Data', desc: 'Pengelolaan data budidaya dengan fitur import dan export.' },
-            { icon: 'collab', title: 'Koordinasi Tim', desc: 'Fasilitasi koordinasi antar unit pelaksana budidaya mina padi.' },
-          ],
-          overview: {
-            title: 'Tentang Budidaya Mina Padi',
-            desc1: 'Program ini mengintegrasikan budidaya ikan dengan tanaman padi untuk optimalisasi lahan persawahan.',
-            desc2: 'Melalui sistem mina padi, petani dapat memperoleh hasil panen ikan dan padi secara bersamaan.',
-            highlights: ['Integrasi budidaya ikan dan padi di lahan sawah', 'Peningkatan pendapatan petani dan pembudidaya', 'Monitoring produksi mina padi secara real-time', 'Pendampingan teknis dan pelatihan petani'],
-          },
-          stats: [
-            { value: '150+', label: 'Lokasi' },
-            { value: '20+', label: 'Provinsi' },
-            { value: '10+', label: 'Komoditas' },
-            { value: '24/7', label: 'Monitoring' },
-          ],
-          tahun: [
-            { year: '2025', desc: 'Data budidaya mina padi tahun 2025', url: '#' },
-            { year: '2026', desc: 'Data budidaya mina padi tahun 2026', url: '#' },
-          ],
-          ctaTitle: 'Pantau perkembangan mina padi?',
-          ctaDesc: 'Akses dashboard budidaya mina padi dan monitor produksi.',
-        },
-        bins: {
-          name: 'BINS',
-          tagline: 'Budidaya Ikan Nila Salin',
-          summary: 'BINS (Budidaya Ikan Nila Salin) adalah program pengembangan budidaya ikan nila salin untuk meningkatkan produksi perikanan budidaya di kawasan pesisir dan tambak air payau.',
-          screenshot: 'img/ss-bins.png',
-          url: '#',
-          color: '#0284C7',
-          colorBg: 'rgba(2, 132, 199, 0.1)',
-          features: [
-            { icon: 'report', title: 'Pendataan Penerima', desc: 'Sistem pendataan calon penerima bantuan insentif secara digital.' },
-            { icon: 'eval', title: 'Verifikasi & Validasi', desc: 'Proses verifikasi dan validasi data penerima secara transparan.' },
-            { icon: 'money', title: 'Tracking Penyaluran', desc: 'Pemantauan proses penyaluran bantuan dari pusat ke daerah.' },
-            { icon: 'dashboard', title: 'Dashboard Realisasi', desc: 'Visualisasi data realisasi penyaluran bantuan secara real-time.' },
-            { icon: 'mapicon', title: 'Sebaran Penerima', desc: 'Peta interaktif sebaran penerima bantuan di seluruh Indonesia.' },
-            { icon: 'importexport', title: 'Export Laporan', desc: 'Pembuatan laporan penyaluran dalam berbagai format dokumen.' },
-          ],
-          overview: {
-            title: 'Tentang BINS',
-            desc1: 'BINS memastikan bahwa bantuan insentif untuk nelayan dan pelaku perikanan tersalurkan dengan tepat sasaran.',
-            desc2: 'Sistem ini mendukung transparansi dan akuntabilitas dalam penyaluran bantuan pemerintah.',
-            highlights: ['Pendataan penerima bantuan secara digital', 'Tracking penyaluran dari pusat hingga penerima', 'Dashboard realisasi bantuan per wilayah', 'Laporan akuntabilitas penyaluran bantuan'],
-          },
-          stats: [
-            { value: '10K+', label: 'Penerima' },
-            { value: '34', label: 'Provinsi' },
-            { value: '95%', label: 'Tersalurkan' },
-            { value: 'Real-time', label: 'Monitoring' },
-          ],
-          tahun: [{ year: '2025', desc: 'Data BINS tahun 2025', url: '#' }],
-          ctaTitle: 'Cek status penyaluran bantuan?',
-          ctaDesc: 'Akses BINS dan pantau realisasi penyaluran bantuan insentif nelayan.',
-        },
-        garam: {
-          name: 'Swasembada Garam',
-          tagline: 'Pengembangan Kawasan Pergaraman Nasional',
-          summary: 'Program Swasembada Garam bertujuan untuk mengembangkan kawasan pergaraman nasional melalui modernisasi infrastruktur, peningkatan kualitas produksi garam, dan pemberdayaan petani garam di seluruh wilayah Indonesia.',
-          screenshot: 'img/ss-garam.png',
-          url: '#',
-          color: '#D97706',
-          colorBg: 'rgba(217, 119, 6, 0.1)',
-          features: [
-            { icon: 'mapicon', title: 'Peta Kawasan Garam', desc: 'Visualisasi lokasi kawasan pegaraman nasional dengan produksi data.' },
-            { icon: 'progress', title: 'Monitoring Produksi', desc: 'Pemantauan target vs realisasi produksi garam per kawasan.' },
-            { icon: 'dashboard', title: 'Dashboard Analitik', desc: 'Analisis data produksi, kualitas, dan distribusi garam nasional.' },
-            { icon: 'report', title: 'Laporan Kawasan', desc: 'Generate laporan perkembangan kawasan garam secara periodik.' },
-            { icon: 'collab', title: 'Koordinasi Daerah', desc: 'Fasilitasi koordinasi antara pusat dan daerah penghasil garam.' },
-            { icon: 'importexport', title: 'Manajemen Data', desc: 'Pengelolaan data kawasan garam dengan fitur import-export.' },
-          ],
-          overview: {
-            title: 'Tentang Kawasan Garam',
-            desc1: 'Program ini mendukung swasembada garam nasional melalui pengembangan kawasan pegaraman yang modern.',
-            desc2: 'Fokus pada peningkatan kualitas dan kuantitas produksi garam rakyat untuk memenuhi kebutuhan domestik.',
-            highlights: ['Monev kawasan pegaraman di 9 provinsi utama', 'Modernisasi infrastruktur produksi garam', 'Peningkatan kualitas garam rakyat', 'Pemberdayaan petani garam tradisional'],
-          },
-          stats: [
-            { value: '40+', label: 'Kawasan' },
-            { value: '9', label: 'Provinsi' },
-            { value: '3.5JT', label: 'Ton/Tahun' },
-            { value: '100+', label: 'Kelompok' },
-          ],
-          tahun: [
-            { year: '2025', desc: 'Data swasembada garam tahun 2025', url: '#' },
-            { year: '2026', desc: 'Data swasembada garam tahun 2026', url: '#' },
-          ],
-          ctaTitle: 'Monitor produksi garam nasional?',
-          ctaDesc: 'Akses dashboard Kawasan Garam dan pantau perkembangan pegaraman.',
-        },
-        kapal: {
-          name: 'Modernisasi Kapal',
-          tagline: 'Program Modernisasi Kapal Perikanan',
-          summary: 'Program Modernisasi Kapal bertujuan untuk memodernisasi armada kapal perikanan nasional melalui bantuan kapal baru, retrofit kapal lama, dan penerapan teknologi penangkapan ikan yang ramah lingkungan.',
-          screenshot: 'img/ss-kapal.png',
-          url: '#',
-          color: '#4f46e5',
-          colorBg: 'rgba(79, 70, 229, 0.1)',
-          features: [
-            { icon: 'report', title: 'Pendataan Armada', desc: 'Database kapal perikanan nasional dengan spesifikasi teknis lengkap.' },
-            { icon: 'progress', title: 'Progress Modernisasi', desc: 'Tracking status modernisasi kapal dari perencanaan hingga selesai.' },
-            { icon: 'mapicon', title: 'Distribusi Armada', desc: 'Peta sebaran armada kapal perikanan di perairan Indonesia.' },
-            { icon: 'dashboard', title: 'Dashboard KPI', desc: 'Indikator kinerja program modernisasi kapal secara nasional.' },
-            { icon: 'money', title: 'Tracking Anggaran', desc: 'Pemantauan alokasi dan realisasi anggaran modernisasi kapal.' },
-            { icon: 'importexport', title: 'Laporan & Export', desc: 'Pembuatan laporan modernisasi kapal dalam berbagai format.' },
-          ],
-          overview: {
-            title: 'Tentang Modernisasi Kapal',
-            desc1: 'Program ini memodernisasi armada perikanan untuk meningkatkan efisiensi dan keselamatan operasi.',
-            desc2: 'Adopsi teknologi modern pada kapal perikanan untuk mendukung penangkapan ikan yang berkelanjutan.',
-            highlights: ['Modernisasi 500+ kapal perikanan nasional', 'Penerapan teknologi navigasi dan komunikasi', 'Peningkatan standar keselamatan kapal', 'Program retrofit mesin ramah lingkungan'],
-          },
-          stats: [
-            { value: '500+', label: 'Kapal' },
-            { value: '20+', label: 'Provinsi' },
-            { value: '85%', label: 'Realisasi' },
-            { value: '3 Tipe', label: 'Modernisasi' },
-          ],
-          tahun: [
-            { year: '2025', desc: 'Data modernisasi kapal tahun 2025', url: '#' },
-            { year: '2026', desc: 'Data modernisasi kapal tahun 2026', url: '#' },
-          ],
-          ctaTitle: 'Pantau modernisasi armada kapal?',
-          ctaDesc: 'Akses dashboard Modernisasi Kapal dan monitor perkembangan program.',
-        },
-        pantura: {
-          name: 'Revitalisasi Pantura',
-          tagline: 'Revitalisasi Kawasan Pantai Utara Jawa',
-          summary:
-            'Program Revitalisasi Pantura bertujuan untuk merevitalisasi kawasan Pantai Utara Jawa untuk budidaya perikanan melalui perbaikan ekosistem, pengembangan infrastruktur perikanan, dan pengelolaan sumber daya pesisir yang berkelanjutan.',
-          screenshot: 'img/ss-pantura.png',
-          url: '#',
-          color: '#0891b2',
-          colorBg: 'rgba(8, 145, 178, 0.1)',
-          features: [
-            { icon: 'mapicon', title: 'Peta Kawasan Pantura', desc: 'Visualisasi interaktif kawasan revitalisasi di sepanjang Pantai Utara Jawa.' },
-            { icon: 'progress', title: 'Progress Revitalisasi', desc: 'Tracking kemajuan proyek revitalisasi per lokasi dan komponen.' },
-            { icon: 'dashboard', title: 'Dashboard Ekosistem', desc: 'Monitoring kondisi ekosistem pesisir Pantura secara berkala.' },
-            { icon: 'report', title: 'Laporan Proyek', desc: 'Dokumentasi dan pelaporan proyek revitalisasi secara terstruktur.' },
-            { icon: 'collab', title: 'Koordinasi Stakeholder', desc: 'Platform koordinasi antara pemerintah pusat, daerah, dan masyarakat.' },
-            { icon: 'eval', title: 'Evaluasi Dampak', desc: 'Penilaian dampak lingkungan dan sosial ekonomi program revitalisasi.' },
-          ],
-          overview: {
-            title: 'Tentang Revitalisasi Pantura',
-            desc1: 'Program ini mengembalikan produktivitas kawasan Pantai Utara Jawa yang mengalami degradasi lingkungan.',
-            desc2: 'Pendekatan terpadu melibatkan perbaikan ekosistem, infrastruktur, dan pemberdayaan masyarakat pesisir.',
-            highlights: ['Revitalisasi ekosistem mangrove dan terumbu karang', 'Pembangunan infrastruktur perikanan modern', 'Pemberdayaan nelayan dan masyarakat pesisir', 'Penanganan abrasi dan sedimentasi pantai'],
-          },
-          stats: [
-            { value: '100+', label: 'Lokasi' },
-            { value: '5', label: 'Provinsi' },
-            { value: '750km', label: 'Garis Pantai' },
-            { value: '80%', label: 'Progres' },
-          ],
-          tahun: [
-            { year: '2025', desc: 'Data revitalisasi Pantura tahun 2025', url: '#' },
-            { year: '2026', desc: 'Data revitalisasi Pantura tahun 2026', url: '#' },
-          ],
-          ctaTitle: 'Pantau revitalisasi Pantura?',
-          ctaDesc: 'Akses dashboard Revitalisasi Pantura dan monitor kemajuan program.',
-        },
-        waingapu: {
-          name: 'Modeling Tambak Waingapu',
-          tagline: 'Pembangunan Tambak Udang Terintegrasi Waingapu',
-          summary: 'Program Modeling Tambak Waingapu adalah proyek pembangunan tambak udang terintegrasi di Waingapu, Nusa Tenggara Timur, menggunakan teknologi terkini untuk meningkatkan produksi udang daerah.',
-          screenshot: 'img/ss-waingapu.png',
-          url: '#',
-          color: '#ea580c',
-          colorBg: 'rgba(234, 88, 12, 0.1)',
-          features: [
-            { icon: 'dashboard', title: 'Dashboard Tambak', desc: 'Monitoring kondisi tambak udang secara real-time meliputi kualitas air dan pakan.' },
-            { icon: 'mapicon', title: 'Peta Lokasi Tambak', desc: 'Visualisasi lokasi dan tata letak tambak udang di Waingapu.' },
-            { icon: 'progress', title: 'Tracking Produksi', desc: 'Pemantauan siklus produksi udang dari tebar benih hingga panen.' },
-            { icon: 'chart', title: 'Analisis Hasil', desc: 'Analisis produktivitas, survival rate, dan kualitas udang per siklus.' },
-            { icon: 'report', title: 'Laporan Modeling', desc: 'Dokumentasi hasil modeling untuk replikasi di daerah lain.' },
-            { icon: 'collab', title: 'Koordinasi Tim', desc: 'Koordinasi antar tim pelaksana di lapangan dan pusat.' },
-          ],
-          overview: {
-            title: 'Tentang Modeling Tambak Waingapu',
-            desc1: 'Proyek percontohan ini menjadi model pengembangan tambak udang di wilayah timur Indonesia.',
-            desc2: 'Menggunakan teknologi intensif dan semi-intensif yang disesuaikan dengan kondisi lokal Waingapu.',
-            highlights: ['Proyek percontohan tambak udang terintegrasi', 'Penerapan teknologi budidaya udang modern', 'Model replikasi untuk wilayah timur Indonesia', 'Monitoring kualitas air dan lingkungan real-time'],
-          },
-          stats: [
-            { value: '50+', label: 'Petak Tambak' },
-            { value: '1', label: 'Lokasi Pilot' },
-            { value: '90%', label: 'Survival Rate' },
-            { value: '3x', label: 'Siklus/Tahun' },
-          ],
-          tahun: [
-            { year: '2025', desc: 'Data tambak Waingapu tahun 2025', url: '#' },
-            { year: '2026', desc: 'Data tambak Waingapu tahun 2026', url: '#' },
-          ],
-          ctaTitle: 'Pantau produksi tambak Waingapu?',
-          ctaDesc: 'Akses dashboard Modeling Tambak Waingapu dan monitor perkembangan proyek.',
-        },
-        sarpras: {
-          name: 'Modernisasi Sarana Prasarana Pendidikan',
-          tagline: 'Pembangunan Sarpras Pendidikan Kelautan dan Perikanan',
-          summary: 'Program Modernisasi Sarana Prasarana Pendidikan bertujuan untuk membangun dan mengembangkan sarana dan prasarana pendidikan Kelautan dan Perikanan di seluruh wilayah Indonesia.',
-          screenshot: 'img/ss-sarpras.png',
-          url: '#',
-          color: '#475569',
-          colorBg: 'rgba(71, 85, 105, 0.1)',
-          features: [
-            { icon: 'report', title: 'Database Aset', desc: 'Pendataan seluruh sarana dan prasarana perikanan nasional.' },
-            { icon: 'mapicon', title: 'Peta Infrastruktur', desc: 'Visualisasi sebaran infrastruktur perikanan di seluruh Indonesia.' },
-            { icon: 'progress', title: 'Kondisi & Status', desc: 'Monitoring kondisi fisik dan operasional sarana prasarana.' },
-            { icon: 'money', title: 'Tracking Anggaran', desc: 'Pemantauan alokasi anggaran pembangunan dan pemeliharaan.' },
-            { icon: 'dashboard', title: 'Dashboard Analitik', desc: 'Analisis kebutuhan dan prioritas pembangunan infrastruktur.' },
-            { icon: 'importexport', title: 'Laporan & Export', desc: 'Pembuatan laporan aset dan infrastruktur dalam berbagai format.' },
-          ],
-          overview: {
-            title: 'Tentang Sarana Prasarana',
-            desc1: 'Program ini memastikan ketersediaan infrastruktur perikanan yang memadai di seluruh wilayah.',
-            desc2: 'Pengelolaan aset yang terintegrasi untuk mendukung rantai pasok perikanan nasional.',
-            highlights: ['Pendataan 1000+ aset infrastruktur perikanan', 'Monitoring kondisi pelabuhan perikanan', 'Perencanaan pembangunan infrastruktur baru', 'Pengelolaan pemeliharaan aset periodik'],
-          },
-          stats: [
-            { value: '1000+', label: 'Aset' },
-            { value: '34', label: 'Provinsi' },
-            { value: '200+', label: 'Pelabuhan' },
-            { value: 'Rp5T+', label: 'Nilai Aset' },
-          ],
-          tahun: [
-            { year: '2025', desc: 'Data sarpras pendidikan tahun 2025', url: '#' },
-            { year: '2026', desc: 'Data sarpras pendidikan tahun 2026', url: '#' },
-          ],
-          ctaTitle: 'Kelola infrastruktur pendidikan KP?',
-          ctaDesc: 'Akses dashboard Modernisasi Sarpras Pendidikan dan monitor pembangunan.',
-        },
-        wbk: {
-          name: 'Monev WBK',
-          tagline: 'Dashboard Zona Integritas & Anti Korupsi',
-          summary:
-            'Monev WBK adalah platform pemantauan komprehensif untuk pembangunan Zona Integritas menuju Wilayah Bebas dari Korupsi (WBK) dan Wilayah Birokrasi Bersih dan Melayani (WBBM) di lingkungan Kementerian Kelautan dan Perikanan.',
-          screenshot: 'img/ss-wbk.png',
-          url: '#',
-          color: '#D97706',
-          colorBg: 'rgba(217, 119, 6, 0.1)',
-          features: [
-            { icon: 'progress', title: 'Progress Tracking', desc: 'Pemantauan progres pelaksanaan WBK per aspek reformasi birokrasi secara berkala dan real-time.' },
-            { icon: 'eval', title: 'Evaluasi Periodik', desc: 'Pelaksanaan evaluasi per semester (Semester I & II) dengan perhitungan capaian sub-total dan total keseluruhan.' },
-            { icon: 'multiaspect', title: 'Multi-Aspek Monitoring', desc: 'Monitoring terintegrasi untuk 6+ aspek: Manajemen Perubahan, Tatalaksana, SDM, Akuntabilitas, Pengawasan, dan Pelayanan Publik.' },
-            { icon: 'report', title: 'Laporan & Export', desc: 'Report builder dengan fitur export data evaluasi ke format dokumen standar untuk keperluan pelaporan.' },
-            { icon: 'collab', title: 'Kolaborasi Tim', desc: 'Manajemen pengguna multi-role dengan sistem komentar dan activity log untuk koordinasi antar tim penilai.' },
-            { icon: 'dashboard', title: 'Data Analytics', desc: 'Visualisasi data capaian melalui chart interaktif (bar chart per aspek) dan dashboard KPI untuk mendukung pengambilan keputusan.' },
-          ],
-          overview: {
-            title: 'Tentang Monev WBK',
-            desc1: 'Monev WBK merupakan alat bantu utama dalam pembangunan Zona Integritas di lingkungan KKP. Sistem ini mengacu pada Peraturan Menteri PANRB tentang pedoman pembangunan ZI menuju WBK/WBBM.',
-            desc2: 'Platform ini mencakup 6 area perubahan utama: Manajemen Perubahan, Penataan Tatalaksana, Penataan Manajemen SDM, Penguatan Akuntabilitas Kinerja, Penguatan Pengawasan, dan Peningkatan Kualitas Pelayanan Publik.',
-            highlights: ['Monitoring 6 area perubahan Zona Integritas', 'Checklist dokumen pendukung per komponen', 'Status pengajuan & audit tracking', 'Jadwal evaluasi dan pengumuman terkini'],
-          },
-          stats: [
-            { value: '78%', label: 'Capaian ZI' },
-            { value: '6', label: 'Area Perubahan' },
-            { value: '100+', label: 'Indikator' },
-            { value: 'A', label: 'Predikat' },
-          ],
-          ctaTitle: 'Monitor pembangunan Zona Integritas?',
-          ctaDesc: 'Akses Monev WBK dan pantau progress WBK/WBBM di unit kerja Anda.',
-        },
-        phln: {
-          name: 'Monev PHLN',
-          tagline: 'Monitoring Pinjaman & Hibah Luar Negeri',
-          summary:
-            'Monev PHLN adalah sistem monitoring dan evaluasi proyek-proyek yang didanai melalui Pinjaman dan Hibah Luar Negeri (PHLN) di lingkungan KKP. Platform ini memantau progress fisik dan keuangan, serta pencapaian milestone setiap proyek secara komprehensif.',
-          screenshot: 'img/ss-phln.png',
-          url: '#',
-          color: '#7C3AED',
-          colorBg: 'rgba(124, 58, 237, 0.1)',
-          features: [
-            { icon: 'report', title: 'Daftar & Status Proyek', desc: 'Pengelolaan data proyek PHLN lengkap: nama proyek, lokasi, sumber pendanaan, total pinjaman, dan status pinjaman (Efektif/Belum Efektif).' },
-            { icon: 'mapicon', title: 'Peta Lokasi Interaktif', desc: 'Visualisasi sebaran lokasi proyek PHLN di seluruh Indonesia melalui peta interaktif berbasis Google Maps.' },
-            { icon: 'progress', title: 'Progress Tracking', desc: 'Pemantauan progres realisasi proyek melalui 3 dimensi: Progress Planning, Progress Construction, dan Progress Budget dengan perbandingan target vs realisasi.' },
-            { icon: 'dashboard', title: 'Monitoring Per-Proyek', desc: 'Monitoring dan evaluasi detail per proyek dengan navigasi cepat melalui tombol proyek interaktif dan Total Progress Report.' },
-            { icon: 'milestone', title: 'Project Milestone', desc: 'Pencatatan dan pemantauan milestone proyek mencakup uraian kegiatan dan waktu pelaksanaan untuk setiap tahapan proyek.' },
-            { icon: 'importexport', title: 'Laporan & Export', desc: 'Penyajian laporan komprehensif per proyek dan fitur export data untuk keperluan pelaporan ke lembaga donor internasional.' },
-          ],
-          overview: {
-            title: 'Tentang Monev PHLN',
-            desc1: 'Monev PHLN dirancang untuk mengelola dan memantau seluruh proyek yang mendapat pendanaan dari lembaga internasional seperti World Bank, ADB, JICA, dan organisasi donor lainnya.',
-            desc2: 'Sistem ini mengintegrasikan data fisik dan keuangan proyek, memungkinkan analisis mendalam terhadap kinerja proyek dan identifikasi dini terhadap potensi deviasi dari rencana awal.',
-            highlights: ['Monitoring 285+ proyek aktif dengan berbagai sumber dana', 'Tracking pencairan dana dari 7+ lembaga donor', 'Analisis deviasi dan rekomendasi korektif', 'Top 5 proyek dengan realisasi dan deviasi tertinggi'],
-          },
-          stats: [
-            { value: '285+', label: 'Proyek Aktif' },
-            { value: 'Rp150T', label: 'Total Komitmen' },
-            { value: '7+', label: 'Lembaga Donor' },
-            { value: 'Rp85T', label: 'Total Pencairan' },
-          ],
-          ctaTitle: 'Pantau proyek PHLN Anda?',
-          ctaDesc: 'Akses Monev PHLN dan monitor progress pencairan dana serta capaian milestone proyek.',
-        },
-      };
+        // ═══════ PROGRAM DATA ═══════
+        var programs = {
+            kinerjaku: {
+                name: 'KinerjaKu',
+                tagline: 'Dashboard Kinerja Organisasi Terintegrasi',
+                summary: 'KinerjaKu merupakan platform digital terintegrasi untuk pengelolaan dan pemantauan kinerja organisasi di lingkungan Kementerian Kelautan dan Perikanan. Sistem ini memungkinkan pengukuran, pelaporan, dan analisis capaian kinerja seluruh unit kerja secara real-time dan transparan.',
+                screenshot: 'img/ss-kinerjaku.png',
+                url: '#',
+                color: '#0284C7',
+                colorBg: 'rgba(2, 132, 199, 0.1)',
+                features: [
+                    { icon: 'chart', title: 'Dashboard Interaktif', desc: 'Visualisasi data kinerja real-time dengan grafik dan chart yang mudah dipahami.' },
+                    { icon: 'target', title: 'Penetapan Indikator', desc: 'Pengelolaan IKU dan IKK dengan target terukur per unit kerja.' },
+                    { icon: 'report', title: 'Laporan Otomatis', desc: 'Generate laporan SAKIP, LKJ, dan capaian kinerja secara otomatis.' },
+                    { icon: 'monitor', title: 'Monitoring Cascading', desc: 'Pemantauan cascading kinerja dari level eselon I hingga pelaksana.' },
+                    { icon: 'eval', title: 'Evaluasi Berkala', desc: 'Sistem evaluasi kinerja triwulanan, semesteran, dan tahunan.' },
+                    { icon: 'notify', title: 'Notifikasi & Reminder', desc: 'Pengingat otomatis untuk deadline pelaporan dan review kinerja.' }
+                ],
+                overview: {
+                    title: 'Tentang KinerjaKu',
+                    desc1: 'KinerjaKu dirancang untuk mendukung implementasi Sistem Akuntabilitas Kinerja Instansi Pemerintah (SAKIP) di KKP. Platform ini mengintegrasikan seluruh proses pengelolaan kinerja mulai dari perencanaan, penetapan target, monitoring capaian, hingga evaluasi dan pelaporan.',
+                    desc2: 'Dengan antarmuka yang modern dan user-friendly, KinerjaKu memudahkan seluruh pegawai di lingkungan KKP untuk menginput, memantau, dan mengevaluasi kinerja mereka secara mandiri.',
+                    highlights: [
+                        'Terintegrasi dengan sistem e-Kinerja nasional',
+                        'Dashboard analytics dengan 15+ jenis visualisasi data',
+                        'Role-based access control untuk setiap level jabatan',
+                        'Export laporan dalam format PDF, Excel, dan PowerPoint'
+                    ]
+                },
+                stats: [
+                    { value: '500+', label: 'Pengguna Aktif' },
+                    { value: '50+', label: 'Unit Kerja' },
+                    { value: '99.9%', label: 'Uptime Sistem' },
+                    { value: '24/7', label: 'Akses Portal' }
+                ],
+                ctaTitle: 'Siap memantau kinerja organisasi?',
+                ctaDesc: 'Akses KinerjaKu sekarang dan pantau capaian kinerja unit kerja Anda secara real-time.'
+            },
+            knmp: {
+                name: 'KNMP',
+                tagline: 'Kampung Nelayan Merah Putih',
+                summary: 'KNMP (Kampung Nelayan Merah Putih) adalah program prioritas KKP untuk pemberdayaan kawasan pesisir melalui pengembangan infrastruktur nelayan, peningkatan kapasitas SDM, dan pembangunan ekonomi masyarakat pesisir secara berkelanjutan.',
+                screenshot: 'img/ss-knmp.png',
+                url: '#',
+                color: '#059669',
+                colorBg: 'rgba(5, 150, 105, 0.1)',
+                features: [
+                    { icon: 'dashboard', title: 'Dashboard Interaktif', desc: 'Ringkasan data dan statistik KNMP secara real-time dengan peta lokasi interaktif.' },
+                    { icon: 'questionnaire', title: 'Kuesioner Multi-Bagian', desc: 'Input data survei mencakup 10 bagian terintegrasi dari profil hingga sosial kelembagaan.' },
+                    { icon: 'importexport', title: 'Import & Export Data', desc: 'Import data massal dari Excel dan ekspor laporan dalam format Excel maupun PDF.' },
+                    { icon: 'access', title: 'Manajemen Hak Akses', desc: 'Pengaturan akses pengguna berbasis peran (role) dan wilayah KNMP.' },
+                    { icon: 'progress', title: 'Monitoring Progres', desc: 'Pemantauan progres pembangunan KNMP per komponen, target, dan realisasi.' },
+                    { icon: 'actlog', title: 'Activity Log', desc: 'Pencatatan otomatis seluruh aktivitas pengguna untuk akuntabilitas sistem.' }
+                ],
+                overview: {
+                    title: 'Tentang KNMP',
+                    desc1: 'Program KNMP dikembangkan untuk memastikan pemberdayaan kawasan pesisir berjalan sesuai target nasional.',
+                    desc2: 'Platform ini memfasilitasi koordinasi lintas sektor dan wilayah, dengan dukungan visualisasi data interaktif.',
+                    highlights: [
+                        'Pemantauan seluruh indikator capaian KNMP secara nasional',
+                        'Evaluasi kinerja & distribusi anggaran pembangunan',
+                        'Integrasi data dari seluruh lokasi KNMP',
+                        'Sistem pelaporan terstandar sesuai regulasi'
+                    ]
+                },
+                stats: [
+                    { value: '172+', label: 'Indikator' },
+                    { value: '34', label: 'Provinsi' },
+                    { value: '98%', label: 'Akurasi Data' },
+                    { value: 'Real-time', label: 'Update' }
+                ],
+                tahun: [
+                    { year: '2025', desc: 'Data pelaksanaan KNMP tahun 2025', url: '#' },
+                    { year: '2026', desc: 'Data pelaksanaan KNMP tahun 2026', url: '#' }
+                ],
+                ctaTitle: 'Pantau capaian KNMP nasional?',
+                ctaDesc: 'Akses KNMP dan monitor progres pelaksanaan kebijakan perikanan secara realtime.'
+            },
+            budidaya: {
+                name: 'Budidaya Tematik & Bioflok',
+                tagline: 'Pengembangan Budidaya Teknologi Bioflok',
+                summary: 'Program Budidaya Tematik dan Bioflok bertujuan untuk mengembangkan teknologi budidaya perikanan modern berbasis bioflok untuk meningkatkan produksi perikanan budidaya nasional.',
+                screenshot: 'img/ss-budidaya.png',
+                url: '#',
+                color: '#0d9488',
+                colorBg: 'rgba(13, 148, 136, 0.1)',
+                features: [
+                    { icon: 'dashboard', title: 'Dashboard Monitoring', desc: 'Pemantauan produksi dan perkembangan budidaya tematik secara real-time.' },
+                    { icon: 'mapicon', title: 'Peta Sebaran', desc: 'Visualisasi lokasi budidaya tematik dan bioflok di seluruh Indonesia.' },
+                    { icon: 'progress', title: 'Tracking Produksi', desc: 'Pemantauan target vs realisasi produksi budidaya per komoditas.' },
+                    { icon: 'report', title: 'Laporan Berkala', desc: 'Generate laporan perkembangan budidaya secara periodik dan terstruktur.' },
+                    { icon: 'importexport', title: 'Manajemen Data', desc: 'Pengelolaan data budidaya dengan fitur import dan export.' },
+                    { icon: 'collab', title: 'Koordinasi Tim', desc: 'Fasilitasi koordinasi antar unit pelaksana budidaya tematik.' }
+                ],
+                overview: {
+                    title: 'Tentang Budidaya Tematik & Bioflok',
+                    desc1: 'Program ini mendorong inovasi teknologi bioflok dan budidaya tematik untuk peningkatan produktivitas perikanan.',
+                    desc2: 'Melalui pendekatan tematik, program ini mengoptimalkan potensi budidaya di berbagai wilayah Indonesia.',
+                    highlights: [
+                        'Penerapan teknologi bioflok di 34 provinsi',
+                        'Peningkatan kapasitas pembudidaya ikan',
+                        'Monitoring produksi budidaya secara real-time',
+                        'Integrasi data produksi dengan sistem nasional'
+                    ]
+                },
+                stats: [
+                    { value: '200+', label: 'Lokasi' },
+                    { value: '34', label: 'Provinsi' },
+                    { value: '15+', label: 'Komoditas' },
+                    { value: '24/7', label: 'Monitoring' }
+                ],
+                tahun: [
+                    { year: '2025', desc: 'Data budidaya tematik tahun 2025', url: '#' },
+                    { year: '2026', desc: 'Data budidaya tematik tahun 2026', url: '#' }
+                ],
+                ctaTitle: 'Pantau perkembangan budidaya?',
+                ctaDesc: 'Akses dashboard budidaya tematik dan monitor produksi perikanan.'
+            },
+            pendanaan: {
+                name: 'Pendanaan Inovatif Kolaboratif',
+                tagline: 'Skema Pembiayaan Non-APBN/APBD',
+                summary: 'Pendanaan inovatif adalah skema pembiayaan non-APBN/APBD yang menghimpun sumber dana baru dan kolaboratif untuk pembangunan berkelanjutan, seperti infrastruktur dan ekonomi biru.',
+                screenshot: 'img/ss-pendanaan.jpeg',
+                url: '#',
+                color: '#2563eb',
+                colorBg: 'rgba(37, 99, 235, 0.1)',
+                features: [
+                    { icon: 'dashboard', title: 'Dashboard Pembiayaan', desc: 'Pemantauan sumber dana dan alokasi pembiayaan secara transparan.' },
+                    { icon: 'collab', title: 'Kolaborasi Investasi', desc: 'Menghubungkan investor dengan proyek-proyek berkelanjutan.' },
+                    { icon: 'progress', title: 'Tracking Proyek', desc: 'Pemantauan progres infrastruktur dan ekonomi biru.' }
+                ],
+                overview: {
+                    title: 'Tentang Pendanaan Inovatif Kolaboratif',
+                    desc1: 'Program ini menghimpun sumber dana baru di luar APBN/APBD untuk mempercepat pembangunan berkelanjutan di sektor Kelautan dan Perikanan.',
+                    desc2: 'Fokus utama mencakup pembiayaan infrastruktur, pemberdayaan ekonomi biru, dan inisiatif ramah lingkungan.',
+                    highlights: [
+                        'Skema pembiayaan non-APBN/APBD',
+                        'Mendukung pembangunan ekonomi biru',
+                        'Kolaborasi dengan pihak swasta dan investor',
+                        'Transparansi alokasi dana'
+                    ]
+                },
+                stats: [
+                    { value: '10+', label: 'Mitra Investor' },
+                    { value: 'Rp 1T+', label: 'Target Dana' },
+                    { value: '100%', label: 'Transparan' }
+                ],
+                tahun: [
+                    { year: '2025', desc: 'Inisiasi pendanaan tahun 2025', url: '#' },
+                    { year: '2026', desc: 'Realisasi proyek tahun 2026', url: '#' }
+                ],
+                ctaTitle: 'Pantau proyek pendanaan inovatif?',
+                ctaDesc: 'Akses informasi detail mengenai peluang dan realisasi investasi.'
+            },
+
+            minapadi: {
+                name: 'Budidaya Mina Padi',
+                tagline: 'Pengembangan Budidaya Mina Padi',
+                summary: 'Program Budidaya Mina Padi bertujuan untuk mengembangkan sistem budidaya terintegrasi antara ikan dan padi di lahan persawahan untuk meningkatkan produktivitas pertanian dan perikanan secara bersamaan.',
+                screenshot: 'img/ss-minapadi.png',
+                url: '#',
+                color: '#0d9488',
+                colorBg: 'rgba(13, 148, 136, 0.1)',
+                features: [
+                    { icon: 'dashboard', title: 'Dashboard Monitoring', desc: 'Pemantauan produksi mina padi secara real-time.' },
+                    { icon: 'mapicon', title: 'Peta Sebaran', desc: 'Visualisasi lokasi budidaya mina padi di seluruh Indonesia.' },
+                    { icon: 'progress', title: 'Tracking Produksi', desc: 'Pemantauan target vs realisasi produksi mina padi.' },
+                    { icon: 'report', title: 'Laporan Berkala', desc: 'Generate laporan perkembangan budidaya mina padi secara periodik.' },
+                    { icon: 'importexport', title: 'Manajemen Data', desc: 'Pengelolaan data budidaya dengan fitur import dan export.' },
+                    { icon: 'collab', title: 'Koordinasi Tim', desc: 'Fasilitasi koordinasi antar unit pelaksana budidaya mina padi.' }
+                ],
+                overview: {
+                    title: 'Tentang Budidaya Mina Padi',
+                    desc1: 'Program ini mengintegrasikan budidaya ikan dengan tanaman padi untuk optimalisasi lahan persawahan.',
+                    desc2: 'Melalui sistem mina padi, petani dapat memperoleh hasil panen ikan dan padi secara bersamaan.',
+                    highlights: [
+                        'Integrasi budidaya ikan dan padi di lahan sawah',
+                        'Peningkatan pendapatan petani dan pembudidaya',
+                        'Monitoring produksi mina padi secara real-time',
+                        'Pendampingan teknis dan pelatihan petani'
+                    ]
+                },
+                stats: [
+                    { value: '150+', label: 'Lokasi' },
+                    { value: '20+', label: 'Provinsi' },
+                    { value: '10+', label: 'Komoditas' },
+                    { value: '24/7', label: 'Monitoring' }
+                ],
+                tahun: [
+                    { year: '2025', desc: 'Data budidaya mina padi tahun 2025', url: '#' },
+                    { year: '2026', desc: 'Data budidaya mina padi tahun 2026', url: '#' }
+                ],
+                ctaTitle: 'Pantau perkembangan mina padi?',
+                ctaDesc: 'Akses dashboard budidaya mina padi dan monitor produksi.'
+            },
+            bins: {
+                name: 'BINS',
+                tagline: 'Budidaya Ikan Nila Salin',
+                summary: 'BINS (Budidaya Ikan Nila Salin) adalah program pengembangan budidaya ikan nila salin untuk meningkatkan produksi perikanan budidaya di kawasan pesisir dan tambak air payau.',
+                screenshot: 'img/ss-bins.png',
+                url: '#',
+                color: '#0284C7',
+                colorBg: 'rgba(2, 132, 199, 0.1)',
+                features: [
+                    { icon: 'report', title: 'Pendataan Penerima', desc: 'Sistem pendataan calon penerima bantuan insentif secara digital.' },
+                    { icon: 'eval', title: 'Verifikasi & Validasi', desc: 'Proses verifikasi dan validasi data penerima secara transparan.' },
+                    { icon: 'money', title: 'Tracking Penyaluran', desc: 'Pemantauan proses penyaluran bantuan dari pusat ke daerah.' },
+                    { icon: 'dashboard', title: 'Dashboard Realisasi', desc: 'Visualisasi data realisasi penyaluran bantuan secara real-time.' },
+                    { icon: 'mapicon', title: 'Sebaran Penerima', desc: 'Peta interaktif sebaran penerima bantuan di seluruh Indonesia.' },
+                    { icon: 'importexport', title: 'Export Laporan', desc: 'Pembuatan laporan penyaluran dalam berbagai format dokumen.' }
+                ],
+                overview: {
+                    title: 'Tentang BINS',
+                    desc1: 'BINS memastikan bahwa bantuan insentif untuk nelayan dan pelaku perikanan tersalurkan dengan tepat sasaran.',
+                    desc2: 'Sistem ini mendukung transparansi dan akuntabilitas dalam penyaluran bantuan pemerintah.',
+                    highlights: [
+                        'Pendataan penerima bantuan secara digital',
+                        'Tracking penyaluran dari pusat hingga penerima',
+                        'Dashboard realisasi bantuan per wilayah',
+                        'Laporan akuntabilitas penyaluran bantuan'
+                    ]
+                },
+                stats: [
+                    { value: '10K+', label: 'Penerima' },
+                    { value: '34', label: 'Provinsi' },
+                    { value: '95%', label: 'Tersalurkan' },
+                    { value: 'Real-time', label: 'Monitoring' }
+                ],
+                tahun: [
+                    { year: '2025', desc: 'Data BINS tahun 2025', url: '#' },
+                    { year: '2026', desc: 'Data BINS tahun 2026', url: '#' }
+                ],
+                ctaTitle: 'Cek status penyaluran bantuan?',
+                ctaDesc: 'Akses BINS dan pantau realisasi penyaluran bantuan insentif nelayan.'
+            },
+            garam: {
+                name: 'Swasembada Garam',
+                tagline: 'Pengembangan Kawasan Pergaraman Nasional',
+                summary: 'Program Swasembada Garam bertujuan untuk mengembangkan kawasan pergaraman nasional melalui modernisasi infrastruktur, peningkatan kualitas produksi garam, dan pemberdayaan petani garam di seluruh wilayah Indonesia.',
+                screenshot: 'img/ss-garam.png',
+                url: '#',
+                color: '#D97706',
+                colorBg: 'rgba(217, 119, 6, 0.1)',
+                features: [
+                    { icon: 'mapicon', title: 'Peta Kawasan Garam', desc: 'Visualisasi lokasi kawasan pegaraman nasional dengan produksi data.' },
+                    { icon: 'progress', title: 'Monitoring Produksi', desc: 'Pemantauan target vs realisasi produksi garam per kawasan.' },
+                    { icon: 'dashboard', title: 'Dashboard Analitik', desc: 'Analisis data produksi, kualitas, dan distribusi garam nasional.' },
+                    { icon: 'report', title: 'Laporan Kawasan', desc: 'Generate laporan perkembangan kawasan garam secara periodik.' },
+                    { icon: 'collab', title: 'Koordinasi Daerah', desc: 'Fasilitasi koordinasi antara pusat dan daerah penghasil garam.' },
+                    { icon: 'importexport', title: 'Manajemen Data', desc: 'Pengelolaan data kawasan garam dengan fitur import-export.' }
+                ],
+                overview: {
+                    title: 'Tentang Kawasan Garam',
+                    desc1: 'Program ini mendukung swasembada garam nasional melalui pengembangan kawasan pegaraman yang modern.',
+                    desc2: 'Fokus pada peningkatan kualitas dan kuantitas produksi garam rakyat untuk memenuhi kebutuhan domestik.',
+                    highlights: [
+                        'Monev kawasan pegaraman di 9 provinsi utama',
+                        'Modernisasi infrastruktur produksi garam',
+                        'Peningkatan kualitas garam rakyat',
+                        'Pemberdayaan petani garam tradisional'
+                    ]
+                },
+                stats: [
+                    { value: '40+', label: 'Kawasan' },
+                    { value: '9', label: 'Provinsi' },
+                    { value: '3.5JT', label: 'Ton/Tahun' },
+                    { value: '100+', label: 'Kelompok' }
+                ],
+                tahun: [
+                    { year: '2025', desc: 'Data swasembada garam tahun 2025', url: '#' },
+                    { year: '2026', desc: 'Data swasembada garam tahun 2026', url: '#' }
+                ],
+                ctaTitle: 'Monitor produksi garam nasional?',
+                ctaDesc: 'Akses dashboard Kawasan Garam dan pantau perkembangan pegaraman.'
+            },
+            kapal: {
+                name: 'Modernisasi Kapal',
+                tagline: 'Program Modernisasi Kapal Perikanan',
+                summary: 'Program Modernisasi Kapal bertujuan untuk memodernisasi armada kapal perikanan nasional melalui bantuan kapal baru, retrofit kapal lama, dan penerapan teknologi penangkapan ikan yang ramah lingkungan.',
+                screenshot: 'img/ss-kapal.png',
+                url: '#',
+                color: '#4f46e5',
+                colorBg: 'rgba(79, 70, 229, 0.1)',
+                features: [
+                    { icon: 'report', title: 'Pendataan Armada', desc: 'Database kapal perikanan nasional dengan spesifikasi teknis lengkap.' },
+                    { icon: 'progress', title: 'Progress Modernisasi', desc: 'Tracking status modernisasi kapal dari perencanaan hingga selesai.' },
+                    { icon: 'mapicon', title: 'Distribusi Armada', desc: 'Peta sebaran armada kapal perikanan di perairan Indonesia.' },
+                    { icon: 'dashboard', title: 'Dashboard KPI', desc: 'Indikator kinerja program modernisasi kapal secara nasional.' },
+                    { icon: 'money', title: 'Tracking Anggaran', desc: 'Pemantauan alokasi dan realisasi anggaran modernisasi kapal.' },
+                    { icon: 'importexport', title: 'Laporan & Export', desc: 'Pembuatan laporan modernisasi kapal dalam berbagai format.' }
+                ],
+                overview: {
+                    title: 'Tentang Modernisasi Kapal',
+                    desc1: 'Program ini memodernisasi armada perikanan untuk meningkatkan efisiensi dan keselamatan operasi.',
+                    desc2: 'Adopsi teknologi modern pada kapal perikanan untuk mendukung penangkapan ikan yang berkelanjutan.',
+                    highlights: [
+                        'Modernisasi 500+ kapal perikanan nasional',
+                        'Penerapan teknologi navigasi dan komunikasi',
+                        'Peningkatan standar keselamatan kapal',
+                        'Program retrofit mesin ramah lingkungan'
+                    ]
+                },
+                stats: [
+                    { value: '500+', label: 'Kapal' },
+                    { value: '20+', label: 'Provinsi' },
+                    { value: '85%', label: 'Realisasi' },
+                    { value: '3 Tipe', label: 'Modernisasi' }
+                ],
+                tahun: [
+                    { year: '2025', desc: 'Data modernisasi kapal tahun 2025', url: '#' },
+                    { year: '2026', desc: 'Data modernisasi kapal tahun 2026', url: '#' }
+                ],
+                ctaTitle: 'Pantau modernisasi armada kapal?',
+                ctaDesc: 'Akses dashboard Modernisasi Kapal dan monitor perkembangan program.'
+            },
+            pantura: {
+                name: 'Revitalisasi Pantura',
+                tagline: 'Revitalisasi Kawasan Pantai Utara Jawa',
+                summary: 'Program Revitalisasi Pantura bertujuan untuk merevitalisasi kawasan Pantai Utara Jawa untuk budidaya perikanan melalui perbaikan ekosistem, pengembangan infrastruktur perikanan, dan pengelolaan sumber daya pesisir yang berkelanjutan.',
+                screenshot: 'img/ss-pantura.png',
+                url: '#',
+                color: '#0891b2',
+                colorBg: 'rgba(8, 145, 178, 0.1)',
+                features: [
+                    { icon: 'mapicon', title: 'Peta Kawasan Pantura', desc: 'Visualisasi interaktif kawasan revitalisasi di sepanjang Pantai Utara Jawa.' },
+                    { icon: 'progress', title: 'Progress Revitalisasi', desc: 'Tracking kemajuan proyek revitalisasi per lokasi dan komponen.' },
+                    { icon: 'dashboard', title: 'Dashboard Ekosistem', desc: 'Monitoring kondisi ekosistem pesisir Pantura secara berkala.' },
+                    { icon: 'report', title: 'Laporan Proyek', desc: 'Dokumentasi dan pelaporan proyek revitalisasi secara terstruktur.' },
+                    { icon: 'collab', title: 'Koordinasi Stakeholder', desc: 'Platform koordinasi antara pemerintah pusat, daerah, dan masyarakat.' },
+                    { icon: 'eval', title: 'Evaluasi Dampak', desc: 'Penilaian dampak lingkungan dan sosial ekonomi program revitalisasi.' }
+                ],
+                overview: {
+                    title: 'Tentang Revitalisasi Pantura',
+                    desc1: 'Program ini mengembalikan produktivitas kawasan Pantai Utara Jawa yang mengalami degradasi lingkungan.',
+                    desc2: 'Pendekatan terpadu melibatkan perbaikan ekosistem, infrastruktur, dan pemberdayaan masyarakat pesisir.',
+                    highlights: [
+                        'Revitalisasi ekosistem mangrove dan terumbu karang',
+                        'Pembangunan infrastruktur perikanan modern',
+                        'Pemberdayaan nelayan dan masyarakat pesisir',
+                        'Penanganan abrasi dan sedimentasi pantai'
+                    ]
+                },
+                stats: [
+                    { value: '100+', label: 'Lokasi' },
+                    { value: '5', label: 'Provinsi' },
+                    { value: '750km', label: 'Garis Pantai' },
+                    { value: '80%', label: 'Progres' }
+                ],
+                tahun: [
+                    { year: '2025', desc: 'Data revitalisasi Pantura tahun 2025', url: '#' },
+                    { year: '2026', desc: 'Data revitalisasi Pantura tahun 2026', url: '#' }
+                ],
+                ctaTitle: 'Pantau revitalisasi Pantura?',
+                ctaDesc: 'Akses dashboard Revitalisasi Pantura dan monitor kemajuan program.'
+            },
+            waingapu: {
+                name: 'Modeling Tambak Waingapu',
+                tagline: 'Pembangunan Tambak Udang Terintegrasi Waingapu',
+                summary: 'Program Modeling Tambak Waingapu adalah proyek pembangunan tambak udang terintegrasi di Waingapu, Nusa Tenggara Timur, menggunakan teknologi terkini untuk meningkatkan produksi udang daerah.',
+                screenshot: 'img/ss-waingapu.png',
+                url: '#',
+                color: '#ea580c',
+                colorBg: 'rgba(234, 88, 12, 0.1)',
+                features: [
+                    { icon: 'dashboard', title: 'Dashboard Tambak', desc: 'Monitoring kondisi tambak udang secara real-time meliputi kualitas air dan pakan.' },
+                    { icon: 'mapicon', title: 'Peta Lokasi Tambak', desc: 'Visualisasi lokasi dan tata letak tambak udang di Waingapu.' },
+                    { icon: 'progress', title: 'Tracking Produksi', desc: 'Pemantauan siklus produksi udang dari tebar benih hingga panen.' },
+                    { icon: 'chart', title: 'Analisis Hasil', desc: 'Analisis produktivitas, survival rate, dan kualitas udang per siklus.' },
+                    { icon: 'report', title: 'Laporan Modeling', desc: 'Dokumentasi hasil modeling untuk replikasi di daerah lain.' },
+                    { icon: 'collab', title: 'Koordinasi Tim', desc: 'Koordinasi antar tim pelaksana di lapangan dan pusat.' }
+                ],
+                overview: {
+                    title: 'Tentang Modeling Tambak Waingapu',
+                    desc1: 'Proyek percontohan ini menjadi model pengembangan tambak udang di wilayah timur Indonesia.',
+                    desc2: 'Menggunakan teknologi intensif dan semi-intensif yang disesuaikan dengan kondisi lokal Waingapu.',
+                    highlights: [
+                        'Proyek percontohan tambak udang terintegrasi',
+                        'Penerapan teknologi budidaya udang modern',
+                        'Model replikasi untuk wilayah timur Indonesia',
+                        'Monitoring kualitas air dan lingkungan real-time'
+                    ]
+                },
+                stats: [
+                    { value: '50+', label: 'Petak Tambak' },
+                    { value: '1', label: 'Lokasi Pilot' },
+                    { value: '90%', label: 'Survival Rate' },
+                    { value: '3x', label: 'Siklus/Tahun' }
+                ],
+                tahun: [
+                    { year: '2025', desc: 'Data tambak Waingapu tahun 2025', url: '#' },
+                    { year: '2026', desc: 'Data tambak Waingapu tahun 2026', url: '#' }
+                ],
+                ctaTitle: 'Pantau produksi tambak Waingapu?',
+                ctaDesc: 'Akses dashboard Modeling Tambak Waingapu dan monitor perkembangan proyek.'
+            },
+            sarpras: {
+                name: 'Modernisasi Sarana Prasarana Pendidikan',
+                tagline: 'Pembangunan Sarpras Pendidikan Kelautan dan Perikanan',
+                summary: 'Program Modernisasi Sarana Prasarana Pendidikan bertujuan untuk membangun dan mengembangkan sarana dan prasarana pendidikan Kelautan dan Perikanan di seluruh wilayah Indonesia.',
+                screenshot: 'img/ss-sarpras.png',
+                url: '#',
+                color: '#475569',
+                colorBg: 'rgba(71, 85, 105, 0.1)',
+                features: [
+                    { icon: 'report', title: 'Database Aset', desc: 'Pendataan seluruh sarana dan prasarana perikanan nasional.' },
+                    { icon: 'mapicon', title: 'Peta Infrastruktur', desc: 'Visualisasi sebaran infrastruktur perikanan di seluruh Indonesia.' },
+                    { icon: 'progress', title: 'Kondisi & Status', desc: 'Monitoring kondisi fisik dan operasional sarana prasarana.' },
+                    { icon: 'money', title: 'Tracking Anggaran', desc: 'Pemantauan alokasi anggaran pembangunan dan pemeliharaan.' },
+                    { icon: 'dashboard', title: 'Dashboard Analitik', desc: 'Analisis kebutuhan dan prioritas pembangunan infrastruktur.' },
+                    { icon: 'importexport', title: 'Laporan & Export', desc: 'Pembuatan laporan aset dan infrastruktur dalam berbagai format.' }
+                ],
+                overview: {
+                    title: 'Tentang Sarana Prasarana',
+                    desc1: 'Program ini memastikan ketersediaan infrastruktur perikanan yang memadai di seluruh wilayah.',
+                    desc2: 'Pengelolaan aset yang terintegrasi untuk mendukung rantai pasok perikanan nasional.',
+                    highlights: [
+                        'Pendataan 1000+ aset infrastruktur perikanan',
+                        'Monitoring kondisi pelabuhan perikanan',
+                        'Perencanaan pembangunan infrastruktur baru',
+                        'Pengelolaan pemeliharaan aset periodik'
+                    ]
+                },
+                stats: [
+                    { value: '1000+', label: 'Aset' },
+                    { value: '34', label: 'Provinsi' },
+                    { value: '200+', label: 'Pelabuhan' },
+                    { value: 'Rp5T+', label: 'Nilai Aset' }
+                ],
+                tahun: [
+                    { year: '2025', desc: 'Data sarpras pendidikan tahun 2025', url: '#' },
+                    { year: '2026', desc: 'Data sarpras pendidikan tahun 2026', url: '#' }
+                ],
+                ctaTitle: 'Kelola infrastruktur pendidikan KP?',
+                ctaDesc: 'Akses dashboard Modernisasi Sarpras Pendidikan dan monitor pembangunan.'
+            },
+            wbk: {
+                name: 'Monev WBK',
+                tagline: 'Dashboard Zona Integritas & Anti Korupsi',
+                summary: 'Monev WBK adalah platform pemantauan komprehensif untuk pembangunan Zona Integritas menuju Wilayah Bebas dari Korupsi (WBK) dan Wilayah Birokrasi Bersih dan Melayani (WBBM) di lingkungan Kementerian Kelautan dan Perikanan.',
+                screenshot: 'img/ss-wbk.png',
+                url: '#',
+                color: '#D97706',
+                colorBg: 'rgba(217, 119, 6, 0.1)',
+                features: [
+                    { icon: 'progress', title: 'Progress Tracking', desc: 'Pemantauan progres pelaksanaan WBK per aspek reformasi birokrasi secara berkala dan real-time.' },
+                    { icon: 'eval', title: 'Evaluasi Periodik', desc: 'Pelaksanaan evaluasi per semester (Semester I & II) dengan perhitungan capaian sub-total dan total keseluruhan.' },
+                    { icon: 'multiaspect', title: 'Multi-Aspek Monitoring', desc: 'Monitoring terintegrasi untuk 6+ aspek: Manajemen Perubahan, Tatalaksana, SDM, Akuntabilitas, Pengawasan, dan Pelayanan Publik.' },
+                    { icon: 'report', title: 'Laporan & Export', desc: 'Report builder dengan fitur export data evaluasi ke format dokumen standar untuk keperluan pelaporan.' },
+                    { icon: 'collab', title: 'Kolaborasi Tim', desc: 'Manajemen pengguna multi-role dengan sistem komentar dan activity log untuk koordinasi antar tim penilai.' },
+                    { icon: 'dashboard', title: 'Data Analytics', desc: 'Visualisasi data capaian melalui chart interaktif (bar chart per aspek) dan dashboard KPI untuk mendukung pengambilan keputusan.' }
+                ],
+                overview: {
+                    title: 'Tentang Monev WBK',
+                    desc1: 'Monev WBK merupakan alat bantu utama dalam pembangunan Zona Integritas di lingkungan KKP. Sistem ini mengacu pada Peraturan Menteri PANRB tentang pedoman pembangunan ZI menuju WBK/WBBM.',
+                    desc2: 'Platform ini mencakup 6 area perubahan utama: Manajemen Perubahan, Penataan Tatalaksana, Penataan Manajemen SDM, Penguatan Akuntabilitas Kinerja, Penguatan Pengawasan, dan Peningkatan Kualitas Pelayanan Publik.',
+                    highlights: [
+                        'Monitoring 6 area perubahan Zona Integritas',
+                        'Checklist dokumen pendukung per komponen',
+                        'Status pengajuan & audit tracking',
+                        'Jadwal evaluasi dan pengumuman terkini'
+                    ]
+                },
+                stats: [
+                    { value: '78%', label: 'Capaian ZI' },
+                    { value: '6', label: 'Area Perubahan' },
+                    { value: '100+', label: 'Indikator' },
+                    { value: 'A', label: 'Predikat' }
+                ],
+                ctaTitle: 'Monitor pembangunan Zona Integritas?',
+                ctaDesc: 'Akses Monev WBK dan pantau progress WBK/WBBM di unit kerja Anda.'
+            },
+            phln: {
+                name: 'Monev PHLN',
+                tagline: 'Monitoring Pinjaman & Hibah Luar Negeri',
+                summary: 'Monev PHLN adalah sistem monitoring dan evaluasi proyek-proyek yang didanai melalui Pinjaman dan Hibah Luar Negeri (PHLN) di lingkungan KKP. Platform ini memantau progress fisik dan keuangan, serta pencapaian milestone setiap proyek secara komprehensif.',
+                screenshot: 'img/ss-phln.png',
+                url: '#',
+                color: '#7C3AED',
+                colorBg: 'rgba(124, 58, 237, 0.1)',
+                features: [
+                    { icon: 'report', title: 'Daftar & Status Proyek', desc: 'Pengelolaan data proyek PHLN lengkap: nama proyek, lokasi, sumber pendanaan, total pinjaman, dan status pinjaman (Efektif/Belum Efektif).' },
+                    { icon: 'mapicon', title: 'Peta Lokasi Interaktif', desc: 'Visualisasi sebaran lokasi proyek PHLN di seluruh Indonesia melalui peta interaktif berbasis Google Maps.' },
+                    { icon: 'progress', title: 'Progress Tracking', desc: 'Pemantauan progres realisasi proyek melalui 3 dimensi: Progress Planning, Progress Construction, dan Progress Budget dengan perbandingan target vs realisasi.' },
+                    { icon: 'dashboard', title: 'Monitoring Per-Proyek', desc: 'Monitoring dan evaluasi detail per proyek dengan navigasi cepat melalui tombol proyek interaktif dan Total Progress Report.' },
+                    { icon: 'milestone', title: 'Project Milestone', desc: 'Pencatatan dan pemantauan milestone proyek mencakup uraian kegiatan dan waktu pelaksanaan untuk setiap tahapan proyek.' },
+                    { icon: 'importexport', title: 'Laporan & Export', desc: 'Penyajian laporan komprehensif per proyek dan fitur export data untuk keperluan pelaporan ke lembaga donor internasional.' }
+                ],
+                overview: {
+                    title: 'Tentang Monev PHLN',
+                    desc1: 'Monev PHLN dirancang untuk mengelola dan memantau seluruh proyek yang mendapat pendanaan dari lembaga internasional seperti World Bank, ADB, JICA, dan organisasi donor lainnya.',
+                    desc2: 'Sistem ini mengintegrasikan data fisik dan keuangan proyek, memungkinkan analisis mendalam terhadap kinerja proyek dan identifikasi dini terhadap potensi deviasi dari rencana awal.',
+                    highlights: [
+                        'Monitoring 285+ proyek aktif dengan berbagai sumber dana',
+                        'Tracking pencairan dana dari 7+ lembaga donor',
+                        'Analisis deviasi dan rekomendasi korektif',
+                        'Top 5 proyek dengan realisasi dan deviasi tertinggi'
+                    ]
+                },
+                stats: [
+                    { value: '285+', label: 'Proyek Aktif' },
+                    { value: 'Rp150T', label: 'Total Komitmen' },
+                    { value: '7+', label: 'Lembaga Donor' },
+                    { value: 'Rp85T', label: 'Total Pencairan' }
+                ],
+                ctaTitle: 'Pantau proyek PHLN Anda?',
+                ctaDesc: 'Akses Monev PHLN dan monitor progress pencairan dana serta capaian milestone proyek.'
+            }
+        };
 
       // ═══════ ICON SVGs ═══════
       var iconSvgs = {
@@ -1531,5 +1625,13 @@
         document.getElementById('pdTahunGrid').innerHTML = tahunHtml;
       }
     </script>
-  </body>
+
+    <!-- Scroll to Top -->
+    <a href="#top" class="scroll-to-top-link" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </a>
+</body>
+
 </html>
