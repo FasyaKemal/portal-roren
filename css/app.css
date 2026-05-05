@@ -1764,31 +1764,94 @@ a:focus-visible {
 }
 
 .orbit-node-1 {
-    top: 4%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation-delay: 0s;
+    top: 18.00%;
+    left: 50.00%;
+    transform: translate(-50%, -50%);
+    animation-delay: 0.00s;
 }
 
 .orbit-node-2 {
-    top: 50%;
-    right: -4%;
-    transform: translateY(-50%);
-    animation-delay: -1s;
+    top: 1.30%;
+    left: 75.56%;
+    transform: translate(-50%, -50%);
+    animation-delay: -0.50s;
 }
 
 .orbit-node-3 {
-    bottom: 4%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation-delay: -2s;
+    top: 28.41%;
+    left: 81.27%;
+    transform: translate(-50%, -50%);
+    animation-delay: -1.00s;
 }
 
 .orbit-node-4 {
-    top: 50%;
-    left: -4%;
-    transform: translateY(-50%);
-    animation-delay: -3s;
+    top: 43.73%;
+    left: 101.62%;
+    transform: translate(-50%, -50%);
+    animation-delay: -1.50s;
+}
+
+.orbit-node-5 {
+    top: 63.47%;
+    left: 85.53%;
+    transform: translate(-50%, -50%);
+    animation-delay: -2.00s;
+}
+
+.orbit-node-6 {
+    top: 88.92%;
+    left: 84.48%;
+    transform: translate(-50%, -50%);
+    animation-delay: -2.50s;
+}
+
+.orbit-node-7 {
+    top: 86.90%;
+    left: 59.09%;
+    transform: translate(-50%, -50%);
+    animation-delay: -3.00s;
+}
+
+.orbit-node-8 {
+    top: 100.49%;
+    left: 37.56%;
+    transform: translate(-50%, -50%);
+    animation-delay: -3.50s;
+}
+
+.orbit-node-9 {
+    top: 78.44%;
+    left: 24.80%;
+    transform: translate(-50%, -50%);
+    animation-delay: -4.00s;
+}
+
+.orbit-node-10 {
+    top: 68.44%;
+    left: 1.38%;
+    transform: translate(-50%, -50%);
+    animation-delay: -4.50s;
+}
+
+.orbit-node-11 {
+    top: 45.42%;
+    left: 12.28%;
+    transform: translate(-50%, -50%);
+    animation-delay: -5.00s;
+}
+
+.orbit-node-12 {
+    top: 20.46%;
+    left: 7.20%;
+    transform: translate(-50%, -50%);
+    animation-delay: -5.50s;
+}
+
+.orbit-node-13 {
+    top: 1.30%;
+    left: 24.44%;
+    transform: translate(-50%, -50%);
+    animation-delay: -6.00s;
 }
 
 @media (min-width: 640px) {
